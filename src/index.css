@@ -1,13 +1,58 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import-normalize;
+
+@font-face {
+    font-family: Petemoss;
+    src: url(./assets/fonts/Petemoss-Regular.ttf);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+    font-family: Playfair-Display;
+    src: url(./assets/fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Varta;
+    src: url(./assets/fonts/Varta-VariableFont_wght.ttf);
+}
+
+:root {
+    --bg-color-dark: #11141D;
+    --bg-color-light: #F8F8F8;
+    --bg-color-red: #241010;
+
+    --text-color-dark: #11141D;
+    --text-color-light: #E9EDF6;
+    --text-color-light-red: #D69898;
+    --text-color-dark-red: #925555;
+
+    --weight-lite: 300;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semi-bold: 600;
+    --weight-bold: 700;
+
+
+    --font-size-normal: 20px;
+    --font-size-subtitle: 32px;
+    --font-size-title: 40px;
+
+    @media (min-width: 767px) {
+
+        --font-size-normal: 40px;
+        --font-size-subtitle: 64px;
+        --font-size-title: 96px;
+    }
+
+
+    --shadow: rgba(149, 157, 165, 0.2) 0 0 24px;
+}
+
+body {
+
+    margin: 0;
+    font-family: Varta;
+    background-color: var(--text-color-dark);
+    color: var(--text-color-light);
+    font-size: var(--font-size-normal);
+    font-weight: var(--weight-regular);
 }

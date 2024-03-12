@@ -36,13 +36,12 @@
     --font-size-subtitle: 32px;
     --font-size-title: 40px;
 
-    @media (min-width: 767px) {
+    @media (min-width: 1246px) {
 
         --font-size-normal: 40px;
         --font-size-subtitle: 64px;
         --font-size-title: 96px;
     }
-
 
     --shadow: rgba(149, 157, 165, 0.2) 0 0 24px;
 }

@@ -9,6 +9,7 @@ import { PageNotFound } from './pages/PageNotFound';
 import { Footer } from './components/Footer';
 import styled from 'styled-components';
 import RouteNamesEnum from  './core/enums/RouteNamesEnum'
+import { Header } from './components/Header';
 
 const AppContainer = styled.div`
   display: flex;
@@ -22,6 +23,7 @@ const FooterWrapper = styled.div`
 function App() {
   return (
     <AppContainer>
+      <Header/>
       <Routes>
         <Route path={RouteNamesEnum.HOME} Component={HomePage} />
         <Route path={RouteNamesEnum.GALERY} Component={GalleryPage} />

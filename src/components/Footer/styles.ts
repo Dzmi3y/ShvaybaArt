@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { HashLink } from 'react-router-hash-link';
 
 export const Wrapper = styled.div`
+    transition: background 0.5s ease;
+    transition: color 0.5s ease;
     --bg-color: #F8F8F8;
     --t-color: #11141D;
     --email-color:#626D8E;

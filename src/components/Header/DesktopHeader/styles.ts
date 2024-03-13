@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { HashLink } from 'react-router-hash-link';
 
-
-
 export const Container = styled.nav`
     display:none;
     transition: color 0.5s ease;
@@ -14,10 +12,10 @@ export const Container = styled.nav`
         --selected-text-color: #626D8E;
 
         &.red{
-        --bg-color: #FFF0F0;
-        --text-color: #925555;
-        --logo-color: #241010;
-        --selected-text-color: #925555;
+            --bg-color: #FFF0F0;
+            --text-color: #241010;
+            --logo-color: #241010;
+            --selected-text-color: #925555;
         }
 
         opacity: 85%;
@@ -29,13 +27,11 @@ export const Container = styled.nav`
         width: 100%;
 
         display:block;
-        
-
     }
 `;
 
 export const Wrapper = styled.nav`
-        display:grid;
+        display: grid;
         grid-template-columns: auto auto auto auto auto 6% 64px ;
         align-content: center;
         margin: 20px 2rem 0;
@@ -48,7 +44,6 @@ export const Logo = styled(HashLink)`
     text-decoration: none;
     color: var(--logo-color);
     margin-top: -20px;
-
 `;
 
 export const LinkWrapper = styled(HashLink)`
@@ -60,8 +55,6 @@ export const LinkWrapper = styled(HashLink)`
     }
 
 `;
-
-
 
 export const CartWrapper = styled.div`
         margin-top: 6px;

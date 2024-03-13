@@ -10,6 +10,7 @@ import { changeLang } from '../../../core/store/reducers/GlobalReducer';
 export const MobilHeader = () => {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false)
   const [headerTheme, setHeaderTheme] = useState<string>("");
+  const [isFirstCall, setIsFirstCall] = useState<boolean>(true);
   const location = useLocation();
   const globalReducer = useAppSelector(state => state.globalReducer);
   const dispatch = useAppDispatch();
@@ -17,6 +18,7 @@ export const MobilHeader = () => {
 
   const burgerClick = () => {
     setMenuIsOpen(!menuIsOpen);
+    setIsFirstCall(false);
   }
 
   const switchLang = () => {
@@ -52,7 +54,6 @@ export const MobilHeader = () => {
   const burgerEl = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-
     const onClick = (e: any) => {
       if (burgerEl.current && menuEl.current) {
         const isOutsideClick = !menuEl.current.contains(e.target);
@@ -62,10 +63,13 @@ export const MobilHeader = () => {
           }
       }
     }
+    
     document.addEventListener('click', onClick);
     return () => document.removeEventListener('click', onClick);
 
   },[]);
+
+  
 
 
   return (
@@ -86,7 +90,7 @@ export const MobilHeader = () => {
           </OrderLinkWrapper>
         </Wrapper>
       </Container>
-      <Modal className={menuIsOpen ? "show" : "hide"}>
+      <Modal className= {(menuIsOpen ? "show" : "hide") +  (isFirstCall ? " blocked":"")}>
         <Menu ref={menuEl} className={menuIsOpen ? "show" : "hide"}>
           <LinkWrapper to={RouteNamesEnum.HOME} className={getClasses(RouteNamesEnum.HOME)}>Vsevolod Svayba</LinkWrapper>
           <LinkWrapper to={RouteNamesEnum.EXHIBITIONS} className={getClasses(RouteNamesEnum.EXHIBITIONS)}>Exhibitions</LinkWrapper>

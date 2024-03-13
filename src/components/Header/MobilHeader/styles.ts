@@ -63,15 +63,6 @@ export const CartWrapper = styled.div`
         height: 29px;
     }
 
-    &:hover{
-        *{
-            fill: #626D8E;
-            stroke: #626D8E; 
-            --border-color: #626D8E;
-            --bg-color: #F8F8F8;
-            --text-color: #626D8E;
-        }
-    }
 
     &:active  {
         *{
@@ -89,16 +80,6 @@ export const CartWrapper = styled.div`
             --border-color: #925555;
             --bg-color: #925555;
             --text-color: #FFD2D2;  
-        }
-
-        &:hover{
-            *{
-                fill: #925555;
-                stroke: #925555; 
-                --border-color: #925555;
-                --bg-color: #FFF0F0;
-                --text-color: #925555;
-            }
         }
 
         &:active  {
@@ -121,8 +102,8 @@ export const CartCount = styled.div`
     height: 16px;
     display:flex;
     justify-content: center;
-    align-items: center;
     margin-left: -13px;
+    
 
     --border-color: #626D8E;
     --bg-color: #626D8E;
@@ -260,6 +241,9 @@ export const BurgerLine = styled.div`
 `;
 
 export const Modal = styled.div`
+    &.blocked{
+        display: none;
+    }
 
     @keyframes showModal {
               0%   { background: rgba(17, 20, 29, .0); z-index: -1;}
@@ -353,11 +337,7 @@ export const LangSwitcher = styled.div`
     border-radius: 4px;
     margin: 25px 0 0 2rem;
     border: 1px solid #11141D;
-    &:hover{
-        color: #E9EDF6;
-        border: 1px solid #626D8E;
-        background-color: #626D8E;
-    }
+
     &:active{
         color: #E9EDF6;
         border: 1px solid #11141D;
@@ -367,11 +347,7 @@ export const LangSwitcher = styled.div`
     &.red{
         color: #241010;
         border: 1px solid #241010;
-        &:hover{
-            color: #E9EDF6;
-            border: 1px solid #925555;
-            background-color: #925555;
-        }
+     
         &:active{
             color: #E9EDF6;
             border: 1px solid #241010;

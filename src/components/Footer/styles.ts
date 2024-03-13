@@ -100,9 +100,11 @@ padding: 0;
     }
 
     :hover{
-        *{
-            fill: #626D8E;
-            stroke: #F8F8F8; 
+        @media (min-width: 1246px) {
+            *{
+                fill: #626D8E;
+                stroke: #F8F8F8; 
+            }
         }
     }
 
@@ -119,9 +121,11 @@ padding: 0;
         }
 
         :hover{
-            *{
-                fill: #925555;
-                stroke: #F8F8F8; 
+            @media (min-width: 1246px) {
+                *{
+                    fill: #925555;
+                    stroke: #F8F8F8; 
+                }
             }
         }
 
@@ -139,9 +143,11 @@ padding: 0;
         }
 
         :hover{
-            *{
-                fill: #A8B7E3;
-                stroke: #11141D; 
+            @media (min-width: 1246px) {
+                *{
+                    fill: #A8B7E3;
+                    stroke: #11141D; 
+                }
             }
         }
 

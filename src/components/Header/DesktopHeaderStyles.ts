@@ -5,9 +5,9 @@ import { HashLink } from 'react-router-hash-link';
 
 export const Container = styled.nav`
     display:none;
-   
+    transition: color 0.5s ease;
+    transition: background 0.5s ease;
     @media (min-width: 1246px) {
-
         --bg-color: #E9EDF6D9;
         --text-color: #11141D;
         --logo-color: #626D8E;

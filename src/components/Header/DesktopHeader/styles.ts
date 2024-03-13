@@ -8,13 +8,11 @@ export const Container = styled.nav`
     @media (min-width: 1246px) {
         --bg-color: #E9EDF6D9;
         --text-color: #11141D;
-        --logo-color: #626D8E;
         --selected-text-color: #626D8E;
 
         &.red{
             --bg-color: #FFF0F0;
             --text-color: #241010;
-            --logo-color: #241010;
             --selected-text-color: #925555;
         }
 
@@ -38,11 +36,15 @@ export const Wrapper = styled.nav`
 `;
 
 export const Logo = styled(HashLink)`
+    &.selected{
+        font-weight: 500;
+        color: var(--selected-text-color);
+    }
     text-decoration: none;
     font-family: Petemoss;
     font-size: 64px;
     text-decoration: none;
-    color: var(--logo-color);
+    color: var(--text-color);
     margin-top: -20px;
 `;
 
@@ -53,7 +55,6 @@ export const LinkWrapper = styled(HashLink)`
         font-weight: 500;
         color: var(--selected-text-color);
     }
-
 `;
 
 export const CartWrapper = styled.div`

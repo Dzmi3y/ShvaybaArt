@@ -18,6 +18,17 @@ export const DesktopHeader = () => {
         dispatch(changeLang(newLang));
     }
 
+    const getClasses =(name:RouteNamesEnum)=>{
+        if( RouteNamesEnum.ABOUT === name){
+          return location.pathname+location.hash === RouteNamesEnum.ABOUT?"selected": "";
+        }
+        if( RouteNamesEnum.HOME === name){
+            return((location.pathname===RouteNamesEnum.HOME) && (location.pathname+location.hash !== RouteNamesEnum.ABOUT))
+                ?"selected": "";
+          }
+        return location.pathname === name ?"selected" :""
+      }
+
     useEffect(() => {
         switch (location.pathname) {
             case RouteNamesEnum.TAMARA_DEMENTJEVA.toString():
@@ -31,11 +42,11 @@ export const DesktopHeader = () => {
     return (
         <Container className={headerTheme}>
             <Wrapper>
-                <Logo to={RouteNamesEnum.HOME}>Vsevolod Shvayba</Logo>
-                <LinkWrapper to={RouteNamesEnum.EXHIBITIONS} className={location.pathname === RouteNamesEnum.EXHIBITIONS ?"selected" :""}>Exhibitions</LinkWrapper>
-                <LinkWrapper to={RouteNamesEnum.GALERY} className={location.pathname === RouteNamesEnum.GALERY ?"selected" :""}>Gallery</LinkWrapper>
-                <LinkWrapper to={RouteNamesEnum.ABOUT} className={location.pathname+location.hash === RouteNamesEnum.ABOUT ?"selected" :""}>About</LinkWrapper>
-                <LinkWrapper to={RouteNamesEnum.TAMARA_DEMENTJEVA} className={location.pathname === RouteNamesEnum.TAMARA_DEMENTJEVA ?"selected" :""}>Tamara Dementjeva</LinkWrapper>
+                <Logo to={RouteNamesEnum.HOME} className={getClasses(RouteNamesEnum.HOME)}>Vsevolod Shvayba</Logo>
+                <LinkWrapper to={RouteNamesEnum.EXHIBITIONS} className={getClasses(RouteNamesEnum.EXHIBITIONS)}>Exhibitions</LinkWrapper>
+                <LinkWrapper to={RouteNamesEnum.GALERY} className={getClasses(RouteNamesEnum.GALERY)}>Gallery</LinkWrapper>
+                <LinkWrapper to={RouteNamesEnum.ABOUT} className={getClasses(RouteNamesEnum.ABOUT)}>About</LinkWrapper>
+                <LinkWrapper to={RouteNamesEnum.TAMARA_DEMENTJEVA} className={getClasses(RouteNamesEnum.TAMARA_DEMENTJEVA)}>Tamara Dementjeva</LinkWrapper>
                 <LinkWrapper to={RouteNamesEnum.ORDER}>
                     <CartWrapper className={headerTheme}>
                         <Cart />

@@ -1,34 +1,41 @@
 import styled from "styled-components";
 import { HashLink } from 'react-router-hash-link';
 
-export const Container = styled.div`
-    transition: color 0.5s ease;
+
+export const RootContainer = styled.div`
+transition: color 0.5s ease;
     transition: background 0.5s ease;
     --bg-color: #E9EDF6D9;
     --text-color: #11141D;
     --logo-color: #626D8E;
     --selected-text-color: #626D8E;
+    --modal-bg-color: #F8F8F8;
 
     &.red{
+        --modal-bg-color: #FFF0F0;
         --bg-color: #FFF0F0;
         --text-color: #241010;
         --logo-color: #241010;
         --selected-text-color: #925555;
     }
-
-    opacity: 85%;
-    background-color: var(--bg-color);
     color: var(--text-color);
     font-family: Playfair;
-    position: fixed;
-    font-size: 20px;
-    height: 60px;
-    width: 100%;
-
-    display:block;
+    font-size: 24px;
     @media (min-width: 1246px) {
         display:none;
     }
+`;
+
+export const Container = styled.div`
+    
+
+    background-color: var(--bg-color);
+    opacity: 85%;
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    display:block;
+
 `;
 
 export const Title = styled.div`
@@ -44,20 +51,8 @@ export const Wrapper = styled.nav`
         display: flex;
         justify-content: space-between;
         margin: 20px 2rem 0;
+        
 `;
-
-
-
-export const LinkWrapper = styled(HashLink)`
-    text-decoration: none;
-    color: var(--text-color);
-    &.selected{
-        font-weight: 500;
-        color: var(--selected-text-color);
-    }
-
-`;
-
 
 
 export const CartWrapper = styled.div`
@@ -141,48 +136,6 @@ export const CartCount = styled.div`
         display: none;
     }
     
-`;
-
-
-export const LangSwitcher = styled.div`  
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    height: 42px;
-    width: 64px;
-    font-family: Varta;
-    font-size: 12px;
-    color: #11141D;
-    
-    border: 1px solid #11141D;
-    &:hover{
-        color: #E9EDF6;
-        border: 1px solid #626D8E;
-        background-color: #626D8E;
-    }
-    &:active{
-        color: #E9EDF6;
-        border: 1px solid #11141D;
-        background-color: #11141D;
-    }
-
-    &.red{
-        color: #241010;
-        border: 1px solid #241010;
-        &:hover{
-            color: #E9EDF6;
-            border: 1px solid #925555;
-            background-color: #925555;
-        }
-        &:active{
-            color: #E9EDF6;
-            border: 1px solid #241010;
-            background-color: #241010;
-        }
-    }
-
 `;
 
 export const Burger = styled.div`
@@ -303,5 +256,127 @@ export const Burger = styled.div`
 `;
 
 export const BurgerLine = styled.div`    
+
+`;
+
+export const Modal = styled.div`
+
+    @keyframes showModal {
+              0%   { background: rgba(17, 20, 29, .0); z-index: -1;}
+            100%   { background: rgba(17, 20, 29, .6); z-index: 1;}
+    }
+    @keyframes hideModal {
+              0%   { background: rgba(17, 20, 29, .6); z-index: 1;}
+            100%   { background: rgba(17, 20, 29, .0); z-index: -1;}
+    }
+    
+    top:60px;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    
+
+    &.hide{
+        animation: 0.5s ease-in normal hideModal;
+        animation-fill-mode: forwards;
+    }
+    &.show{
+        animation: 0.5s ease-in normal showModal;
+        animation-fill-mode: forwards;
+        background: rgba(17, 20, 29, .6);
+    }
+`;
+export const Menu = styled.div`
+    @keyframes showMenu {
+              0%   { transform: translateX(-400px); z-index: -1;}
+            100%   { transform: translateX(0); z-index: 1;}
+    }
+    @keyframes hideMenu {
+              0%   { transform: translateX(0); z-index: 1;}
+            100%   { transform: translateX(-400px); z-index: -1;}
+    }
+    top: 60px;
+    background-color: var(--modal-bg-color);
+    width: 300px;
+    height: 360px;
+    position: fixed;
+    border-radius: 0px 10px 20px 0px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+
+    &.hide{
+        animation: 0.1s ease-in normal hideMenu;
+        animation-fill-mode: forwards;
+    }
+    &.show{
+        animation: 0.1s ease-in normal showMenu;
+        animation-fill-mode: forwards;
+    }
+
+`;
+
+export const OrderLinkWrapper = styled(HashLink)`
+    text-decoration: none;
+`;
+
+export const LinkWrapper = styled(HashLink)`
+    text-decoration: none;
+    padding-left: 2rem;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    color: var(--text-color);
+    &.logo{
+        font-size: 36px;
+        font-family: Petemoss;
+    }
+    &.selected{
+        font-weight: 500;
+        color: var(--selected-text-color);
+        box-shadow: var(--shadow);
+    }
+`;
+
+export const LangSwitcher = styled.div`  
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 93px;
+    height: 50px;
+    font-family: Varta;
+    font-size: 24px;
+    color: #11141D;
+    border-radius: 4px;
+    margin: 25px 0 0 2rem;
+    border: 1px solid #11141D;
+    &:hover{
+        color: #E9EDF6;
+        border: 1px solid #626D8E;
+        background-color: #626D8E;
+    }
+    &:active{
+        color: #E9EDF6;
+        border: 1px solid #11141D;
+        background-color: #11141D;
+    }
+
+    &.red{
+        color: #241010;
+        border: 1px solid #241010;
+        &:hover{
+            color: #E9EDF6;
+            border: 1px solid #925555;
+            background-color: #925555;
+        }
+        &:active{
+            color: #E9EDF6;
+            border: 1px solid #241010;
+            background-color: #241010;
+        }
+    }
 
 `;

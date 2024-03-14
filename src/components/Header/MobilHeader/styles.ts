@@ -40,11 +40,11 @@ export const Container = styled.div`
 
 export const Title = styled.div`
     font-family: Playfair;
-    margin-top: -2px;
+    margin-top: -1px;
     font-size: 20px;
     
     &.logo{
-        margin-top: -13px;
+        margin-top: -11px;
         font-family: Petemoss;
         font-size: 36px;
     }

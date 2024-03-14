@@ -176,6 +176,7 @@ export const EmailWrapper = styled.div`
     text-align: center;
     order: 0;
     gap: 8px;
+    font-family: Playfair;
     @media (min-width: 1246px) {
         text-align: left;
         grid-column-start: 3;
@@ -213,5 +214,5 @@ export const Email = styled.div`
     font-weight: 500;
     font-size: var(--email-font-size);
     color: var(--email-color);
-    font-family: Playfair;
+    font-family: Playfair !important;
 `;

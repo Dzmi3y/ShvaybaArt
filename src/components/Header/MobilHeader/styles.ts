@@ -280,7 +280,6 @@ export const Menu = styled.div`
               0%   { transform: translateX(0); z-index: 1;}
             100%   { transform: translateX(-400px); z-index: -1;}
     }
-    font-family: Playfair;
     top: 60px;
     background-color: var(--modal-bg-color);
     width: 300px;
@@ -308,6 +307,7 @@ export const OrderLinkWrapper = styled(HashLink)`
 `;
 
 export const LinkWrapper = styled(HashLink)`
+    font-family: Playfair;
     text-decoration: none;
     padding-left: 2rem;
     font-size: 24px;

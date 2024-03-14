@@ -40,11 +40,11 @@ export const Container = styled.div`
 
 export const Title = styled.div`
     font-family: Playfair;
-    margin-top: -3px;
+    margin-top: -2px;
     font-size: 20px;
     
     &.logo{
-        margin-top: -12px;
+        margin-top: -13px;
         font-family: Petemoss;
         font-size: 36px;
     }
@@ -57,8 +57,8 @@ export const Wrapper = styled.nav`
 `;
 
 export const CartWrapper = styled.div`
-        margin-top: -2px;
-        display:flex;
+    margin-top: -3px;
+    display:flex;
     svg{
         width: 29px;
         height: 29px;

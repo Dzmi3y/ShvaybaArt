@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     --email-font-size:24px;
     --logo-font-size:36px;
 
-    @media (min-width: 1246px) {
+    @media (min-width: 1458px) {
     
         --t-size:32px;
         --email-font-size:32px;
@@ -38,7 +38,7 @@ export const Container = styled.div`
 
     gap: 2rem;
     padding: 2rem 0;
-    @media (min-width: 1246px) {
+    @media (min-width: 1458px) {
         padding: 4rem 177px 4rem ;
         display: grid;
         grid-template-columns: 280px 1fr 280px;
@@ -48,7 +48,7 @@ export const Container = styled.div`
 
 export const NavWrapper = styled.nav`
     display: none;
-    @media (min-width: 1246px) {
+    @media (min-width: 1458px) {
         display:flex;
         flex-direction: column;
         gap: 2rem;
@@ -69,7 +69,7 @@ export const FooterNavLink = styled(HashLink)`
 export const IconImg = styled.img`
     height: 92px;
     width: 93px;
-    @media (min-width: 1246px) {
+    @media (min-width: 1458px) {
         height: 121px;
         width: 118px;
     }
@@ -87,7 +87,7 @@ export const ImgContainer = styled.div`
         width: 100px;
     }
     
-    @media (min-width: 1246px) {
+    @media (min-width: 1458px) {
         svg{
             width: 122px;
         }
@@ -108,7 +108,7 @@ padding: 0;
     }
 
     :hover{
-        @media (min-width: 1246px) {
+        @media (min-width: 1458px) {
             *{
                 fill: #626D8E;
                 stroke: #F8F8F8; 
@@ -129,7 +129,7 @@ padding: 0;
         }
 
         :hover{
-            @media (min-width: 1246px) {
+            @media (min-width: 1458px) {
                 *{
                     fill: #925555;
                     stroke: #F8F8F8; 
@@ -151,7 +151,7 @@ padding: 0;
         }
 
         :hover{
-            @media (min-width: 1246px) {
+            @media (min-width: 1458px) {
                 *{
                     fill: #A8B7E3;
                     stroke: #11141D; 
@@ -177,7 +177,7 @@ export const EmailWrapper = styled.div`
     order: 0;
     gap: 8px;
     font-family: Playfair;
-    @media (min-width: 1246px) {
+    @media (min-width: 1458px) {
         text-align: left;
         grid-column-start: 3;
         grid-column-end: 4;
@@ -191,7 +191,7 @@ export const LogoWrapper = styled.div`
     font-size: var(--logo-font-size);
     text-align: center;
 
-    @media (min-width: 1246px) {
+    @media (min-width: 1458px) {
         text-align: end;
         margin-top: 21px;
 
@@ -206,7 +206,7 @@ export const EmailTitle = styled.div`
     display: none;
     font-family: Playfair;
     font-size: var(--t-size);
-    @media (min-width: 1246px) {
+    @media (min-width: 1458px) {
         display: block;
     }
 `;

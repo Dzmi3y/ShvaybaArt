@@ -15,6 +15,12 @@
     src: url(./assets/fonts/Varta-VariableFont_wght.ttf);
 }
 
+@font-face {
+    font-family: Inter;
+    src: url(./assets/fonts/Inter-VariableFont_slnt,wght.ttf);
+}
+
+
 :root {
     --bg-color-dark: #11141D;
     --bg-color-light: #F8F8F8;
@@ -36,7 +42,7 @@
     --font-size-subtitle: 32px;
     --font-size-title: 40px;
 
-    @media (min-width: 1246px) {
+    @media (min-width: 1458px) {
 
         --font-size-normal: 40px;
         --font-size-subtitle: 64px;

@@ -1,16 +1,20 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import translationEn from "./translation/en/translation.json";
-import translationRu from "./translation/ru/translation.json";
+import globalEn from "./translation/en/global.json";
+import globalRu from "./translation/ru/global.json";
+import page404En from "./translation/en/404page.json";
+import page404Ru from "./translation/ru/404page.json";
 
 
 const resources = {
     en: {
-        global: translationEn,
+        global: globalEn,
+        page404: page404En,
     },
     ru: {
-        global: translationRu,
+        global: globalRu,
+        page404: page404Ru,
     },
 }
 

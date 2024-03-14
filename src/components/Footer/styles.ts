@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
     @media (min-width: 1246px) {
     
         --t-size:32px;
-        --email-font-size:40px;
+        --email-font-size:32px;
         --logo-font-size:64px;
     }
 
@@ -35,13 +35,14 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+
     gap: 2rem;
     padding: 2rem 0;
     @media (min-width: 1246px) {
-        padding: 4rem 3rem 1rem;
+        padding: 4rem 177px 4rem ;
         display: grid;
-        grid-template-columns: 360px 1fr 360px;
-        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 280px 1fr 280px;
+        grid-template-rows: auto auto;
     }
 `;
 
@@ -80,10 +81,17 @@ export const ImgContainer = styled.div`
     grid-template-columns: 95px 95px;
     grid-template-rows: 95px 95px;
     margin: -5px auto auto;
-    gap: 2rem;
+    gap: 20px;
    
-
+    svg{
+        width: 100px;
+    }
+    
     @media (min-width: 1246px) {
+        svg{
+            width: 122px;
+        }
+        gap: 40px;
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row-start:1;
@@ -167,7 +175,7 @@ export const EmailWrapper = styled.div`
     flex-direction: column;
     text-align: center;
     order: 0;
-    gap: 1rem;
+    gap: 8px;
     @media (min-width: 1246px) {
         text-align: left;
         grid-column-start: 3;
@@ -184,7 +192,7 @@ export const LogoWrapper = styled.div`
 
     @media (min-width: 1246px) {
         text-align: end;
-        margin-top: auto;
+        margin-top: 21px;
 
         grid-column-start: 3;
         grid-column-end: 4;
@@ -195,6 +203,8 @@ export const LogoWrapper = styled.div`
 
 export const EmailTitle = styled.div`
     display: none;
+    font-family: Playfair;
+    font-size: var(--t-size);
     @media (min-width: 1246px) {
         display: block;
     }
@@ -203,4 +213,5 @@ export const Email = styled.div`
     font-weight: 500;
     font-size: var(--email-font-size);
     color: var(--email-color);
+    font-family: Playfair;
 `;

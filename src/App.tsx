@@ -30,7 +30,7 @@ function App() {
         <Route path={RouteNamesEnum.ORDER} Component={OrderPage} />
         <Route path={RouteNamesEnum.EXHIBITIONS} Component={ExhibitionsPage} />
         <Route path={RouteNamesEnum.TAMARA_DEMENTJEVA} Component={TamaraDementjevaPage} />
-        <Route Component={PageNotFound} />
+        <Route path='*' Component={PageNotFound} />
       </Routes>
       <FooterWrapper>
         <Footer />

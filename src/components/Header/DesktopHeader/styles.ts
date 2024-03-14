@@ -45,7 +45,7 @@ export const Logo = styled(HashLink)`
     font-size: 64px;
     text-decoration: none;
     color: var(--text-color);
-    margin-top: -20px;
+    margin-top: -16px;
 `;
 
 export const LinkWrapper = styled(HashLink)`
@@ -58,7 +58,7 @@ export const LinkWrapper = styled(HashLink)`
 `;
 
 export const CartWrapper = styled.div`
-        margin-top: 6px;
+        margin-top: 9px;
         display:flex;
     &:hover{
         *{
@@ -147,6 +147,8 @@ export const LangSwitcher = styled.div`
     font-family: Varta;
     font-size: 32px;
     color: #11141D;
+    border-radius: 4px;
+    margin-top: 3px;
     
     border: 1px solid #11141D;
     &:hover{

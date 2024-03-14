@@ -39,11 +39,14 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
+    font-family: Playfair;
+    margin-top: -3px;
+    font-size: 20px;
+    
     &.logo{
-        margin-top: -9px;
+        margin-top: -12px;
         font-family: Petemoss;
         font-size: 36px;
-        color: var(--logo-color);
     }
 `;
 
@@ -51,12 +54,10 @@ export const Wrapper = styled.nav`
         display: flex;
         justify-content: space-between;
         margin: 20px 2rem 0;
-        
 `;
 
-
 export const CartWrapper = styled.div`
-        margin-top: -7px;
+        margin-top: -2px;
         display:flex;
     svg{
         width: 29px;
@@ -178,17 +179,17 @@ export const Burger = styled.div`
         }
 
         div:nth-child(1){
-            animation: 0.2s ease-in normal line1;
+            animation: 0.3s ease-in normal line1;
             animation-fill-mode: forwards;
         }
 
         div:nth-child(2){
-            animation: 0.2s ease-in normal line2;
+            animation: 0.3s ease-in normal line2;
             animation-fill-mode: forwards;
         }
 
         div:nth-child(3){
-            animation: 0.2s ease-in normal line3;
+            animation: 0.3s ease-in normal line3;
             animation-fill-mode: forwards;
             
         }
@@ -217,19 +218,19 @@ export const Burger = styled.div`
         }
 
         div:nth-child(1){
-            animation: 0.2s ease-in normal lineClose1;
+            animation: 0.3s ease-in normal lineClose1;
             animation-fill-mode: forwards;
         }
 
         div:nth-child(2){
 
-            animation: 0.2s ease-in normal lineClose2;
+            animation: 0.3s ease-in normal lineClose2;
             animation-fill-mode: forwards;
 
         }
 
         div:nth-child(3){
-            animation: 0.2s ease-in normal lineClose3;
+            animation: 0.3s ease-in normal lineClose3;
             animation-fill-mode: forwards;
             
         }
@@ -279,6 +280,7 @@ export const Menu = styled.div`
               0%   { transform: translateX(0); z-index: 1;}
             100%   { transform: translateX(-400px); z-index: -1;}
     }
+    font-family: Playfair;
     top: 60px;
     background-color: var(--modal-bg-color);
     width: 300px;

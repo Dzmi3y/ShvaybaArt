@@ -92,7 +92,7 @@ export const MobilHeader = () => {
         setTitle("");
         setTitleClasses("");
     }
-  }, [location.pathname,location.hash])
+  }, [location.pathname,location.hash,t])
 
   const menuEl = useRef<HTMLInputElement>(null);
   const burgerEl = useRef<HTMLInputElement>(null);

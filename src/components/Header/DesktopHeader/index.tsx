@@ -6,15 +6,18 @@ import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../core/hooks';
 import { changeLang } from '../../../core/store/reducers/GlobalReducer';
 import LangEnum from '../../../core/enums/LangEnum';
+import { useTranslation } from "react-i18next";
 
 export const DesktopHeader = () => {
     const [headerTheme, setHeaderTheme] = useState<string>("");
     const location = useLocation();
     const globalReducer = useAppSelector(state => state.globalReducer);
     const dispatch = useAppDispatch();
+    const { t, i18n } = useTranslation(['global']);
 
     const switchLang=()=>{
         const newLang = (globalReducer.Lang === LangEnum.RU) ? LangEnum.EN: LangEnum.RU;
+        i18n.changeLanguage(newLang);
         dispatch(changeLang(newLang));
     }
 
@@ -43,10 +46,10 @@ export const DesktopHeader = () => {
         <Container className={headerTheme}>
             <Wrapper>
                 <Logo to={RouteNamesEnum.HOME} className={getClasses(RouteNamesEnum.HOME)}>Vsevolod Shvayba</Logo>
-                <LinkWrapper to={RouteNamesEnum.EXHIBITIONS} className={getClasses(RouteNamesEnum.EXHIBITIONS)}>Exhibitions</LinkWrapper>
-                <LinkWrapper to={RouteNamesEnum.GALERY} className={getClasses(RouteNamesEnum.GALERY)}>Gallery</LinkWrapper>
-                <LinkWrapper to={RouteNamesEnum.ABOUT} className={getClasses(RouteNamesEnum.ABOUT)}>About</LinkWrapper>
-                <LinkWrapper to={RouteNamesEnum.TAMARA_DEMENTJEVA} className={getClasses(RouteNamesEnum.TAMARA_DEMENTJEVA)}>Tamara Dementjeva</LinkWrapper>
+                <LinkWrapper to={RouteNamesEnum.EXHIBITIONS} className={getClasses(RouteNamesEnum.EXHIBITIONS)}>{t("exhibitions", {ns: ['global']})} </LinkWrapper>
+                <LinkWrapper to={RouteNamesEnum.GALERY} className={getClasses(RouteNamesEnum.GALERY)}>{t("gallery", {ns: ['global']})} </LinkWrapper>
+                <LinkWrapper to={RouteNamesEnum.ABOUT} className={getClasses(RouteNamesEnum.ABOUT)}>{t("about", {ns: ['global']})}</LinkWrapper>
+                <LinkWrapper to={RouteNamesEnum.TAMARA_DEMENTJEVA} className={getClasses(RouteNamesEnum.TAMARA_DEMENTJEVA)}>{t("tamara_dementjeva", {ns: ['global']})}</LinkWrapper>
                 <LinkWrapper to={RouteNamesEnum.ORDER}>
                     <CartWrapper className={headerTheme}>
                         <Cart />

@@ -6,13 +6,14 @@ import { ReactComponent as TikIcon } from "../../assets/images/icons/tik.svg";
 import { ReactComponent as XIcon } from "../../assets/images/icons/x.svg";
 import RouteNamesEnum from '../../core/enums/RouteNamesEnum';
 import { useLocation } from 'react-router-dom';
-
+import { useTranslation } from "react-i18next";
 
 
 export const Footer = () => {
 
     const [footerTheme, setFooterTheme] = useState<string>("");
     const location = useLocation();
+    const { t } = useTranslation(['global']);
 
     useEffect(() => {
 
@@ -31,10 +32,10 @@ export const Footer = () => {
     return (<styles.Wrapper className={footerTheme}>
         <styles.Container>
             <styles.NavWrapper>
-                <styles.FooterNavLink to={RouteNamesEnum.EXHIBITIONS}>Exhibitions</styles.FooterNavLink>
-                <styles.FooterNavLink to={RouteNamesEnum.GALERY}>Galery</styles.FooterNavLink>
-                <styles.FooterNavLink to={RouteNamesEnum.ABOUT}>About</styles.FooterNavLink>
-                <styles.FooterNavLink to={RouteNamesEnum.TAMARA_DEMENTJEVA}>Tamara Dementjeva</styles.FooterNavLink>
+                <styles.FooterNavLink to={RouteNamesEnum.EXHIBITIONS}>{t("exhibitions", {ns: ['global']})}   </styles.FooterNavLink>
+                <styles.FooterNavLink to={RouteNamesEnum.GALERY}>{t("gallery", {ns: ['global']})}</styles.FooterNavLink>
+                <styles.FooterNavLink to={RouteNamesEnum.ABOUT}>{t("about", {ns: ['global']})}</styles.FooterNavLink>
+                <styles.FooterNavLink to={RouteNamesEnum.TAMARA_DEMENTJEVA}>{t("tamara_dementjeva", {ns: ['global']})}</styles.FooterNavLink>
             </styles.NavWrapper>
 
             <styles.ImgContainer>

@@ -122,6 +122,7 @@ export const CartCount = styled.div`
 
 export const Burger = styled.div`
     cursor: pointer;
+    margin-top: -1px;
 
     div{
         background-color: #11141D;
@@ -159,37 +160,45 @@ export const Burger = styled.div`
     &.open{
         @keyframes line1 {
             0%   { width: 20px; transform-origin: center; transform: translateY(0px) rotate(0deg)}
-            30%   { width: 20px; transform-origin: center; transform: translateY(9px) rotate(0deg)}
-            70%   { width: 33px;  transform-origin: center; transform: translateY(9px) rotate(0deg)}
+            10%   { width: 20px; transform-origin: center; transform: translateY(1px) rotate(0deg)}
+            20%   { width: 20px; transform-origin: center; transform: translateY(9px) rotate(0deg)}
+            50%   { width: 33px;  transform-origin: center; transform: translateY(9px) rotate(0deg)}
+            90%   { width: 33px;  transform-origin: center; transform: translateY(9px) rotate(35deg)}
+            95%   { width: 33px;  transform-origin: center; transform: translateY(9px) rotate(40deg)}
             100%   { width: 33px; transform-origin: center; transform: translateY(9px) rotate(45deg)}
         }
 
         @keyframes line2 {
             0%   { width: 26px; transform-origin: center; transform:  rotate(0deg)}
             30%   { width: 26px; transform-origin: center; transform:  rotate(0deg)}
-            70%   { width: 33px;  transform-origin: center; transform:  rotate(0deg)}
+            50%   { width: 33px;  transform-origin: center; transform:  rotate(0deg)}
+            90%   { width: 33px; transform-origin: center; transform:  rotate(-35deg)}
+            95%   { width: 33px; transform-origin: center; transform:  rotate(-40deg)}
             100%   { width: 33px; transform-origin: center; transform:  rotate(-45deg)}
         }
 
         @keyframes line3 {
             0%   { width: 33px; transform-origin: center; transform: translateY(0px) rotate(0deg)}
-            30%   { width: 33px; transform-origin: center; transform: translateY(-9px) rotate(0deg)}
-            70%   { width: 33px;  transform-origin: center; transform: translateY(-9px) rotate(0deg)}
+            10%   { width: 33px; transform-origin: center; transform: translateY(-1px) rotate(0deg)}
+            20%   { width: 33px; transform-origin: center; transform: translateY(-9px) rotate(0deg)}
+            50%   { width: 33px;  transform-origin: center; transform: translateY(-9px) rotate(0deg)}
+            90%   { width: 33px; transform-origin: center; transform: translateY(-9px) rotate(-35deg)}
+            95%   { width: 33px; transform-origin: center; transform: translateY(-9px) rotate(-40deg)}
             100%   { width: 33px; transform-origin: center; transform: translateY(-9px) rotate(-45deg)}
         }
 
         div:nth-child(1){
-            animation: 0.3s ease-in normal line1;
+            animation: 0.3s ease-in-out normal line1;
             animation-fill-mode: forwards;
         }
 
         div:nth-child(2){
-            animation: 0.3s ease-in normal line2;
+            animation: 0.3s ease-in-out normal line2;
             animation-fill-mode: forwards;
         }
 
         div:nth-child(3){
-            animation: 0.3s ease-in normal line3;
+            animation: 0.3s ease-in-out normal line3;
             animation-fill-mode: forwards;
             
         }
@@ -198,6 +207,8 @@ export const Burger = styled.div`
     &.close{
         @keyframes lineClose1 {
             100%   { width: 20px; transform-origin: center; transform: translateY(0px) rotate(0deg)}
+            95%   { width: 20px; transform-origin: center; transform: translateY(1px) rotate(0deg)}
+            90%   { width: 20px; transform-origin: center; transform: translateY(2px) rotate(0deg)}
             70%   { width: 20px; transform-origin: center; transform: translateY(9px) rotate(0deg)}
             30%   { width: 33px;  transform-origin: center; transform: translateY(9px) rotate(0deg)}
             0%   { width: 33px; transform-origin: center; transform: translateY(9px) rotate(45deg)}
@@ -212,25 +223,27 @@ export const Burger = styled.div`
 
         @keyframes lineClose3 {
             100%   { width: 33px; transform-origin: center; transform: translateY(0px) rotate(0deg)}
+            95%   { width: 33px; transform-origin: center; transform: translateY(-1px) rotate(0deg)}
+            90%   { width: 33px; transform-origin: center; transform: translateY(-2px) rotate(0deg)}
             70%   { width: 33px; transform-origin: center; transform: translateY(-9px) rotate(0deg)}
             30%   { width: 33px;  transform-origin: center; transform: translateY(-9px) rotate(0deg)}
             0%   { width: 33px; transform-origin: center; transform: translateY(-9px) rotate(-45deg)}
         }
 
         div:nth-child(1){
-            animation: 0.3s ease-in normal lineClose1;
+            animation: 0.3s ease-in-out normal lineClose1;
             animation-fill-mode: forwards;
         }
 
         div:nth-child(2){
 
-            animation: 0.3s ease-in normal lineClose2;
+            animation: 0.3s ease-in-out normal lineClose2;
             animation-fill-mode: forwards;
 
         }
 
         div:nth-child(3){
-            animation: 0.3s ease-in normal lineClose3;
+            animation: 0.3s ease-in-out normal lineClose3;
             animation-fill-mode: forwards;
             
         }

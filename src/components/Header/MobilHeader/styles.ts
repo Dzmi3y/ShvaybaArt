@@ -21,7 +21,7 @@ transition: color 0.5s ease;
     color: var(--text-color);
     font-family: Playfair;
     font-size: 24px;
-    @media (min-width: 1458px) {
+    @media (min-width: 1458px) { 
         display:none;
     }
 `;

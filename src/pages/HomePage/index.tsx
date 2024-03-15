@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { Exhibition } from './Exhibition';
 
 export const HomePage = () => {
-  return (
-    <div>Home</div>
+  
+  return (<>
+      <Exhibition />
+    </>
   )
 }

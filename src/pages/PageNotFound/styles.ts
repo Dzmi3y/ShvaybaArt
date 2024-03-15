@@ -8,19 +8,25 @@ export const Container = styled.div`
 export const Title = styled.div`
     margin-bottom: 53px;
     margin-top: 80px;
+    font-size: 32px;
 
     @media (min-width: 1458px) {
+        font-size: 64px;
         margin-top: 120px;
     }
 
     color: #11141D;
     font-family:Playfair;
-    font-size: 64px;
 `;
 export const Message = styled.div`
+
+    font-size: 16px;
+    @media (min-width: 1458px) {
+        font-size: 32px;
+    }
+
     margin-bottom: 93px;
     color: #626D8E;
-    font-size: 32px;
     font-family: Inter;
 `
 export const StyledImg =styled.img`

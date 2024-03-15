@@ -19,9 +19,9 @@ export const Container = styled.div`
 export const Title = styled.div`
     font-family: Playfair;
     font-size: 24px;
-    margin-top: 125px;
+    margin-top: 105px;
     @media (min-width: 1458px) {
-        margin-top: 270px;
+        margin-top: 200px;
         font-size: 64px;
     }
 `;

@@ -35,6 +35,7 @@ export const Container = styled.div`
     height: 60px;
     width: 100%;
     display:block;
+    z-index: 100;
 
 `;
 
@@ -261,19 +262,20 @@ export const Modal = styled.div`
 
     @keyframes showModal {
               0%   { background: rgba(17, 20, 29, .0); z-index: -1;}
-            100%   { background: rgba(17, 20, 29, .6); z-index: 1;}
+            100%   { background: rgba(17, 20, 29, .6); z-index: 100; }
     }
     @keyframes hideModal {
-              0%   { background: rgba(17, 20, 29, .6); z-index: 1;}
-            100%   { background: rgba(17, 20, 29, .0); z-index: -1;}
+              0%   { background: rgba(17, 20, 29, .6); z-index: 100; }
+            100%   { background: rgba(17, 20, 29, .0); z-index: -1; }
     }
+
+    
     
     top:60px;
     width: 100vw;
     height: 100vh;
     position: fixed;
     
-
     &.hide{
         animation: 0.5s ease-in normal hideModal;
         animation-fill-mode: forwards;
@@ -282,9 +284,11 @@ export const Modal = styled.div`
         animation: 0.5s ease-in normal showModal;
         animation-fill-mode: forwards;
         background: rgba(17, 20, 29, .6);
+        
     }
 `;
 export const Menu = styled.div`
+    z-index: 100;
     @keyframes showMenu {
               0%   { transform: translateX(-400px); z-index: -1;}
             100%   { transform: translateX(0); z-index: 1;}

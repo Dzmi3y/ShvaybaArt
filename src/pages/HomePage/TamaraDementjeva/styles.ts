@@ -1,13 +1,13 @@
 import styled from "styled-components";
-
+import { BorderedButton } from "../../../components/Buttons/BorderedButton";
 
 export const Container = styled.div`
     background-color: #11141D;
-    height: 630px;
+    height: 1768px;
     text-align: center;
     margin: 0 2rem;
     @media (min-width: 1458px) {
-        height: 1140;
+        height: 1349px;
     }
 `;
 
@@ -31,7 +31,15 @@ export const Description = styled.div`
     white-space: pre-line;
     line-height: 2rem;
     @media (min-width: 1458px) {
+        margin-bottom: 75px;
         font-size: 48px;
         line-height: 4rem;
     }
+`;
+
+export const ButtonWrapper = styled.div`
+margin-top: 42px;
+@media (min-width: 1458px) {
+    margin-top: 77px;
+}
 `;

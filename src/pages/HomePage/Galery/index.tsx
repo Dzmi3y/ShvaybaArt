@@ -1,25 +1,30 @@
 import { useTranslation } from "react-i18next";
-import { Container, Title } from "./styles";
+import { ButtonWrapper, Container, Title } from "./styles";
 import { ShortGallery } from "../../../components/ShortGallery";
 import RouteNamesEnum from '../../../core/enums/RouteNamesEnum';
 import { BorderedButton, SizeEnum } from "../../../components/Buttons/BorderedButton";
 import { useNavigate } from "react-router-dom";
+import GalleryImg_1 from "../../../assets/images/home/Gallery_1.jpg";
+import GalleryImg_2 from "../../../assets/images/home/Gallery_2.jpg";
+import GalleryImg_3 from "../../../assets/images/home/Gallery_3.jpg";
 
 export const Galery = () => {
-    const { t } = useTranslation(['home','global']);
-    const navigate = useNavigate();
+  const { t } = useTranslation(['home', 'global']);
+  const navigate = useNavigate();
 
-    const learnMoreButtonClick = () => {
-        navigate(RouteNamesEnum.GALERY);
-    }
+  const learnMoreButtonClick = () => {
+    navigate(RouteNamesEnum.GALERY);
+  }
 
   return (
     <Container>
-        <Title>{t("gallery_title", { ns: ['home'] })}</Title>
-        <ShortGallery/>
+      <Title>{t("gallery_title", { ns: ['home'] })}</Title>
+      <ShortGallery imgList={[GalleryImg_1, GalleryImg_2, GalleryImg_3]} />
+      <ButtonWrapper>
         <BorderedButton size={SizeEnum.Medium} onClick={learnMoreButtonClick}>
-            {t("button_learn_more", { ns: ['global'] })}
+          {t("button_learn_more", { ns: ['global'] })}
         </BorderedButton>
+      </ButtonWrapper>
     </Container>
   )
 }

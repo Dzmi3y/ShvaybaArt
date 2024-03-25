@@ -10,11 +10,13 @@ export type CardAboutProps = {
 }
 
 export const CardAbout: React.FC<CardAboutProps> = ({ date, text, isSmall = false, isRight = false, imgUrl = "" }) => {
+
+    
     return (
         <Containder>
             <Card className={(isRight ? "right " : "") + (isSmall ? "small " : "")}>
                 <Circle className={isRight ? "right " : ""}>
-                    <DateText className={isRight ? "right " : ""}>{date}</DateText>
+                    <DateText className={(isRight ? "right " : "")+ (Number(date)?"":"text") } >{date}</DateText>
                 </Circle>
 
                 <MainText className={(isRight ? "right " : "") + (isSmall ? "small " : "")}>{text}</MainText>

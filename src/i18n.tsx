@@ -7,6 +7,8 @@ import page404En from "./translation/en/404page.json";
 import page404Ru from "./translation/ru/404page.json";
 import homeEn from "./translation/en/home.json";
 import homeRu from "./translation/ru/home.json";
+import aboutEn from "./translation/en/about.json";
+import aboutRu from "./translation/ru/about.json";
 
 
 const resources = {
@@ -14,11 +16,13 @@ const resources = {
         global: globalEn,
         page404: page404En,
         home:homeEn,
+        about:aboutEn,
     },
     ru: {
         global: globalRu,
         page404: page404Ru,
         home:homeRu,
+        about:aboutRu,
     },
 }
 

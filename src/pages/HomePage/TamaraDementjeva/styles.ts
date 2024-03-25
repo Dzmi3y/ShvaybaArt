@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { BorderedButton } from "../../../components/Buttons/BorderedButton";
 
 export const Container = styled.div`
     background-color: #11141D;

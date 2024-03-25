@@ -44,7 +44,7 @@ export const ShortGallery: React.FC<{ invert?: boolean, imgList: [string, string
     const next: number = (cardNumber + 1) % 3;
     const previous: number = (cardNumber + 2) % 3;
 
-    const rotationAnimation = previousSelectedCard == next ? "rightAnimation" : "leftAnimation";
+    const rotationAnimation = previousSelectedCard === next ? "rightAnimation" : "leftAnimation";
 
     let newClasses: [string, string, string] = ["", "", ""];
     newClasses[cardNumber] = "current " + rotationAnimation;

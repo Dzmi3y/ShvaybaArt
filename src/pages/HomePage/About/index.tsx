@@ -50,7 +50,7 @@ export const About = () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
 
-  }, []);
+  }, [navigate]);
 
   return (
     <Container ref={aboutRef} id="about">

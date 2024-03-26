@@ -20,9 +20,9 @@
     src: url(./assets/fonts/Inter-VariableFont_slnt,wght.ttf);
 }
 
-/* html {
+html {
     scroll-behavior: smooth;
-} */
+} 
 
 :root {
     --bg-color-dark: #11141D;

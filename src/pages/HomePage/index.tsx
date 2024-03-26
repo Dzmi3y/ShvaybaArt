@@ -6,6 +6,7 @@ import { About } from './About';
 
 export const HomePage = () => {
 
+
   return (<>
       <Exhibition />
       <Galery/>

@@ -22,18 +22,17 @@ export const Card = styled.div`
     margin-left: 20px;
     margin-bottom: 20px;
     &.small{
-            margin-right: 20px;
-            border-radius: 4px 20px 20px 20px; 
-            height: 100px;
-            margin-bottom: 30px;
-        }  
+        margin-right: 20px;
+        border-radius: 4px 20px 20px 20px; 
+        height: 100px;
+        margin-bottom: 30px;
+    }  
 
     &.right{
         margin-left: 0px;
         margin-right: 20px;
         border-radius: 0px 20px 4px 0px;  
     }
-
 
     @media (min-width: 1458px){
         z-index: 1;
@@ -43,7 +42,6 @@ export const Card = styled.div`
         margin-bottom: 80px;
         margin-top: -10px;
         max-width: 1232px;
-        width: 1232px;
         min-height: 427px;
         &.right{
             margin-left: 180px;

@@ -4,6 +4,7 @@ export const Container = styled.div`
     background-color: #F8F8F8;
     min-height: 300px;
     margin-bottom: 50px;
+    overflow: hidden;
     @media (min-width: 1458px){
         margin-bottom: 135px;
     }

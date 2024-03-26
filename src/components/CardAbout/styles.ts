@@ -8,11 +8,12 @@ export const Containder = styled.div`
     @media (min-width: 1458px){
         display: flex;
         justify-content: center;
+        flex-direction: column;
     }
 `;
 
 export const Card = styled.div`
-   
+    
     background-color: #D4DCF3;
     color: #11141D;
     align-items: center;
@@ -21,9 +22,10 @@ export const Card = styled.div`
     margin-left: 20px;
     margin-bottom: 20px;
     &.small{
-            width: 320px;
+            margin-right: 20px;
             border-radius: 4px 20px 20px 20px; 
             height: 100px;
+            margin-bottom: 30px;
         }  
 
     &.right{
@@ -34,10 +36,12 @@ export const Card = styled.div`
 
 
     @media (min-width: 1458px){
+        z-index: 1;
         border-radius: 4px 50px 100px 4px; 
         margin-left: 319px;
         margin-right: 180px;
         margin-bottom: 80px;
+        margin-top: -10px;
         max-width: 1232px;
         width: 1232px;
         min-height: 427px;
@@ -66,6 +70,11 @@ export const MainText = styled.div`
     line-height: 2rem;
     margin-top: 40px;
     margin-bottom: 40px;
+
+    &.white-text{
+        color: #E9EDF6;
+    }
+
     @media (min-width: 1458px){
         line-height: 4rem;
         font-size: 40px;
@@ -155,4 +164,12 @@ export const DateText = styled.div`
     }
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+    width: 100%;
+    margin-bottom: 10px;
+    @media (min-width: 1458px){
+        margin-top: -90px;
+        margin-bottom: 0px;
+        z-index: 0;
+    }
+`;

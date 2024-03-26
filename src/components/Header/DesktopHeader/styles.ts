@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { HashLink } from 'react-router-hash-link';
 
 export const Container = styled.nav`
+    z-index: 2;
     display:none;
     transition: color 0.5s ease;
     transition: background 0.5s ease;

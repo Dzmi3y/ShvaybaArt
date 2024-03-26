@@ -3,7 +3,8 @@ import { HashLink } from 'react-router-hash-link';
 
 
 export const RootContainer = styled.div`
-transition: color 0.5s ease;
+    
+    transition: color 0.5s ease;
     transition: background 0.5s ease;
     --bg-color: #E9EDF6D9;
     --text-color: #11141D;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     background-color: #11141D;
-    height: 1768px;
+    height: 730px;
     text-align: center;
     margin: 0 2rem;
     @media (min-width: 1458px) {

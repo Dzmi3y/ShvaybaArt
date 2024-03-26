@@ -10,6 +10,7 @@ import { Footer } from './components/Footer';
 import styled from 'styled-components';
 import RouteNamesEnum from  './core/enums/RouteNamesEnum'
 import { Header } from './components/Header';
+import { UpScrollButton } from './components/Buttons/UpScrollButton';
 
 const AppContainer = styled.div`
   display: flex;
@@ -24,6 +25,7 @@ function App() {
   return (
     <AppContainer>
       <Header/>
+      <UpScrollButton/>
       <Routes>
         <Route path={RouteNamesEnum.HOME} Component={HomePage} />
         <Route path={RouteNamesEnum.GALERY} Component={GalleryPage} />

@@ -138,7 +138,7 @@ export const MobilHeader = () => {
       </Container>
       <Modal className={(menuIsOpen ? "show" : "hide") + (isFirstCall ? " blocked" : "")}>
         <Menu ref={menuEl} className={menuIsOpen ? "show" : "hide"}>
-          <LinkWrapper to={RouteNamesEnum.HOME} className={getClasses(RouteNamesEnum.HOME)}>Vsevolod Svayba</LinkWrapper>
+          <LinkWrapper to={RouteNamesEnum.HOME} className={getClasses(RouteNamesEnum.HOME)} onClick={()=>{window.scrollTo(0,0)}}>Vsevolod Svayba</LinkWrapper>
           <LinkWrapper to={RouteNamesEnum.EXHIBITIONS} className={getClasses(RouteNamesEnum.EXHIBITIONS)}>{t("exhibitions", { ns: ['global'] })}</LinkWrapper>
           <LinkWrapper to={RouteNamesEnum.GALERY} className={getClasses(RouteNamesEnum.GALERY)}>{t("gallery", { ns: ['global'] })}</LinkWrapper>
           <LinkWrapper to={RouteNamesEnum.ABOUT} className={getClasses(RouteNamesEnum.ABOUT)}>{t("about", { ns: ['global'] })}</LinkWrapper>

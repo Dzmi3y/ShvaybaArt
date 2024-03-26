@@ -45,7 +45,7 @@ export const DesktopHeader = () => {
     return (
         <Container className={headerTheme}>
             <Wrapper>
-                <Logo to={RouteNamesEnum.HOME} className={getClasses(RouteNamesEnum.HOME)}>Vsevolod Shvayba</Logo>
+                <Logo to={RouteNamesEnum.HOME} className={getClasses(RouteNamesEnum.HOME)} onClick={()=>{window.scrollTo(0,0)}}>Vsevolod Shvayba</Logo>
                 <LinkWrapper to={RouteNamesEnum.EXHIBITIONS} className={getClasses(RouteNamesEnum.EXHIBITIONS)}>{t("exhibitions", {ns: ['global']})} </LinkWrapper>
                 <LinkWrapper to={RouteNamesEnum.GALERY} className={getClasses(RouteNamesEnum.GALERY)}>{t("gallery", {ns: ['global']})} </LinkWrapper>
                 <LinkWrapper to={RouteNamesEnum.ABOUT} className={getClasses(RouteNamesEnum.ABOUT)}>{t("about", {ns: ['global']})}</LinkWrapper>

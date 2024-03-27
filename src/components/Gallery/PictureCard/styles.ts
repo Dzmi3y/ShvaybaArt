@@ -16,11 +16,7 @@ export const HoverImageOverlay = styled.div`
     
 `;
 
-export const MobilImage = styled.img`
-    
-`;
-
-export const DesktopImage = styled.img`
+export const Image = styled.img`
     
 `;
 

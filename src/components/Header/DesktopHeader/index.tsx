@@ -12,6 +12,7 @@ export const DesktopHeader = () => {
     const [headerTheme, setHeaderTheme] = useState<string>("");
     const location = useLocation();
     const globalReducer = useAppSelector(state => state.globalReducer);
+    const cartReducer = useAppSelector(state => state.cartReducer);
     const dispatch = useAppDispatch();
     const { t, i18n } = useTranslation(['global']);
 
@@ -53,7 +54,7 @@ export const DesktopHeader = () => {
                 <LinkWrapper to={RouteNamesEnum.ORDER}>
                     <CartWrapper className={headerTheme}>
                         <Cart />
-                        <CartCount className={globalReducer.CartCounter>0?"":"hide"}>{globalReducer.CartCounter}</CartCount>
+                        <CartCount className={cartReducer.CartCounter>0?"":"hide"}>{cartReducer.CartCounter}</CartCount>
                     </CartWrapper>
                 </LinkWrapper>
                 <LangSwitcher onClick={switchLang} className={headerTheme}>{globalReducer.Lang}</LangSwitcher>

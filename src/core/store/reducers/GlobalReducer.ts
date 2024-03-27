@@ -4,7 +4,6 @@ import LangEnum from "../../enums/LangEnum";
 import GalleryMenuEnum from "../../enums/GalleryMenuEnum";
 
 const initialState: GlobalState = {
-    CartCounter: 3,
     Lang: LangEnum.EN,
     SelectedGalleryItem: GalleryMenuEnum.GRAPHICS
 }
@@ -13,9 +12,6 @@ const globalSlice = createSlice({
     name: 'global',
     initialState: initialState,
     reducers: {
-        changeCartCounter(state, action: PayloadAction<number>) {
-            state.CartCounter = action.payload;
-        },
         changeLang(state, action: PayloadAction<LangEnum>) {
             state.Lang = action.payload
         },
@@ -25,5 +21,5 @@ const globalSlice = createSlice({
     }
 });
 
-export const { changeCartCounter, changeLang, changeGalleryItem} = globalSlice.actions
+export const {changeLang, changeGalleryItem} = globalSlice.actions
 export default globalSlice.reducer;

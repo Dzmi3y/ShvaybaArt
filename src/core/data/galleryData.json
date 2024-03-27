@@ -1,0 +1,98 @@
+[
+    {
+        "id":"6b7c8d9e-0a1b-2c3d-4e5f-6a7b8c9d0e1f",
+        "imageUrl":"/images/gallery/desktop/armaturacrucis.png",
+        "mobilImageUrl":"/images/gallery/mobil/armaturacrucis.jpg",
+        "bigImageUrl":"/images/gallery/big/armaturacrucis.jpg",
+        "title":"Armaturacrucis",
+        "description":"Paper, ink",
+        "descriptionRu":"Бумага, чернила",
+        "price":"50",
+        "isItForSale":"true",
+        "isHorisontal":"false"
+    },
+    {
+        "id":"3a4b5c6d-7e8f9a0b-1c2d3e4f-5a6b7c8d9e",
+        "imageUrl":"/images/gallery/desktop/armaturapater.png",
+        "mobilImageUrl":"/images/gallery/mobil/armaturapater.jpg",
+        "bigImageUrl":"/images/gallery/big/armaturapater.jpg",
+        "title":"Armaturapater",
+        "description":"Paper, ink 62х62cm",
+        "descriptionRu":"Бумага, чернила 62х62см",
+        "price":"1000",
+        "isItForSale":"true",
+        "isHorisontal":"false"
+    },
+    {
+        "id":"8f9a0b1c-2d3e4f5a-6b7c8d9e-0a1b2c3d4e",
+        "imageUrl":"/images/gallery/desktop/clews_of_destinies.png",
+        "mobilImageUrl":"/images/gallery/mobil/clews_of_destinies.jpg",
+        "bigImageUrl":"/images/gallery/big/clews_of_destinies.jpg",
+        "title":"Clews of destinies",
+        "description":"Linocut 23х24cm",
+        "descriptionRu":"Линогравюра 23х24см",
+        "price":"50",
+        "isItForSale":"true",
+        "isHorisontal":"false"
+    },
+    {
+        "id":"5a6b7c8d-9e0f1a2b-3c4d5e6f-7a8b9c0d1e",
+        "imageUrl":"/images/gallery/desktop/crescent_moon_of_thoughts.png",
+        "mobilImageUrl":"/images/gallery/mobil/crescent_moon_of_thoughts.jpg",
+        "bigImageUrl":"/images/gallery/big/crescent_moon_of_thoughts.jpg",
+        "title":"Crescent moon of thoughts ",
+        "description":"Lithography 30x20cm",
+        "descriptionRu":"Литография 30х20см",
+        "price":"200",
+        "isItForSale":"true",
+        "isHorisontal":"false"
+    },
+    {
+        "id":"2b3c4d5e-6f7a8b9c-0d1e2f3a4b-5c6d7e8f9a",
+        "imageUrl":"/images/gallery/desktop/dance_of_the_atlanteans.png",
+        "mobilImageUrl":"/images/gallery/mobil/dance_of_the_atlanteans.jpg",
+        "bigImageUrl":"/images/gallery/big/dance_of_the_atlanteans.jpg",
+        "title":"Dance of the Atlanteans",
+        "description":"Etching 20x29cm",
+        "descriptionRu":"Гравюра 20х29см",
+        "price":"50",
+        "isItForSale":"true",
+        "isHorisontal":"false"
+    },
+    {
+        "id":"7b8c9d0e-1f2a3b4c-5d6e7f8a-9b0c1d2e3f",
+        "imageUrl":"/images/gallery/desktop/dryad_of_spring.png",
+        "mobilImageUrl":"/images/gallery/mobil/dryad_of_spring.jpg",
+        "bigImageUrl":"/images/gallery/big/dryad_of_spring.jpg",
+        "title":"Dryad of Spring",
+        "description":"Lithography 70x100 cm",
+        "descriptionRu":"Литография 70х100 см",
+        "price":"200",
+        "isItForSale":"true",
+        "isHorisontal":"true"
+    },
+    {
+        "id":"4c5d6e7f-8a9b0c1d-2e3f4a5b-6c7d8e9f0a",
+        "imageUrl":"/images/gallery/desktop/the_key_of_understanding.png",
+        "mobilImageUrl":"/images/gallery/mobil/the_key_of_understanding.jpg",
+        "bigImageUrl":"/images/gallery/big/the_key_of_understanding.jpg",
+        "title":"The key of understanding",
+        "description":"Lithography 49x39,5cm",
+        "descriptionRu":"Литография 49х39,5см",
+        "price":"200",
+        "isItForSale":"true",
+        "isHorisontal":"false"
+    },
+    {
+        "id":"1d2e3f4a-5b6c7d8e-9f0a1b2c-3d4e5f6a7b",
+        "imageUrl":"/images/gallery/desktop/young_growth.png",
+        "mobilImageUrl":"/images/gallery/mobil/young_growth.jpg",
+        "bigImageUrl":"/images/gallery/big/young_growth.jpg",
+        "title":"Young Growth",
+        "description":"Paper, ink, pen 86х45сm",
+        "descriptionRu":"Бумага, чернила, ручка 86х45см",
+        "price":"1500",
+        "isItForSale":"true",
+        "isHorisontal":"true"
+    }
+]

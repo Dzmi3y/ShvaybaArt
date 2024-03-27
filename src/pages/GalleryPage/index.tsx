@@ -3,10 +3,7 @@ import { GalleryMenu } from '../../components/GalleryMenu'
 import { Container } from './styles'
 import { useAppSelector } from '../../core/hooks';
 import GalleryMenuEnum from '../../core/enums/GalleryMenuEnum';
-import { Fineart } from './Fineart';
-import { Drawings } from './Drawings';
-import { Graphic } from './Graphic';
-import { Sketch } from './Sketch';
+
 
 export const GalleryPage = () => {
   const globalReducer = useAppSelector(state => state.globalReducer);
@@ -14,16 +11,16 @@ export const GalleryPage = () => {
     <Container>
       <GalleryMenu />
       {(globalReducer.SelectedGalleryItem === GalleryMenuEnum.GRAPHICS) && (
-        <Graphic />
+        <div> Graphic </div>
       )}
       {(globalReducer.SelectedGalleryItem === GalleryMenuEnum.FINEART) && (
-        <Fineart />
+        <div>Fineart </div>
       )}
       {(globalReducer.SelectedGalleryItem === GalleryMenuEnum.DRAWINGS) && (
-        <Drawings />
+        <div>Drawings</div>
       )}
       {(globalReducer.SelectedGalleryItem === GalleryMenuEnum.SKETCH) && (
-        <Sketch />
+        <div>Sketch</div>
       )}
     </Container>
   )

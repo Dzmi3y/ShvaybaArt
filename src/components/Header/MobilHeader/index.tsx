@@ -17,10 +17,9 @@ export const MobilHeader = () => {
   const [isFirstCall, setIsFirstCall] = useState<boolean>(true);
   const location = useLocation();
   const globalReducer = useAppSelector(state => state.globalReducer);
+  const cartReducer = useAppSelector(state => state.cartReducer);
   const dispatch = useAppDispatch();
   const { t, i18n } = useTranslation(['global']);
-
-
 
 
   const burgerClick = () => {
@@ -115,9 +114,6 @@ export const MobilHeader = () => {
 
   }, []);
 
-
-
-
   return (
     <RootContainer className={headerTheme}>
       <Container>
@@ -131,7 +127,7 @@ export const MobilHeader = () => {
           <OrderLinkWrapper to={RouteNamesEnum.ORDER}>
             <CartWrapper className={headerTheme}>
               <Cart />
-              <CartCount className={globalReducer.CartCounter > 0 ? "" : "hide"}>{globalReducer.CartCounter}</CartCount>
+              <CartCount className={cartReducer.CartCounter > 0 ? "" : "hide"}>{cartReducer.CartCounter}</CartCount>
             </CartWrapper>
           </OrderLinkWrapper>
         </Wrapper>

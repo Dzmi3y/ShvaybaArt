@@ -1,10 +1,14 @@
-import React from 'react'
-import { Container } from './styles'
-import { PictureInfo } from '../../core/types/PictureInfo'
-import { PictureCard } from './PictureCard'
+import React, { useEffect, useState } from 'react';
+import { ButtonContainer, Container } from './styles';
+import { PictureInfo } from '../../core/types/PictureInfo';
+import { PictureCard } from './PictureCard';
+import { BorderedButton, SizeEnum } from '../Buttons/BorderedButton';
+import { useTranslation } from "react-i18next";
 
 export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> = ({ pictureList, isRed = false }) => {
-
+    const [numberOfShownImages, setNumberOfShownImages] = useState<number>(4);
+    const [shownImagesList, setShownImagesList] = useState<PictureInfo[]>([]);
+    const { t } = useTranslation(['global']);
     const isMobil: boolean = window.innerWidth < 1458;
 
     const getSortedPictureList = (): PictureInfo[] => {
@@ -47,11 +51,23 @@ export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> 
 
     const sortedPictureList = getSortedPictureList();
 
+    const showMore = () => {
+        setNumberOfShownImages(numberOfShownImages + 4);
+    }
 
+    useEffect(() => {
+        setShownImagesList(sortedPictureList.slice(0, numberOfShownImages));
+    }, [numberOfShownImages]);
 
     return (
         <Container>
-            {sortedPictureList.map((picture, i) => (<PictureCard isRed={isRed} key={i} picture={picture} />))}
+            {shownImagesList.map((picture, i) => (<PictureCard isRed={isRed} key={i} picture={picture} />))}
+            {(sortedPictureList.length > numberOfShownImages) && (
+                <ButtonContainer>
+                    <BorderedButton onClick={showMore} size={SizeEnum.Medium} isRedButton={isRed}>
+                        {t("show_more", { ns: ['global'] })}
+                    </BorderedButton>
+                </ButtonContainer>)}
         </Container>
     )
 }

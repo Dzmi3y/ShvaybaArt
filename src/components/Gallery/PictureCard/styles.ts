@@ -4,14 +4,31 @@ export const Container = styled.div`
     --title-color: #A8B7E3;
     --description-color: #626D8E;
     --price-color:#C4CFEE;
+    --description-margin-left: 0px;
+    --description-margin-right: 0px;
+    
     width: auto;
-    //grid-column-start: 2;
+
+    &.horizontal{
+        --img-order: 1;
+        --description-order: 2;
+        --grid-template-columns: 2fr 1fr;
+        --description-margin-left: 9px;
+        --description-margin-right: 0px;
+
+        grid-column-start: 1;
+        grid-column-end: 4;
+        justify-self: start !important;
+        display: grid;
+        grid-template-columns: var(--grid-template-columns);
+        grid-gap: 9px;
+
+    }
 
 `;
 
 export const ImageContainer = styled.div`
-    max-width: 536px;
-    max-height: 520px;
+    order: var(--img-order);
     position: relative;
     --image-overlay-display: none;
     &:hover{  
@@ -24,13 +41,12 @@ export const ScaleIcon = styled.img`
     height: 48px;
     margin-right: 31px;
     margin-bottom: 31px;
-
 `;
 
 export const HoverImageOverlay = styled.div`
     display: var(--image-overlay-display);
     cursor: pointer;
-    top:0px;
+    top: 0px;
     bottom: 0px;
     right: 0px;
     left: 0px;
@@ -42,14 +58,14 @@ export const HoverImageOverlay = styled.div`
 `;
 
 export const Image = styled.img`
-    max-width: 536px;
-    max-height: 520px;
-    width: 100%;
-    
+    width: 100%;  
 `;
 
 export const InfoContainer = styled.div`
-
+    order: var(--description-order);
+    align-self: flex-end;
+    margin-left: var(--description-margin-left);
+    margin-right: var(--description-margin-right);
 `;
 
 export const Title = styled.div`
@@ -76,4 +92,9 @@ export const Price = styled.div`
     color: var(--price-color);
     font-size: 64px;
     font-family: Playfair;
+    margin-bottom: 4px;
+`;
+
+export const ButtonContainer = styled.div`
+    margin-top: -6px;
 `;

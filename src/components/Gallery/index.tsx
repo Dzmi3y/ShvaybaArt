@@ -6,10 +6,11 @@ import { BorderedButton, SizeEnum } from '../Buttons/BorderedButton';
 import { useTranslation } from "react-i18next";
 
 export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> = ({ pictureList, isRed = false }) => {
-    const [numberOfShownImages, setNumberOfShownImages] = useState<number>(4);
     const [shownImagesList, setShownImagesList] = useState<PictureInfo[]>([]);
     const { t } = useTranslation(['global']);
     const isMobil: boolean = window.innerWidth < 1458;
+    const  imagesNumber  = isMobil ? 3 : 4;
+    const [numberOfShownImages, setNumberOfShownImages] = useState<number>(imagesNumber);
 
     const getSortedPictureList = (): PictureInfo[] => {
         let result: PictureInfo[] = [];
@@ -52,7 +53,7 @@ export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> 
     const sortedPictureList = useRef<PictureInfo[]>(getSortedPictureList());
 
     const showMore = () => {
-        setNumberOfShownImages(numberOfShownImages + 4);
+        setNumberOfShownImages(numberOfShownImages + imagesNumber);
     }
 
     useEffect(() => {

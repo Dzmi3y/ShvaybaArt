@@ -8,5 +8,5 @@ export type PictureInfo = {
     descriptionRu: string,
     price: number,
     isItForSale: boolean,
-    isHorisontal: boolean
+    isHorizontal: boolean
 }

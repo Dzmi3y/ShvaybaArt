@@ -1,7 +1,6 @@
 import React from 'react';
-import { Containder } from '../../CardAbout/styles';
 import { PictureInfo } from '../../../core/types/PictureInfo';
-import { Description, Image, HoverImageOverlay, ImageContainer, InfoContainer, Price, SaleContainer, ScaleIcon, Title } from './styles';
+import { Description, Image, HoverImageOverlay, ImageContainer, InfoContainer, Price, SaleContainer, ScaleIcon, Title, Container } from './styles';
 import { BorderedButton } from '../../Buttons/BorderedButton';
 import ScaleArrows from '../../../assets/images/common/scale_arrows.png';
 import { useTranslation } from "react-i18next";
@@ -18,7 +17,7 @@ export const PictureCard: React.FC<{ picture: PictureInfo, isRed?: boolean }> = 
   const buttonText = isMobil ?
     t("buy", { ns: ['global'] }) + " " + picture.price + "$" :
     t("buy", { ns: ['global'] });
-  const containerClass = (isRed ? "red " : "") + (picture.isHorisontal ? "horisontal" : "");
+  const containerClass = (isRed ? "red " : "") + (picture.isHorizontal ? "Horizontal" : "");
   const saleContainerClass = picture.isItForSale ? "" : "hide";
 
   const addToCart = () => {
@@ -26,12 +25,12 @@ export const PictureCard: React.FC<{ picture: PictureInfo, isRed?: boolean }> = 
   }
 
   return (
-    <Containder className={containerClass}>
+    <Container className={containerClass}>
       <ImageContainer>
         <Image src={isMobil ? picture.mobilImageUrl : picture.imageUrl} alt={picture.title} />
-        <HoverImageOverlay>
+         <HoverImageOverlay>
           <ScaleIcon src={ScaleArrows} alt="scale arrows" />
-        </HoverImageOverlay>
+        </HoverImageOverlay> 
       </ImageContainer>
       <InfoContainer>
         <Title>{picture.title}</Title>
@@ -41,6 +40,6 @@ export const PictureCard: React.FC<{ picture: PictureInfo, isRed?: boolean }> = 
           <BorderedButton onClick={addToCart}>{buttonText}</BorderedButton>
         </SaleContainer>
       </InfoContainer>
-    </Containder>
+    </Container>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ButtonContainer, Container } from './styles';
 import { PictureInfo } from '../../core/types/PictureInfo';
 import { PictureCard } from './PictureCard';
@@ -49,20 +49,20 @@ export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> 
         return result;
     }
 
-    const sortedPictureList = getSortedPictureList();
+    const sortedPictureList = useRef<PictureInfo[]>(getSortedPictureList());
 
     const showMore = () => {
         setNumberOfShownImages(numberOfShownImages + 4);
     }
 
     useEffect(() => {
-        setShownImagesList(sortedPictureList.slice(0, numberOfShownImages));
+        setShownImagesList(sortedPictureList.current.slice(0, numberOfShownImages));
     }, [numberOfShownImages]);
 
     return (
         <Container>
             {shownImagesList.map((picture, i) => (<PictureCard isRed={isRed} key={i} picture={picture} />))}
-            {(sortedPictureList.length > numberOfShownImages) && (
+            {(sortedPictureList.current.length > numberOfShownImages) && (
                 <ButtonContainer>
                     <BorderedButton onClick={showMore} size={SizeEnum.Medium} isRedButton={isRed}>
                         {t("show_more", { ns: ['global'] })}

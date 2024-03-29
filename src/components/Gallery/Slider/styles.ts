@@ -27,7 +27,7 @@ export const Modal = styled.div`
     z-index: 2;
     padding: 0 20px;
     display: grid;
-    grid-template-rows: 110px 1fr 170px;
+    grid-template-rows: 110px calc(100vh - 440px) 170px;
 `;
 
 export const HeadContainer = styled.div`
@@ -111,8 +111,8 @@ export const TitleContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     margin-top: -10px;
-
 `;
+
 export const Title = styled.div`
     text-align: center;
     font-family: Playfair;
@@ -128,18 +128,45 @@ export const Description = styled.div`
 
 export const MainContainer = styled.div`
     display: grid;
-    grid-template-columns: 140px 1fr 140px;
+    grid-template-columns: 140px calc(100vw - 640px) 140px;
 `;
 
-export const BackgroiundImageContainer = styled.div``;
-export const DarkEffectDiv = styled.div``;
-export const ImageContainer = styled.div``;
-export const Image = styled.img``;
+export const BackgroundImageContainer = styled.div`
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+`;
+export const DarkEffectDiv = styled.div`
+    background: rgba(0, 0, 0, 0.7 );
+    width: 100%;
+    height: 100%;
+`;
+export const ImageContainer = styled.div`
+    display: flex;
+    height: calc(100vh - 460px);
+    width: calc(100vw - 640px);
+    overflow-y: auto;
+    overflow-x: auto;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+`;
+export const Image = styled.img`
+    
+    height: 100%;
+`;
+
+export const LeftImgControlContainer = styled.div`
+    align-self: center;
+    width: 43px;
+`;
+
 export const LeftImgControl = styled.img`
     transform: rotate(180deg);
     width: 43px;
     height: 86px;
-    align-self: center;
     cursor: pointer;
     content: url(/images/slider/light/vertical_angle_arrow.png);
     &:hover{
@@ -149,6 +176,14 @@ export const LeftImgControl = styled.img`
         content: url(/images/slider/light/active/vertical_angle_arrow.png);
     }
 `;
+
+
+export const RightImgControlContainer = styled.div`
+    width: 43px;
+    justify-self: end;
+    align-self: center;
+`;
+
 export const RightImgControl = styled.img`
     width: 43px;
     height: 86px;

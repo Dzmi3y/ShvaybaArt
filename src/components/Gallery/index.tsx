@@ -17,7 +17,7 @@ export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> 
 
     const toggleSlider = (isVisible: boolean, picture?: PictureInfo) => {
         setSliderIsOpen(isVisible);
-        if(picture){
+        if (picture) {
             setCurrentPicture(picture);
         }
     }
@@ -81,7 +81,11 @@ export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> 
                         </BorderedButton>
                     </ButtonContainer>)}
             </Container>
-            {currentPicture && (<Slider toggleSlider={toggleSlider} isVisible={sliderIsOpen} currentPicture={currentPicture} />)}
+            {currentPicture && (<Slider toggleSlider={toggleSlider}
+                isVisible={sliderIsOpen}
+                currentPicture={currentPicture} 
+                allPicturesList={sortedPictureList.current}
+                />)}
         </>
     )
 }

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
-    BackgroiundImageContainer, BottomContainer, Close, Container, ControlsContainer, DarkEffectDiv, Description, HeadContainer,
+    BackgroundImageContainer, BottomContainer, Close, Container, ControlsContainer, DarkEffectDiv, Description, HeadContainer,
     Image,
     ImageContainer,
-    LeftImgControl, MainContainer, Minus, Modal, Play, Plus, Price, RightImgControl,
+    LeftImgControl, LeftImgControlContainer, MainContainer, Minus, Modal, Play, Plus, Price, RightImgControl,
+    RightImgControlContainer,
     Stop, Title, TitleContainer
 } from './styles';
 import { PictureInfo } from '../../../core/types/PictureInfo';
@@ -19,12 +20,15 @@ export type SlidedrProps = {
     isVisible: boolean,
     currentPicture: PictureInfo,
     isRed?: boolean,
+    allPicturesList: PictureInfo[]
 }
 
-export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, currentPicture, isRed = false }) => {
+export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, currentPicture, isRed = false, allPicturesList }) => {
     const globalReducer = useAppSelector(state => state.globalReducer);
     const dispatch = useAppDispatch();
-    const [sliderIsVisible, setSliderIsVisible] = useState(false); 
+    const [sliderIsVisible, setSliderIsVisible] = useState(false);
+    const [isFirstPicture, setIsFirstPicture] = useState(true);
+    const [isLastPicture, setIsLastPicture] = useState(true);
     const { t } = useTranslation(['global']);
 
     const addToCart = () => {
@@ -33,9 +37,26 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
 
     const modalEl = useRef<HTMLInputElement>(null);
 
-    const closeSlider = ()=>{
+    const nextPicture = () => {
+        const pictureNumber = allPicturesList.indexOf(currentPicture);
+        toggleSlider(true, allPicturesList[pictureNumber + 1]);
+    };
+    const previousPicture = () => {
+        const pictureNumber = allPicturesList.indexOf(currentPicture);
+        toggleSlider(true, allPicturesList[pictureNumber - 1]);
+    };
+
+    const closeSlider = () => {
         toggleSlider(false);
     }
+
+    useEffect(() => {
+
+        const pictureNumber = allPicturesList.indexOf(currentPicture);
+        setIsFirstPicture(pictureNumber === 0);
+        setIsLastPicture(pictureNumber + 1 === allPicturesList.length);
+
+    }, [currentPicture, isVisible, allPicturesList]);
 
 
     useEffect(() => {
@@ -50,11 +71,11 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
 
         document.addEventListener('click', onClick);
         return () => document.removeEventListener('click', onClick);
-    }, [toggleSlider,sliderIsVisible]);
+    }, [toggleSlider, sliderIsVisible]);
 
-    useEffect(()=>{
+    useEffect(() => {
         setSliderIsVisible(isVisible);
-    },[isVisible]);
+    }, [isVisible]);
 
     return (
         <>
@@ -77,18 +98,22 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
                                 {currentPicture.title}
                             </Title>
                         </TitleContainer>
-                        <Close  onClick={closeSlider}/>
+                        <Close onClick={closeSlider} />
                     </HeadContainer>
                     <MainContainer>
-                        <LeftImgControl />
-                        <BackgroiundImageContainer>
+                        <LeftImgControlContainer>
+                            {!isFirstPicture && (<LeftImgControl onClick={previousPicture}/>)}
+                        </LeftImgControlContainer>
+                        <BackgroundImageContainer style={{ backgroundImage: `url(${currentPicture.imageUrl})` }} >
                             <DarkEffectDiv>
                                 <ImageContainer>
-                                    <Image />
+                                    <Image src={currentPicture.bigImageUrl} />
                                 </ImageContainer>
                             </DarkEffectDiv>
-                        </BackgroiundImageContainer>
-                        <RightImgControl />
+                        </BackgroundImageContainer>
+                        <RightImgControlContainer>
+                            {!isLastPicture && (<RightImgControl onClick={nextPicture}/>)}
+                        </RightImgControlContainer>
                     </MainContainer>
                     <BottomContainer>
                         <Price>{currentPicture.price}$</Price>

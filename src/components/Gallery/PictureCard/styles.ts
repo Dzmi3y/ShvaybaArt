@@ -11,9 +11,10 @@ export const Container = styled.div`
     width: auto;
 
     &.horizontal{
+        display: grid;
         grid-column-start: 1;
         grid-column-end: 3;
-        --infoContainer-display:grid;
+        --infoContainer-display: grid;
         --mobil-title-align: start;
 
         @media (min-width: 1458px){
@@ -22,7 +23,6 @@ export const Container = styled.div`
             --grid-template-columns: 2fr 1fr;
             --description-margin-left: 9px;
             --description-margin-right: 0px;
-
             grid-column-start: 1;
             grid-column-end: 4;
             justify-self: start !important;
@@ -156,6 +156,13 @@ export const ButtonContainer = styled.div`
         }
     }
     @media (min-width: 1458px){
+        &>button{
+            height: 71px!important;;
+            width: 260px!important;;
+        }
+        margin-top: 0px;
+        width:auto;
+        height: auto;
         text-align: start;
         margin-top: -6px;
     }

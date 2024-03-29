@@ -8,7 +8,13 @@ import { addPictureToCart } from '../../../core/store/reducers/CartReducer';
 import { useAppDispatch, useAppSelector } from '../../../core/hooks';
 import LangEnum from '../../../core/enums/LangEnum';
 
-export const PictureCard: React.FC<{ picture: PictureInfo, isRed?: boolean }> = ({ picture, isRed = false }) => {
+export type PictureCardProps={
+  picture: PictureInfo,
+  isRed?: boolean,
+  toggleSlider: (isVisible: boolean, currentPicture?: PictureInfo) => void
+}
+
+export const PictureCard: React.FC<PictureCardProps> = ({ picture, toggleSlider, isRed = false }) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation(['global']);
   const globalReducer = useAppSelector(state => state.globalReducer);
@@ -26,11 +32,11 @@ export const PictureCard: React.FC<{ picture: PictureInfo, isRed?: boolean }> = 
 
   return (
     <Container className={containerClass}>
-      <ImageContainer>
+      <ImageContainer onClick={() => toggleSlider(true, picture)}>
         <Image src={isMobil ? picture.mobilImageUrl : picture.imageUrl} alt={picture.title} />
-         <HoverImageOverlay>
+        <HoverImageOverlay>
           <ScaleIcon src={ScaleArrows} alt="scale arrows" />
-        </HoverImageOverlay> 
+        </HoverImageOverlay>
       </ImageContainer>
       <InfoContainer>
         <Title>{picture.title}</Title>

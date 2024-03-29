@@ -4,13 +4,23 @@ import { PictureInfo } from '../../core/types/PictureInfo';
 import { PictureCard } from './PictureCard';
 import { BorderedButton, SizeEnum } from '../Buttons/BorderedButton';
 import { useTranslation } from "react-i18next";
+import { Slider } from './Slider';
 
 export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> = ({ pictureList, isRed = false }) => {
     const [shownImagesList, setShownImagesList] = useState<PictureInfo[]>([]);
+    const [currentPicture, setCurrentPicture] = useState<PictureInfo>();
+    const [sliderIsOpen, setSliderIsOpen] = useState<boolean>(false);
     const { t } = useTranslation(['global']);
     const isMobil: boolean = window.innerWidth < 1458;
-    const  imagesNumber  = isMobil ? 3 : 4;
+    const imagesNumber = isMobil ? 3 : 4;
     const [numberOfShownImages, setNumberOfShownImages] = useState<number>(imagesNumber);
+
+    const toggleSlider = (isVisible: boolean, picture?: PictureInfo) => {
+        setSliderIsOpen(isVisible);
+        if(picture){
+            setCurrentPicture(picture);
+        }
+    }
 
     const getSortedPictureList = (): PictureInfo[] => {
         let result: PictureInfo[] = [];
@@ -61,14 +71,17 @@ export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> 
     }, [numberOfShownImages]);
 
     return (
-        <Container>
-            {shownImagesList.map((picture, i) => (<PictureCard isRed={isRed} key={i} picture={picture} />))}
-            {(sortedPictureList.current.length > numberOfShownImages) && (
-                <ButtonContainer>
-                    <BorderedButton onClick={showMore} size={SizeEnum.Medium} isRedButton={isRed}>
-                        {t("show_more", { ns: ['global'] })}
-                    </BorderedButton>
-                </ButtonContainer>)}
-        </Container>
+        <>
+            <Container>
+                {shownImagesList.map((picture, i) => (<PictureCard isRed={isRed} key={i} picture={picture} toggleSlider={toggleSlider} />))}
+                {(sortedPictureList.current.length > numberOfShownImages) && (
+                    <ButtonContainer>
+                        <BorderedButton onClick={showMore} size={SizeEnum.Medium} isRedButton={isRed}>
+                            {t("show_more", { ns: ['global'] })}
+                        </BorderedButton>
+                    </ButtonContainer>)}
+            </Container>
+            {currentPicture && (<Slider toggleSlider={toggleSlider} isVisible={sliderIsOpen} currentPicture={currentPicture} />)}
+        </>
     )
 }

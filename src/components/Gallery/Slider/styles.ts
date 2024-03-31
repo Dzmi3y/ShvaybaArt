@@ -146,8 +146,7 @@ export const ImageContainer = styled.div`
     display: flex;
     height: calc(100vh - 460px);
     width: calc(100vw - 640px);
-    overflow-y: auto;
-    overflow-x: auto;
+    overflow: hidden;
     justify-content: center;
     align-items: center;
     padding-top: 10px;

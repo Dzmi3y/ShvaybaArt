@@ -33,13 +33,13 @@ export const Modal = styled.div`
 export const HeadContainer = styled.div`
     margin-top: 9px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
 `;
 export const ControlsContainer = styled.div`
     width: 277px;
     display: flex;
-    justify-content: space-between;
     margin-top: 17px;
+    gap: 43px;
 `;
 export const Minus = styled.img`
     cursor: pointer;
@@ -70,6 +70,7 @@ export const Play = styled.img`
     height: 51px;
     width: 30px;
     margin-top: 7px;
+    margin-left: 20px;
     content: url(/images/slider/light/play.png);
     &:hover{
         content: url(/images/slider/light/hover/play.png);
@@ -80,6 +81,7 @@ export const Play = styled.img`
 `;
 export const Stop = styled.img`
     margin-top: 7px;
+    margin-left: 12px;
     height: 50px;
     width: 38px;
     cursor: pointer;

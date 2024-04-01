@@ -31,6 +31,8 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
     const [isLastPicture, setIsLastPicture] = useState(true);
     const [mouseIsDown, setMouseIsDown] = useState(false);
     const [lastCoordinats, setLastCoordinsts] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
+    const [isSlideshowPlaying, setIsSlideshowPlaying] = useState<boolean>(false);
+    const [timerId, setTimerId] = useState<NodeJS.Timeout>();
     const { t } = useTranslation(['global']);
     const clientX = useRef<number>(0);
     const clientY = useRef<number>(0);
@@ -48,14 +50,19 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
     const nextPicture = () => {
         const pictureNumber = allPicturesList.indexOf(currentPicture);
         toggleSlider(true, allPicturesList[pictureNumber + 1]);
+        checkTimer();
     };
     const previousPicture = () => {
         const pictureNumber = allPicturesList.indexOf(currentPicture);
         toggleSlider(true, allPicturesList[pictureNumber - 1]);
+        checkTimer();
     };
 
     const closeSlider = () => {
         toggleSlider(false);
+        if (isSlideshowPlaying) {
+            stopSlideshow();
+        }
     }
 
     const mouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -92,26 +99,88 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
     }
 
     const wheel = (e: React.WheelEvent) => {
+        scaleImage(e.deltaY < 0);
+    }
+
+    const scaleImage = (isIncrease: boolean) => {
         if (image.current) {
             const min = 0.2;
             const max = 4;
             const step = 0.2;
 
             if ((min < scale.current) && (scale.current < max)) {
-                scale.current += (e.deltaY < 0) ? step : -step;
+                scale.current += isIncrease ? step : -step;
             }
 
-            if ((min >= scale.current) && (e.deltaY < 0)) {
+            if ((min >= scale.current) && isIncrease) {
                 scale.current += step;
             }
 
-            if ((max <= scale.current) && (e.deltaY > 0)) {
+            if ((max <= scale.current) && !isIncrease) {
                 scale.current -= step;
             }
 
             image.current.style.scale = scale.current.toString();
         }
     }
+
+
+    const playSlideshow = () => {
+        setIsSlideshowPlaying(true);
+        startTimer();
+    }
+
+    const stopSlideshow = () => {
+        setIsSlideshowPlaying(false);
+        clearTimeout(timerId);
+        setTimerId(undefined);
+    }
+
+
+    const startTimer = () => {
+        if (isLastPicture) {
+            stopSlideshow();
+            return;
+        }
+
+        if (timerId) {
+            clearTimeout(timerId);
+        }
+        setTimerId(setTimeout(nextPicture, 4000));
+    }
+
+    const checkTimer = () => {
+        if (isSlideshowPlaying) {
+            clearTimeout(timerId);
+            setTimerId(undefined);
+        }
+
+    }
+
+    useEffect(() => {
+        const pictureNumber = allPicturesList.indexOf(currentPicture);
+        const isLast = pictureNumber + 1 === allPicturesList.length
+        if (!isLast) {
+
+            const nextSlide = () => {
+                const pictureNumber = allPicturesList.indexOf(currentPicture);
+                toggleSlider(true, allPicturesList[pictureNumber + 1]);
+            }
+
+            if (isSlideshowPlaying) {
+                setTimerId(undefined);
+
+                setTimerId(setTimeout(nextSlide, 4000));
+            }
+        } else {
+            setIsSlideshowPlaying(false);
+        }
+
+
+    }, [currentPicture, isSlideshowPlaying, allPicturesList, toggleSlider]);
+
+
+
 
     useEffect(() => {
         scale.current = 1;
@@ -120,7 +189,7 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
             image.current.style.transform = `translate(${0}px,${0}px)`;
             image.current.style.scale = scale.current.toString();
         }
-        
+
         const pictureNumber = allPicturesList.indexOf(currentPicture);
         setIsFirstPicture(pictureNumber === 0);
         setIsLastPicture(pictureNumber + 1 === allPicturesList.length);
@@ -133,7 +202,6 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
     }, []);
 
 
-
     useEffect(() => {
         const onClick = (e: any) => {
             if (modalEl.current) {
@@ -143,7 +211,6 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
                 }
             }
         }
-
 
         document.addEventListener('click', onClick);
         return () => document.removeEventListener('click', onClick);
@@ -161,10 +228,10 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
                 <Modal ref={modalEl}>
                     <HeadContainer>
                         <ControlsContainer>
-                            <Minus />
-                            <Plus />
-                            <Stop />
-                            <Play />
+                            <Minus onClick={() => scaleImage(false)} />
+                            <Plus onClick={() => scaleImage(true)} />
+                            <Stop style={{ display: isSlideshowPlaying ? "" : "none" }} onClick={stopSlideshow} />
+                            <Play style={{ display: isSlideshowPlaying ? "none" : "" }} onClick={playSlideshow} />
                         </ControlsContainer>
                         <TitleContainer>
                             <Description>

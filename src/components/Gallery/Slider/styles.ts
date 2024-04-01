@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    touch-action: none;
     --modal-bg-color: #11141D;
     --description-color:#626D8E;
     --title-color:#A8B7E3;

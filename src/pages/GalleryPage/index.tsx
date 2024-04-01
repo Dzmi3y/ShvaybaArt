@@ -18,13 +18,13 @@ export const GalleryPage = () => {
         <Gallery pictureList={pictureList}/>
       )}
       {(globalReducer.SelectedGalleryItem === GalleryMenuEnum.FINEART) && (
-        <div>Fineart </div>
+        <div style={{textAlign:"center", marginTop:"20px"}}>There are no pictures yet</div>
       )}
       {(globalReducer.SelectedGalleryItem === GalleryMenuEnum.DRAWINGS) && (
-        <div>Drawings</div>
+        <div style={{textAlign:"center", marginTop:"20px"}}>There are no pictures yet</div>
       )}
       {(globalReducer.SelectedGalleryItem === GalleryMenuEnum.SKETCH) && (
-        <div>Sketch</div>
+        <div style={{textAlign:"center", marginTop:"20px"}}>There are no pictures yet</div>
       )}
     </Container>
   )

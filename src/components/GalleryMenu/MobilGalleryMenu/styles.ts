@@ -50,6 +50,7 @@ export const Modal = styled.div`
     display: none;
     &.open{
         position: absolute;
+        z-index: 2;
         left:2rem;
         right: 2rem;
         height: 234px;

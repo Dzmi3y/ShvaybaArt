@@ -42,11 +42,15 @@ export const Modal = styled.div`
 `;
 
 export const HeadContainer = styled.div`
-    margin-top: 9px;
+    margin-top: 20px;
+    margin-left: 2rem;
+    margin-right: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     @media (min-width: 1458px) {
         margin-top: 9px;
+        margin-left: 0px;
+        margin-right: 0px;
         grid-template-columns: 1fr 2fr 1fr;
     }
 `;
@@ -94,8 +98,6 @@ export const Plus = styled.img`
 export const Play = styled.img`
     height: 22px;
     width: 17px;
-    // margin-top: 7px;
-    // margin-left: 20px;
     content: url(/images/slider/light/play.png);
     &:active{
         content: url(/images/slider/light/active/play.png);
@@ -114,8 +116,6 @@ export const Play = styled.img`
     }
 `;
 export const Stop = styled.img`
-    //margin-top: 7px;
-    //margin-left: 12px;
     height: 21px;
     width: 16px;
     cursor: pointer;
@@ -195,7 +195,6 @@ export const Description = styled.div`
 export const MainContainer = styled.div`
     display: grid;
     grid-template-columns: 2rem calc(100vw - 4rem) 2rem;
-   // width: 100px; //////////////////
     @media (min-width: 1458px) {
         grid-template-columns: 140px calc(100vw - 640px) 140px;
     }
@@ -222,8 +221,6 @@ export const ImageContainer = styled.div`
     overflow: hidden;
     justify-content: center;
     align-items: center;
-    /* padding-top: 10px;
-    padding-bottom: 10px; */
     height: 100%;
     width: calc(100vw - 4rem);
     @media (min-width: 1458px) {
@@ -332,12 +329,13 @@ export const BottomContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 19px;
     @media (min-width: 1458px) {
+        gap: 0px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin: 0 140px;
-       /// width: 100px;///////////////
     }
 `;
 
@@ -348,7 +346,7 @@ export const Price = styled.div`
     text-align: center;
     @media (min-width: 1458px) {
         text-align: start;
-        font-size: 40px; 
+        font-size: 96px; 
     }
     
 `;

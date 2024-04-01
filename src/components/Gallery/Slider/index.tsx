@@ -3,7 +3,7 @@ import {
     BackgroundImageContainer, BottomContainer, Close, Container, ControlsContainer, DarkEffectDiv, Description, HeadContainer,
     Image,
     ImageContainer,
-    LeftImgControl, LeftImgControlContainer, MainContainer, Minus, Modal, Play, Plus, Price, RightImgControl,
+    LeftImgControl, LeftImgControlContainer, MainContainer, Minus, MobilTitle, Modal, Play, Plus, Price, RightImgControl,
     RightImgControlContainer,
     Stop, Title, TitleContainer
 } from './styles';
@@ -261,6 +261,9 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
                         </RightImgControlContainer>
                     </MainContainer>
                     <BottomContainer>
+                        <MobilTitle>
+                            {currentPicture.title}
+                        </MobilTitle>
                         <Price>{currentPicture.price}$</Price>
                         <ButtonContainer>
                             <BorderedButton onClick={addToCart} isRedButton={isRed} size={SizeEnum.Large}>{t("buy", { ns: ['global'] })}</BorderedButton>

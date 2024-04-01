@@ -233,6 +233,7 @@ export const ImageContainer = styled.div`
     }
 `;
 export const Image = styled.img`
+    touch-action: manipulation;
     width: 100%;
     @media (min-width: 1458px) {
         height: 100%;

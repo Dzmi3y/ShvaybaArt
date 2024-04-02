@@ -8,15 +8,22 @@ export type SliderCurrentImageProps = {
     setIsLastPicture: React.Dispatch<React.SetStateAction<boolean>>,
     scale: MutableRefObject<number>,
     modalEl: React.RefObject<HTMLInputElement>,
-    isVisible:boolean,
-    allPicturesList:PictureInfo[],
-    scaleImageDelegate: (scaleImageEvent: (e: boolean) => void)=>void
+    isVisible: boolean,
+    allPicturesList: PictureInfo[],
+    scaleImageDelegate: (scaleImageEvent: (e: boolean) => void) => void
 };
 
+type coordinats = {
+    x: number, 
+    y: number
+}
+
 export const SliderCurrentImage: React.FC<SliderCurrentImageProps> = ({ currentPicture, setIsFirstPicture, setIsLastPicture,
-     scale,modalEl,isVisible,allPicturesList,scaleImageDelegate }) => {
+    scale, modalEl, isVisible, allPicturesList, scaleImageDelegate }) => {
     const [mouseIsDown, setMouseIsDown] = useState(false);
-    const [lastCoordinats, setLastCoordinsts] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
+    const [lastCoordinats, setLastCoordinsts] = useState<coordinats>({ x: 0, y: 0 })
+    const [previousDistance, setPreviousDistance] = useState<number>()
+    const [startDistanceBetweenTuches, setStartDistanceBetweenTuches] = useState<number>();
     const clientX = useRef<number>(0);
     const clientY = useRef<number>(0);
     const x = useRef<number>(0);
@@ -83,29 +90,69 @@ export const SliderCurrentImage: React.FC<SliderCurrentImageProps> = ({ currentP
         }
     }
 
+
+
     scaleImageDelegate(scaleImage);
 
-    const touchStart = (e: React.TouchEvent<HTMLImageElement>) => {
+
+    const mobilScaleImage = (distance: number) => {
+
+        let newScale = 0;
+        if (previousDistance) {
+            if (previousDistance < distance) {
+                newScale = Math.min(4,scale.current + (distance - 100) / 7000);
+            } else {
+                newScale = Math.max(0.2, scale.current - (distance - 100) / 5000);
+            }
+        }
+        console.log(newScale);
+
+
+        if (image.current) {
+            image.current.style.scale = scale.current.toString();
+        }
+        scale.current = newScale;
+        setPreviousDistance(distance);
+    }
+
+
+    const getDistance = (touches: React.TouchList): number => {
+        const finger1 = touches[0];
+        const finger2 = touches[1];
+
+        if (!finger1 || !finger2) return 0;
+        const distance = Math.sqrt(
+            (finger1.clientX - finger2.clientX) ** 2 +
+            (finger1.clientY - finger2.clientY) ** 2
+        );
+        return distance;
+
+    }
+
+
+    const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
         if (e.touches.length === 2) {
+            const distance = getDistance(e.touches);
+            console.log("start")
+            setStartDistanceBetweenTuches(distance);
+            setPreviousDistance(distance);
 
         }
     }
 
-    const touchMove = (e: React.TouchEvent<HTMLImageElement>) => {
-        if (e.touches.length === 2) {
-
+    const touchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+        if (e.touches.length === 2 && startDistanceBetweenTuches) {
+            const distance = getDistance(e.touches)
+            mobilScaleImage(distance);
         }
     }
 
-    const touchEnd = (e: React.TouchEvent<HTMLImageElement>) => {
-        if (e.touches.length === 2) {
+    const touchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+        console.log("end");
+        setStartDistanceBetweenTuches(undefined);
+        setPreviousDistance(undefined);
 
-        }
     }
-
-
-
-
 
     useEffect(() => {
         scale.current = 1;
@@ -119,21 +166,19 @@ export const SliderCurrentImage: React.FC<SliderCurrentImageProps> = ({ currentP
         setIsFirstPicture(pictureNumber === 0);
         setIsLastPicture(pictureNumber + 1 === allPicturesList.length);
 
-    }, [currentPicture, isVisible, allPicturesList,scale,setIsFirstPicture,setIsLastPicture]);
+    }, [currentPicture, isVisible, allPicturesList, scale, setIsFirstPicture, setIsLastPicture]);
 
     useEffect(() => {
         document.addEventListener('mouseup', onMouseUp);
         return () => document.removeEventListener('mousup', onMouseUp);
     }, []);
 
-
-
     return (
         <BackgroundImageContainer style={{ backgroundImage: `url(${currentPicture.imageUrl})` }} >
-            <DarkEffectDiv onMouseMove={mouseMove} onMouseDown={mouseDown} onWheel={wheel} >
+            <DarkEffectDiv onMouseMove={mouseMove} onMouseDown={mouseDown} onWheel={wheel} onTouchStart={touchStart} onTouchMove={touchMove} onTouchEnd={touchEnd} >
                 <ImageContainer>
                     <Image src={currentPicture.bigImageUrl} ref={image} draggable="false"
-                    onTouchStart={touchStart} onTouchMove={touchMove} onTouchEnd={touchEnd} />
+                    />
                 </ImageContainer>
             </DarkEffectDiv>
         </BackgroundImageContainer>

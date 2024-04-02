@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
- touch-action: none;
+    touch-action: none;
     --modal-bg-color: #11141D;
     --description-color:#626D8E;
     --title-color:#A8B7E3;
@@ -26,9 +26,8 @@ export const Modal = styled.div`
         right: 0px;
         height: 100vh ;
         z-index: 2;
-        //padding: 0 20px;
         display: grid;
-        grid-template-rows: 59px calc(100vh - 320px) 201px;
+        grid-template-rows: 59px calc(100vh - 400px) 201px;
 
     @media (min-width: 1458px) {
         top:130px;
@@ -292,7 +291,7 @@ export const BottomContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 19px;
-    margin: 0 0 100px 0;
+    margin: 0;
     @media (min-width: 1458px) {
         gap: 0px;
         display: flex;

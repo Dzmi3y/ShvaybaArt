@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    touch-action: none;
+ touch-action: none;
     --modal-bg-color: #11141D;
     --description-color:#626D8E;
     --title-color:#A8B7E3;
@@ -201,46 +201,6 @@ export const MainContainer = styled.div`
     }
 `;
 
-export const BackgroundImageContainer = styled.div`
-    border-radius: 4px;
-    background-image: none !important;;
-    @media (min-width: 1458px) {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-`;
-export const DarkEffectDiv = styled.div`
-    @media (min-width: 1458px) {
-        background: rgba(0, 0, 0, 0.7 );
-    }
-    width: 100%;
-    height: 100%;
-`;
-export const ImageContainer = styled.div`
-    display: flex;
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: calc(100vw - 4rem);
-    @media (min-width: 1458px) {
-        
-        height: calc(100vh - 460px);
-        width: calc(100vw - 640px);
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-`;
-export const Image = styled.img`
-    touch-action: manipulation;
-    width: 100%;
-    @media (min-width: 1458px) {
-        height: 100%;
-        width: auto;
-    }
-`;
-
 export const LeftImgControlContainer = styled.div`
     align-self: center;
     width: 53px;
@@ -332,6 +292,7 @@ export const BottomContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 19px;
+    margin: 0 0 100px 0;
     @media (min-width: 1458px) {
         gap: 0px;
         display: flex;

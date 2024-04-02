@@ -10,30 +10,33 @@ export type SliderCurrentImageProps = {
     modalEl: React.RefObject<HTMLInputElement>,
     isVisible: boolean,
     allPicturesList: PictureInfo[],
-    scaleImageDelegate: (scaleImageEvent: (e: boolean) => void) => void
+    scaleImageDelegate: (scaleImageEvent: (e: boolean) => void) => void,
+    previousPicture: () => void,
+    nextPicture: () => void
 };
 
 type coordinats = {
-    x: number, 
+    x: number,
     y: number
 }
 
 export const SliderCurrentImage: React.FC<SliderCurrentImageProps> = ({ currentPicture, setIsFirstPicture, setIsLastPicture,
-    scale, modalEl, isVisible, allPicturesList, scaleImageDelegate }) => {
+    scale, modalEl, isVisible, allPicturesList, scaleImageDelegate, previousPicture, nextPicture }) => {
     const [mouseIsDown, setMouseIsDown] = useState(false);
     const [lastCoordinats, setLastCoordinsts] = useState<coordinats>({ x: 0, y: 0 })
     const [previousDistance, setPreviousDistance] = useState<number>()
-    const [startDistanceBetweenTuches, setStartDistanceBetweenTuches] = useState<number>();
+    const [previousSwipeX, setPreviousSwipeX] = useState<number>()
     const clientX = useRef<number>(0);
     const clientY = useRef<number>(0);
     const x = useRef<number>(0);
     const y = useRef<number>(0);
     const image = useRef<HTMLImageElement>(null);
 
-    const mouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const mouseMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
         if (mouseIsDown && isMouseInside(e)) {
-            x.current = ((e.clientX + lastCoordinats.x) - clientX.current) / Number(scale.current.toFixed(2));
-            y.current = ((e.clientY + lastCoordinats.y) - clientY.current) / Number(scale.current.toFixed(2));
+            const { x: eClientX, y: eClientY } = getEventCoordinats(e);
+            x.current = ((eClientX + lastCoordinats.x) - clientX.current) / Number(scale.current.toFixed(2));
+            y.current = ((eClientY + lastCoordinats.y) - clientY.current) / Number(scale.current.toFixed(2));
 
             if (image.current) {
                 image.current.style.transform = `translate(${x.current}px,${y.current}px)`;
@@ -41,10 +44,29 @@ export const SliderCurrentImage: React.FC<SliderCurrentImageProps> = ({ currentP
         }
     }
 
-    const mouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+
+    const getEventCoordinats = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>): coordinats => {
+        let eClientX = 0;
+        let eClientY = 0;
+        if (e.nativeEvent instanceof TouchEvent) {
+            eClientX = (e).nativeEvent.touches[0].clientX;
+            eClientY = (e).nativeEvent.touches[0].clientY;
+        }
+
+        if (e.nativeEvent instanceof MouseEvent) {
+            eClientX = (e).nativeEvent.clientX;
+            eClientY = (e).nativeEvent.clientY;
+        }
+        return { x: eClientX, y: eClientY }
+    }
+
+    const mouseDown = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
         setMouseIsDown(true);
-        clientX.current = e.clientX;
-        clientY.current = e.clientY;
+
+
+        const { x: eClientX, y: eClientY } = getEventCoordinats(e);
+        clientX.current = eClientX;
+        clientY.current = eClientY;
     }
 
     const onMouseUp = (e: any) => {
@@ -52,12 +74,13 @@ export const SliderCurrentImage: React.FC<SliderCurrentImageProps> = ({ currentP
         setLastCoordinsts({ x: x.current, y: y.current })
     }
 
-    const isMouseInside = (e: React.MouseEvent<HTMLDivElement>) => {
+    const isMouseInside = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
         if (modalEl.current) {
-            const topBorder = e.clientY >= e.currentTarget.offsetTop + modalEl.current?.offsetTop;
-            const leftBorder = e.clientX >= e.currentTarget.offsetLeft + modalEl.current?.offsetLeft;
-            const bottomBorder = e.clientY <= e.currentTarget.offsetTop + e.currentTarget.offsetHeight + modalEl.current?.offsetTop;
-            const rightBorder = e.clientX <= e.currentTarget.offsetLeft + e.currentTarget.offsetWidth + modalEl.current?.offsetLeft;
+            const { x: eClientX, y: eClientY } = getEventCoordinats(e);
+            const topBorder = eClientY >= e.currentTarget.offsetTop + modalEl.current?.offsetTop;
+            const leftBorder = eClientX >= e.currentTarget.offsetLeft + modalEl.current?.offsetLeft;
+            const bottomBorder = eClientY <= e.currentTarget.offsetTop + e.currentTarget.offsetHeight + modalEl.current?.offsetTop;
+            const rightBorder = eClientX <= e.currentTarget.offsetLeft + e.currentTarget.offsetWidth + modalEl.current?.offsetLeft;
             return topBorder && leftBorder && bottomBorder && rightBorder;
         }
         return false;
@@ -90,23 +113,18 @@ export const SliderCurrentImage: React.FC<SliderCurrentImageProps> = ({ currentP
         }
     }
 
-
-
     scaleImageDelegate(scaleImage);
 
 
     const mobilScaleImage = (distance: number) => {
-
         let newScale = 0;
         if (previousDistance) {
             if (previousDistance < distance) {
-                newScale = Math.min(4,scale.current + (distance - 100) / 7000);
+                newScale = Math.min(4, scale.current + (distance - 100) / 10000);
             } else {
-                newScale = Math.max(0.2, scale.current - (distance - 100) / 5000);
+                newScale = Math.max(0.2, scale.current - (distance - 100) / 10000);
             }
         }
-        console.log(newScale);
-
 
         if (image.current) {
             image.current.style.scale = scale.current.toString();
@@ -129,29 +147,53 @@ export const SliderCurrentImage: React.FC<SliderCurrentImageProps> = ({ currentP
 
     }
 
+    const swipe = (isRight: boolean) => {
+        if (isRight) {
+            nextPicture();
+        } else {
+            previousPicture();
+        }
+
+    }
+
 
     const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
         if (e.touches.length === 2) {
             const distance = getDistance(e.touches);
-            console.log("start")
-            setStartDistanceBetweenTuches(distance);
             setPreviousDistance(distance);
-
+        }
+        if (e.touches.length === 1) {
+            setPreviousSwipeX(e.touches[0].clientX);
+            mouseDown(e)
         }
     }
 
     const touchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-        if (e.touches.length === 2 && startDistanceBetweenTuches) {
+        if (e.touches.length === 2) {
             const distance = getDistance(e.touches)
             mobilScaleImage(distance);
+        }
+
+        if (e.touches.length === 1) {
+            const swipeTrigger = 20
+            if (previousSwipeX) {
+                let deltaX = previousSwipeX - e.touches[0].clientX;
+                if (Math.abs(deltaX) > swipeTrigger) {
+                    swipe(deltaX > 0);
+                    setPreviousSwipeX(undefined);
+                } else {
+                    mouseMove(e);
+                    setPreviousSwipeX(e.touches[0].clientX);
+                }
+            }
+            
         }
     }
 
     const touchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
-        console.log("end");
-        setStartDistanceBetweenTuches(undefined);
         setPreviousDistance(undefined);
-
+        setPreviousSwipeX(undefined);
+        onMouseUp(e);
     }
 
     useEffect(() => {

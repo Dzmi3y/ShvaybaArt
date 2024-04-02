@@ -47,14 +47,18 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
     }
 
     const nextPicture = () => {
-        const pictureNumber = allPicturesList.indexOf(currentPicture);
-        toggleSlider(true, allPicturesList[pictureNumber + 1]);
-        checkTimer();
+        if (!isLastPicture) {
+            const pictureNumber = allPicturesList.indexOf(currentPicture);
+            toggleSlider(true, allPicturesList[pictureNumber + 1]);
+            checkTimer();
+        }
     };
     const previousPicture = () => {
-        const pictureNumber = allPicturesList.indexOf(currentPicture);
-        toggleSlider(true, allPicturesList[pictureNumber - 1]);
-        checkTimer();
+        if (!isFirstPicture) {
+            const pictureNumber = allPicturesList.indexOf(currentPicture);
+            toggleSlider(true, allPicturesList[pictureNumber - 1]);
+            checkTimer();
+        }
     };
 
     const closeSlider = () => {
@@ -167,7 +171,8 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
                         </LeftImgControlContainer>
                         <SliderCurrentImage allPicturesList={allPicturesList} currentPicture={currentPicture}
                             isVisible={isVisible} modalEl={modalEl} scale={scale} setIsFirstPicture={setIsFirstPicture}
-                            setIsLastPicture={setIsLastPicture} scaleImageDelegate={scaleImageDelegate} />
+                            setIsLastPicture={setIsLastPicture} scaleImageDelegate={scaleImageDelegate}
+                            previousPicture={previousPicture} nextPicture={nextPicture} />
                         <RightImgControlContainer>
                             {!isLastPicture && (<RightImgControl onClick={nextPicture} />)}
                         </RightImgControlContainer>

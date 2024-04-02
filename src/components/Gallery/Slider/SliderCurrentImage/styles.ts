@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const BackgroundImageContainer = styled.div`
+
+@media (max-width: 1457px) {
 border-radius: 4px;
-background-image: none !important;;
+background-image: none !important;
+}
+
 @media (min-width: 1458px) {
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,7 +26,7 @@ display: flex;
 overflow: hidden;
 justify-content: center;
 align-items: center;
-height: 100%;
+height: calc(100vh - 400px) ;
 width: calc(100vw - 4rem);
 @media (min-width: 1458px) {
     

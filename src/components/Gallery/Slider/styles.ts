@@ -3,10 +3,15 @@ import styled from "styled-components";
 export const Container = styled.div`
     touch-action: none;
     --modal-bg-color: #11141D;
-    --description-color:#626D8E;
-    --title-color:#A8B7E3;
+    --title-color: #A8B7E3;
+    --description-color: #626D8E;
     --price-color:#C4CFEE;
-
+    &.red{
+        --modal-bg-color: #241010;
+        --title-color: #D69898;
+        --description-color: #925555;
+        --price-color:#FFF0F0;
+    }
 
     background: rgba(0, 0, 0, 0.6);
     display: block;
@@ -77,6 +82,15 @@ export const Minus = styled.img`
         &:active{
             content: url(/images/slider/light/active/minus.png);
         }
+        &.red{
+                content: url(/images/slider/red/minus.png);
+            &:hover{
+                content: url(/images/slider/red/hover/minus.png);
+            }
+            &:active{
+                content: url(/images/slider/red/active/minus.png);
+            }
+        }
     }
 `;
 export const Plus = styled.img`
@@ -93,6 +107,15 @@ export const Plus = styled.img`
         &:active{
             content: url(/images/slider/light/active/plus.png);
         }
+        &.red{
+            content: url(/images/slider/red/plus.png);
+            &:hover{
+                content: url(/images/slider/red/hover/plus.png);
+            }
+            &:active{
+                content: url(/images/slider/red/active/plus.png);
+            }
+        }
     }
 `;
 export const Play = styled.img`
@@ -101,6 +124,12 @@ export const Play = styled.img`
     content: url(/images/slider/light/play.png);
     &:active{
         content: url(/images/slider/light/active/play.png);
+    }
+    &.red{
+        content: url(/images/slider/red/play.png);
+        &:active{
+            content: url(/images/slider/red/active/play.png);
+        }  
     }
 
     @media (min-width: 1458px) {
@@ -112,7 +141,14 @@ export const Play = styled.img`
         &:hover{
             content: url(/images/slider/light/hover/play.png);
         }
-       
+        &.red{
+            &:hover{
+                content: url(/images/slider/red/hover/play.png);
+            }
+            &:active{
+                content: url(/images/slider/red/active/play.png);
+            }  
+        }
     }
 `;
 export const Stop = styled.img`
@@ -123,6 +159,12 @@ export const Stop = styled.img`
     &:active{
         content: url(/images/slider/light/active/stop.png);
     }
+    &.red{
+        content: url(/images/slider/red/stop.png);
+        &:active{
+            content: url(/images/slider/red/active/stop.png);
+        }
+    }
     @media (min-width: 1458px) {
         margin-top: 7px;
         margin-left: 12px;
@@ -131,6 +173,17 @@ export const Stop = styled.img`
         cursor: pointer;
         &:hover{
             content: url(/images/slider/light/hover/stop.png);
+        }
+        &:active{
+            content: url(/images/slider/light/active/stop.png);
+        }   
+        &.red{
+            &:hover{
+                content: url(/images/slider/red/hover/stop.png);
+            }
+            &:active{
+                content: url(/images/slider/red/active/stop.png);
+            } 
         }
     }
 `;
@@ -206,6 +259,12 @@ export const Close = styled.img`
     &:active{
         content: url(/images/slider/light/active/close.png);
     }
+    &.red{
+        content: url(/images/slider/red/close.png);
+        &:active{
+            content: url(/images/slider/red/active/close.png);
+        }   
+    }
     @media (min-width: 1458px) {
         margin-top: 11px;
         justify-self: end;
@@ -214,6 +273,17 @@ export const Close = styled.img`
         cursor: pointer;
         &:hover{
             content: url(/images/slider/light/hover/close.png);
+        }
+        &:active{
+            content: url(/images/slider/light/active/close.png);
+        }   
+        &.red{
+            &:hover{
+                content: url(/images/slider/red/hover/close.png);
+            }
+            &:active{
+                content: url(/images/slider/red/active/close.png);
+        }   
         }
     }
 `;
@@ -283,6 +353,12 @@ export const LeftImgControl = styled.img`
     &:active{
         content: url(/images/slider/light/active/mobil_vertical_angle_arrow.png);
     }
+    &.red{
+        content: url(/images/slider/red/mobil_vertical_angle_arrow.png);
+        &:active{
+            content: url(/images/slider/red/active/mobil_vertical_angle_arrow.png);
+        }
+    }
     margin-left: 35px;
     z-index: 1;
     position: absolute;
@@ -300,6 +376,15 @@ export const LeftImgControl = styled.img`
         }
         &:active{
             content: url(/images/slider/light/active/vertical_angle_arrow.png);
+        }
+        &.red{
+            content: url(/images/slider/red/vertical_angle_arrow.png);
+            &:hover{
+                content: url(/images/slider/red/hover/vertical_angle_arrow.png);
+            }
+            &:active{
+                content: url(/images/slider/red/active/vertical_angle_arrow.png);
+            }
         }
     }
 `;
@@ -324,6 +409,12 @@ export const RightImgControl = styled.img`
     &:active{
         content: url(/images/slider/light/active/mobil_vertical_angle_arrow.png);
     }
+    &.red{
+        content: url(/images/slider/red/mobil_vertical_angle_arrow.png);
+        &:active{
+            content: url(/images/slider/red/active/mobil_vertical_angle_arrow.png);
+        }
+    }
     margin-left: -35px;
     z-index: 1;
     position: absolute;
@@ -345,6 +436,15 @@ export const RightImgControl = styled.img`
         }
         &:active{
             content: url(/images/slider/light/active/vertical_angle_arrow.png);
+        }
+        &.red{
+            content: url(/images/slider/red/vertical_angle_arrow.png);
+            &:hover{
+                content: url(/images/slider/red/hover/vertical_angle_arrow.png);
+            }
+            &:active{
+                content: url(/images/slider/red/active/vertical_angle_arrow.png);
+            }
         }
     }
 `;

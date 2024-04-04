@@ -4,6 +4,11 @@ export const Container = styled.div`
     --title-color: #A8B7E3;
     --description-color: #626D8E;
     --price-color:#C4CFEE;
+    &.red{
+        --title-color: #D69898;
+        --description-color: #925555;
+        --price-color:#FFF0F0;
+    }
     --description-margin-left: 0px;
     --description-margin-right: 0px;
     --infoContainer-display: block;
@@ -122,13 +127,13 @@ export const Description = styled.div`
         font-size: 24px;
         color: var(--description-color);
         margin-top: 8px;
+        margin-bottom: 9px;
     }
 `;
 
 export const SaleContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    margin-top: 9px;
 `;
 
 export const Price = styled.div`
@@ -137,8 +142,8 @@ export const Price = styled.div`
         display: block;
         color: var(--price-color);
         font-size: 64px;
-        font-family: Playfair;
-        margin-bottom: 4px;
+        font-family: Playfair;  
+        min-height: 80px;
     }
 `;
 

@@ -84,6 +84,7 @@ export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> 
             {currentPicture && (<Slider toggleSlider={toggleSlider}
                 isVisible={sliderIsOpen}
                 currentPicture={currentPicture}
+                isRed={isRed}
                 allPicturesList={sortedPictureList.current}
             />)}
         </>

@@ -8,7 +8,7 @@ import { addPictureToCart } from '../../../core/store/reducers/CartReducer';
 import { useAppDispatch, useAppSelector } from '../../../core/hooks';
 import LangEnum from '../../../core/enums/LangEnum';
 
-export type PictureCardProps={
+export type PictureCardProps = {
   picture: PictureInfo,
   isRed?: boolean,
   toggleSlider: (isVisible: boolean, currentPicture?: PictureInfo) => void
@@ -41,12 +41,12 @@ export const PictureCard: React.FC<PictureCardProps> = ({ picture, toggleSlider,
       <InfoContainer>
         <Title>{picture.title}</Title>
         <Description>{globalReducer.Lang === LangEnum.EN ? picture.description : picture.descriptionRu}</Description>
-        <SaleContainer className={saleContainerClass}>
-          <Price>{picture.price}$</Price>
+        {picture.isItForSale && (<SaleContainer className={saleContainerClass}>
+          <Price>{picture.price}$ </Price>
           <ButtonContainer>
-            <BorderedButton onClick={addToCart}>{buttonText}</BorderedButton>
+            <BorderedButton isRedButton={isRed} onClick={addToCart}>{buttonText}</BorderedButton>
           </ButtonContainer>
-        </SaleContainer>
+        </SaleContainer>)}
       </InfoContainer>
     </Container>
   )

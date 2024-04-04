@@ -32,7 +32,7 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
     const [isLastPicture, setIsLastPicture] = useState(true);
     const [isSlideshowPlaying, setIsSlideshowPlaying] = useState<boolean>(false);
     const [timerId, setTimerId] = useState<NodeJS.Timeout>();
-    const { t } = useTranslation(['global',"gallery"]);
+    const { t } = useTranslation(['global', "gallery"]);
     const scale = useRef<number>(1);
 
 
@@ -144,24 +144,24 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
     }, [isVisible]);
     return (
         <>
-            {sliderIsVisible && (<Container>
+            {sliderIsVisible && (<Container className={isRed ? "red" : ""}>
                 <Modal ref={modalEl}>
                     <HeadContainer>
                         <ControlsContainer>
                             <ZoomImgContainer>
-                                <Minus onClick={() => { if (scaleImage) { scaleImage(false) } }} />
+                                <Minus className={isRed ? "red" : ""} onClick={() => { if (scaleImage) { scaleImage(false) } }} />
                                 <ModalInfo>{t("zoomOutInfo", { ns: ['gallery'] })}</ModalInfo>
                             </ZoomImgContainer>
                             <ZoomImgContainer>
-                                <Plus onClick={() => { if (scaleImage) { scaleImage(true) } }} />
+                                <Plus className={isRed ? "red" : ""} onClick={() => { if (scaleImage) { scaleImage(true) } }} />
                                 <ModalInfo>{t("zoomInInfo", { ns: ['gallery'] })}</ModalInfo>
                             </ZoomImgContainer>
                             <SlideshowControlsImgContainer style={{ display: isSlideshowPlaying ? "" : "none" }}>
-                                <Stop style={{ display: isSlideshowPlaying ? "" : "none" }} onClick={stopSlideshow} />
+                                <Stop className={isRed ? "red" : ""} style={{ display: isSlideshowPlaying ? "" : "none" }} onClick={stopSlideshow} />
                                 <ModalInfo>{t("stopInfo", { ns: ['gallery'] })}</ModalInfo>
                             </SlideshowControlsImgContainer>
                             <SlideshowControlsImgContainer style={{ display: isSlideshowPlaying ? "none" : "" }} >
-                                <Play style={{ display: isSlideshowPlaying ? "none" : "" }} onClick={playSlideshow} />
+                                <Play className={isRed ? "red" : ""} style={{ display: isSlideshowPlaying ? "none" : "" }} onClick={playSlideshow} />
                                 <ModalInfo>{t("playInfo", { ns: ['gallery'] })}</ModalInfo>
                             </SlideshowControlsImgContainer>
                         </ControlsContainer>
@@ -175,28 +175,31 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
                                 {currentPicture.title}
                             </Title>
                         </TitleContainer>
-                        <Close onClick={closeSlider} />
+                        <Close className={isRed ? "red" : ""} onClick={closeSlider} />
                     </HeadContainer>
                     <MainContainer>
                         <LeftImgControlContainer>
-                            {!isFirstPicture && (<LeftImgControl onClick={previousPicture} />)}
+                            {!isFirstPicture && (<LeftImgControl className={isRed ? "red" : ""} onClick={previousPicture} />)}
                         </LeftImgControlContainer>
                         <SliderCurrentImage allPicturesList={allPicturesList} currentPicture={currentPicture}
                             isVisible={isVisible} modalEl={modalEl} scale={scale} setIsFirstPicture={setIsFirstPicture}
                             setIsLastPicture={setIsLastPicture} scaleImageDelegate={scaleImageDelegate}
                             previousPicture={previousPicture} nextPicture={nextPicture} />
                         <RightImgControlContainer>
-                            {!isLastPicture && (<RightImgControl onClick={nextPicture} />)}
+                            {!isLastPicture && (<RightImgControl className={isRed ? "red" : ""} onClick={nextPicture} />)}
                         </RightImgControlContainer>
                     </MainContainer>
                     <BottomContainer>
                         <MobilTitle>
                             {currentPicture.title}
                         </MobilTitle>
-                        <Price>{currentPicture.price}$</Price>
-                        <ButtonContainer>
-                            <BorderedButton onClick={addToCart} isRedButton={isRed} size={SizeEnum.Large}>{t("buy", { ns: ['global'] })}</BorderedButton>
-                        </ButtonContainer>
+
+                        {currentPicture.isItForSale && (<>
+                            <Price>{currentPicture.price}$</Price>
+                            <ButtonContainer>
+                                <BorderedButton onClick={addToCart} isRedButton={isRed} size={SizeEnum.Large}>{t("buy", { ns: ['global'] })}</BorderedButton>
+                            </ButtonContainer>
+                        </>)}
                     </BottomContainer>
                 </Modal>
             </Container>)}

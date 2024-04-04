@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.nav`
+    --text-color: #A8B7E3;
+    --selected-text-color: #E9EDF6;
+    &.red{
+        --text-color: #D69898;
+        --selected-text-color: #FFD2D2;
+    }
+
     display: none;
     margin-top: 100px;
     margin-bottom: 94px;
@@ -14,10 +21,10 @@ export const Container = styled.nav`
 export const Text = styled.div`
     font-family: Playfair;
     font-size: 64px;
-    color:#A8B7E3;
+    color: var(--text-color);
     cursor: pointer;
     
     &.selected{
-        color: #E9EDF6;
+        color: var(--selected-text-color);
     }
 `;

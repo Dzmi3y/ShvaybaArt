@@ -6,7 +6,7 @@ export const ButtonContainer = styled.div`
     grid-column-start: 1;
     grid-column-end: 3;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     @media (min-width: 1458px){
         margin-top: 20px;
         margin-bottom: 20px;

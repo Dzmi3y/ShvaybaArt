@@ -72,7 +72,7 @@ export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> 
 
     return (
         <>
-            <Container>
+            <Container className={isRed ? "red" : ""}>
                 {shownImagesList.map((picture, i) => (<PictureCard isRed={isRed} key={i} picture={picture} toggleSlider={toggleSlider} />))}
                 {(sortedPictureList.current.length > numberOfShownImages) && (
                     <ButtonContainer>
@@ -83,9 +83,9 @@ export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> 
             </Container>
             {currentPicture && (<Slider toggleSlider={toggleSlider}
                 isVisible={sliderIsOpen}
-                currentPicture={currentPicture} 
+                currentPicture={currentPicture}
                 allPicturesList={sortedPictureList.current}
-                />)}
+            />)}
         </>
     )
 }

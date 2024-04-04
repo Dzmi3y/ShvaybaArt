@@ -1,6 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.nav`
+    --text-color: #11141D;
+    --selected-text-color: #E9EDF6;
+    --bg-color: #D4DCF3;
+    --selected-bg-color:#C4CFEE;
+    --model-height: 234px;
+    &.red{
+        --text-color: #241010;
+        --selected-text-color: #FFD2D2;
+        --bg-color: #FFF0F0;
+        --selected-bg-color:#FFD2D2;
+        --model-height: 114px;
+    }
     display: block;
     margin-top:70px;
     @media (min-width: 1458px){
@@ -20,7 +32,7 @@ export const TitleContainer = styled.div`
 
 export const CurrentTitle = styled.div`
     font-size: 20px;
-    color: #E9EDF6;
+    color: var(--selected-text-color);
     font-family: Playfair;
 `;
 
@@ -41,7 +53,7 @@ export const ImgContainer = styled.div`
             content: ''; 
             margin-left: -16px;
             border: 10px solid transparent; 
-            border-bottom: 10px solid #D4DCF3; 
+            border-bottom: 10px solid var(--bg-color); 
         }
     }
 `; 
@@ -53,12 +65,13 @@ export const Modal = styled.div`
         z-index: 2;
         left:2rem;
         right: 2rem;
-        height: 234px;
+        height: var(--model-height);
         border-radius: 4px;
         display: flex;
         gap: 20px;
         flex-direction:column;
-        background-color: #D4DCF3;
+        background-color: var(--bg-color);
+        box-shadow: var(--shadow);
     }
 `;
 
@@ -69,7 +82,7 @@ export const ModalTextContainer = styled.div`
     cursor: pointer;
     &.selected{
         font-weight: 500;
-        background-color: #C4CFEE;
+        background-color: var(--selected-bg-color);
     }
 `;
 
@@ -77,7 +90,7 @@ export const Text = styled.div`
     margin-top: 6px;
     margin-bottom: 7px;
     font-size: 20px;
-    color: #11141D;
+    color: var(--text-color);
     font-family: Playfair;
     text-align: center;
 `;

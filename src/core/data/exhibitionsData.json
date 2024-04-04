@@ -1,0 +1,47 @@
+[
+    {
+        "id": "2e9f1d8c-4b7a-3e6d-8a1c-b2a7f6d5e8c4",
+        "title":"\"The Bond between us\"",
+        "image":"images/exhibitions/bond_between.jpg",
+        "mobilImage":"images/exhibitions/mobile/bond_between.jpg",
+        "from":"02.03",
+        "to":"02.04",
+        "address":"Grodno. 20 Zamkovaya Street",
+        "addressRu":"Гродно. Улица Замковая, 20",
+        "itIsNow":true
+    },
+    {
+        "id": "f8d6a7b2-1e3c-4f9a-8b0c-2d5e9f0a7c4d",
+        "title":"\"Courtyards\"",
+        "image":"images/exhibitions/courtyards.jpg",
+        "mobilImage":"images/exhibitions/mobile/courtyards.jpg",
+        "from":"02.05",
+        "to":"02.06",
+        "address":"Polotsk. Streletskaya str., 4A-4",
+        "addressRu":"Полоцк. ул. Стрелецкая, 4А-4",
+        "itIsNow":false
+
+    },
+    {
+        "id": "7b9e1c8a-3f6d-4b2e-9a7a-5e8d0b4c1d9e",
+        "title":"Myths",
+        "image":"images/exhibitions/myths.jpg",
+        "mobilImage":"images/exhibitions/mobile/myths.jpg",
+        "from":"02.07",
+        "to":"02.08",
+        "address":"Minsk. 116 Nezavisimosti Ave.",
+        "addressRu":"Минск, пр. Независимости, 116.",
+        "itIsNow":false
+    },
+    {
+        "id": "a5f4e2b3-8d7c-4e6a-9b1f-0c3d1a8f9e2f",
+        "title":"\"APTA\"",
+        "image":"images/exhibitions/apta.jpg",
+        "mobilImage":"images/exhibitions/mobile/apta.jpg",
+        "from":"02.09",
+        "to":"02.10",
+        "address":"Minsk. Nezavisimosti Ave. 58/1-6",
+        "addressRu":"Минск. пр. Независимости, 58/1-6",
+        "itIsNow":false
+    }
+]

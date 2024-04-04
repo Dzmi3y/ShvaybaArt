@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
     BottomContainer, Close, Container, ControlsContainer, Description, HeadContainer,
-    LeftImgControl, LeftImgControlContainer, MainContainer, Minus, MobilTitle, Modal, Play, Plus, Price, RightImgControl,
+    LeftImgControl, LeftImgControlContainer, MainContainer, Minus, MobilTitle, Modal, ModalInfo, Play, Plus, Price, RightImgControl,
     RightImgControlContainer,
-    Stop, Title, TitleContainer
+    SlideshowControlsImgContainer,
+    Stop, Title, TitleContainer,
+    ZoomImgContainer
 } from './styles';
 import { PictureInfo } from '../../../core/types/PictureInfo';
 import { useAppDispatch, useAppSelector } from '../../../core/hooks';
@@ -30,7 +32,7 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
     const [isLastPicture, setIsLastPicture] = useState(true);
     const [isSlideshowPlaying, setIsSlideshowPlaying] = useState<boolean>(false);
     const [timerId, setTimerId] = useState<NodeJS.Timeout>();
-    const { t } = useTranslation(['global']);
+    const { t } = useTranslation(['global',"gallery"]);
     const scale = useRef<number>(1);
 
 
@@ -75,8 +77,8 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
     }
 
     const stopSlideshow = () => {
-        setIsSlideshowPlaying(false);
         clearTimeout(timerId);
+        setIsSlideshowPlaying(false);
         setTimerId(undefined);
     }
 
@@ -90,7 +92,6 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
         if (timerId) {
             clearTimeout(timerId);
         }
-        setTimerId(setTimeout(nextPicture, 4000));
     }
 
     const checkTimer = () => {
@@ -113,7 +114,6 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
 
             if (isSlideshowPlaying) {
                 setTimerId(undefined);
-
                 setTimerId(setTimeout(nextSlide, 4000));
             }
         } else {
@@ -148,10 +148,22 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
                 <Modal ref={modalEl}>
                     <HeadContainer>
                         <ControlsContainer>
-                            <Minus onClick={() => { if (scaleImage) { scaleImage(false) } }} />
-                            <Plus onClick={() => { if (scaleImage) { scaleImage(true) } }} />
-                            <Stop style={{ display: isSlideshowPlaying ? "" : "none" }} onClick={stopSlideshow} />
-                            <Play style={{ display: isSlideshowPlaying ? "none" : "" }} onClick={playSlideshow} />
+                            <ZoomImgContainer>
+                                <Minus onClick={() => { if (scaleImage) { scaleImage(false) } }} />
+                                <ModalInfo>{t("zoomOutInfo", { ns: ['gallery'] })}</ModalInfo>
+                            </ZoomImgContainer>
+                            <ZoomImgContainer>
+                                <Plus onClick={() => { if (scaleImage) { scaleImage(true) } }} />
+                                <ModalInfo>{t("zoomInInfo", { ns: ['gallery'] })}</ModalInfo>
+                            </ZoomImgContainer>
+                            <SlideshowControlsImgContainer style={{ display: isSlideshowPlaying ? "" : "none" }}>
+                                <Stop style={{ display: isSlideshowPlaying ? "" : "none" }} onClick={stopSlideshow} />
+                                <ModalInfo>{t("stopInfo", { ns: ['gallery'] })}</ModalInfo>
+                            </SlideshowControlsImgContainer>
+                            <SlideshowControlsImgContainer style={{ display: isSlideshowPlaying ? "none" : "" }} >
+                                <Play style={{ display: isSlideshowPlaying ? "none" : "" }} onClick={playSlideshow} />
+                                <ModalInfo>{t("playInfo", { ns: ['gallery'] })}</ModalInfo>
+                            </SlideshowControlsImgContainer>
                         </ControlsContainer>
                         <TitleContainer>
                             <Description>

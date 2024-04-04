@@ -2,5 +2,10 @@
     "graphics":"графика",
     "fineart":"живопись",
     "drawings":"рисунок",
-    "sketch":"набросок"
+    "sketch":"набросок",
+    "playInfo":"начать слайдшоу",
+    "stopInfo": "остановить слайдшоу",
+    "zoomInInfo": "увеличить",
+    "zoomOutInfo": "уменьшить",
+    "noImage":"Картин пока нет"
 }

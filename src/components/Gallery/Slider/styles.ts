@@ -134,6 +134,70 @@ export const Stop = styled.img`
         }
     }
 `;
+
+export const ZoomImgContainer = styled.div`
+    --modal_info_display: none;
+    @media (min-width: 1458px) {
+        width: min-content;
+        position: relative;
+        --modal_info_display: none;
+        --modal_info_margin_top: 20px;
+        &:hover{
+            --modal_info_display: flex;
+            &::after{
+                position: absolute;
+                content: ''; 
+                margin-left: 20px;
+                border: 10px solid transparent; 
+                border-bottom: 10px solid #D9D9D9; 
+            }
+        }
+    }
+`; 
+
+export const SlideshowControlsImgContainer = styled.div`
+    --modal_info_display: none;
+    @media (min-width: 1458px) {
+        width: min-content;
+        position: relative;
+        --modal_info_display: none;
+        --modal_info_margin_top: 5px;
+        &:hover{
+            --modal_info_display: flex;
+            &::after{
+                bottom: 6px;
+                position: absolute;
+                content: ''; 
+                margin-left: -25px;
+                border: 10px solid transparent; 
+                border-bottom: 10px solid #D9D9D9; 
+            }
+        }
+    }
+`; 
+
+export const ModalInfo = styled.div`
+    display: var(--modal_info_display);
+    position: absolute;
+    font-family: Varta;
+    font-weight: 400;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    color: #626D8E;
+    z-index: 2;
+    height: 68px;
+    width: max-content;
+    margin-top: var(--modal_info_margin_top);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 4px;
+    background-color: #D9D9D9;
+`;
+
+
+
+
 export const Close = styled.img`
     justify-self: end;
     height: 16px;
@@ -314,4 +378,3 @@ export const Price = styled.div`
 `;
 export const ButtonContainer = styled.div`
 `;
-

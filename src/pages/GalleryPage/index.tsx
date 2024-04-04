@@ -6,9 +6,11 @@ import GalleryMenuEnum from '../../core/enums/GalleryMenuEnum';
 import GalleryData from '../../core/data/galleryData.json';
 import { PictureInfo } from '../../core/types/PictureInfo';
 import { Gallery } from '../../components/Gallery';
+import { useTranslation } from "react-i18next";
 
 
 export const GalleryPage = () => {
+  const { t } = useTranslation(["gallery"]);
   const globalReducer = useAppSelector(state => state.globalReducer);
   const pictureList: PictureInfo[] = GalleryData as unknown as PictureInfo[];
   return (
@@ -18,13 +20,13 @@ export const GalleryPage = () => {
         <Gallery pictureList={pictureList}/>
       )}
       {(globalReducer.SelectedGalleryItem === GalleryMenuEnum.FINEART) && (
-        <div style={{textAlign:"center", marginTop:"20px"}}>There are no pictures yet</div>
+        <div style={{textAlign:"center", marginTop:"20px"}}>{t("noImage", { ns: ['gallery'] })}</div>
       )}
       {(globalReducer.SelectedGalleryItem === GalleryMenuEnum.DRAWINGS) && (
-        <div style={{textAlign:"center", marginTop:"20px"}}>There are no pictures yet</div>
+        <div style={{textAlign:"center", marginTop:"20px"}}>{t("noImage", { ns: ['gallery'] })}</div>
       )}
       {(globalReducer.SelectedGalleryItem === GalleryMenuEnum.SKETCH) && (
-        <div style={{textAlign:"center", marginTop:"20px"}}>There are no pictures yet</div>
+        <div style={{textAlign:"center", marginTop:"20px"}}>{t("noImage", { ns: ['gallery'] })}</div>
       )}
     </Container>
   )

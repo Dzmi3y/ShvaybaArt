@@ -2,5 +2,10 @@
     "graphics":"graphics",
     "fineart":"fineart",
     "drawings":"drawings",
-    "sketch":"sketch"
+    "sketch":"sketch",
+    "playInfo":" play slideshow",
+    "stopInfo": "stop slideshow",
+    "zoomInInfo": "zoom in",
+    "zoomOutInfo": "zoom out",
+    "noImage":"There are no pictures yet"
 }

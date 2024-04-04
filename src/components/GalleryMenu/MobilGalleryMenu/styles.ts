@@ -71,14 +71,6 @@ export const ModalTextContainer = styled.div`
         font-weight: 500;
         background-color: #C4CFEE;
     }
-    /* &::after{
-        content: ''; 
-        position: absolute; 
-        left: 61%; top: -20px; 
-        border: 10px solid transparent; 
-        border-bottom: 10px solid #D4DCF3; 
-        
-    } */
 `;
 
 export const Text = styled.div`

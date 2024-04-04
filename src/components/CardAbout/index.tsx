@@ -7,16 +7,16 @@ export type CardAboutProps = {
     isSmall?: boolean,
     isRight?: boolean,
     imgUrl?: string,
-    isMobil: boolean,
+    isMobile: boolean,
 }
 
-export const CardAbout: React.FC<CardAboutProps> = ({ date, text, isMobil, isSmall = false, isRight = false, imgUrl = "" }) => {
+export const CardAbout: React.FC<CardAboutProps> = ({ date, text, isMobile, isSmall = false, isRight = false, imgUrl = "" }) => {
     const rightClassName: string = isRight ? "right " : "";
     const smallClassName: string = isSmall ? "small " : "";
     const textCalssName: string = Number(date) ? "" : "text ";
     const urlIsNotEmpty: boolean = !!imgUrl && (imgUrl !== "");
-    const whiteTextClassName: string = (isMobil && urlIsNotEmpty) ? "white-text " : "";
-    const cardImgStyle: React.CSSProperties | undefined = isMobil ? { backgroundImage: `url(${imgUrl})`, backgroundSize: "cover", backgroundRepeat: "no-repeat" } : undefined;
+    const whiteTextClassName: string = (isMobile && urlIsNotEmpty) ? "white-text " : "";
+    const cardImgStyle: React.CSSProperties | undefined = isMobile ? { backgroundImage: `url(${imgUrl})`, backgroundSize: "cover", backgroundRepeat: "no-repeat" } : undefined;
     
     return (
         <Containder>
@@ -27,7 +27,7 @@ export const CardAbout: React.FC<CardAboutProps> = ({ date, text, isMobil, isSma
 
                 <MainText className={rightClassName + smallClassName + whiteTextClassName}>{text}</MainText>
             </Card>
-            {(!isMobil && urlIsNotEmpty) && (<Image src={imgUrl} />)}
+            {(!isMobile && urlIsNotEmpty) && (<Image src={imgUrl} />)}
         </Containder>
     )
 }

@@ -19,8 +19,8 @@ export const PictureCard: React.FC<PictureCardProps> = ({ picture, toggleSlider,
   const { t } = useTranslation(['global']);
   const globalReducer = useAppSelector(state => state.globalReducer);
 
-  const isMobil: boolean = window.innerWidth < 1458;
-  const buttonText = isMobil ?
+  const isMobile: boolean = window.innerWidth < 1458;
+  const buttonText = isMobile ?
     t("buy", { ns: ['global'] }) + " " + picture.price + "$" :
     t("buy", { ns: ['global'] });
   const containerClass = (isRed ? "red " : "") + (picture.isHorizontal ? "horizontal " : "");
@@ -33,7 +33,7 @@ export const PictureCard: React.FC<PictureCardProps> = ({ picture, toggleSlider,
   return (
     <Container className={containerClass}>
       <ImageContainer onClick={() => toggleSlider(true, picture)}>
-        <Image src={isMobil ? picture.mobilImageUrl : picture.imageUrl} alt={picture.title} />
+        <Image src={isMobile ? picture.mobilImageUrl : picture.imageUrl} alt={picture.title} />
         <HoverImageOverlay>
           <ScaleIcon src={ScaleArrows} alt="scale arrows" />
         </HoverImageOverlay>

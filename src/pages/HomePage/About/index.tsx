@@ -14,14 +14,14 @@ type Info = {
 export const About = () => {
   const { t } = useTranslation(['home', 'global', 'about']);
   const [isTablet] = useState<boolean>(window.innerWidth < 1458);
-  const [isMobil] = useState<boolean>(window.innerWidth < 500);
+  const [isMobile] = useState<boolean>(window.innerWidth < 500);
   const infoList = (t("infoList", { returnObjects: true, ns: ['about'] })) as Info[];
 
   const navigate = useNavigate();
 
   const getImgSrcById = (id: number) => {
     if (id === 1 || id === 3 || id === 5) {
-      return isMobil ? `/images/home/about/mobil_about_${id}.jpg` : `/images/home/about/about_${id}.jpg`;
+      return isMobile ? `/images/home/about/mobil_about_${id}.jpg` : `/images/home/about/about_${id}.jpg`;
     }
     return "";
   }
@@ -62,7 +62,7 @@ export const About = () => {
           isSmall={i === 0}
           date={info.date}
           text={info.text}
-          isMobil={isMobil}
+          isMobile={isMobile}
           imgUrl={getImgSrcById(i)} />
       )}
 

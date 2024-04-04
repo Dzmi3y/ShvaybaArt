@@ -11,8 +11,8 @@ export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> 
     const [currentPicture, setCurrentPicture] = useState<PictureInfo>();
     const [sliderIsOpen, setSliderIsOpen] = useState<boolean>(false);
     const { t } = useTranslation(['global']);
-    const isMobil: boolean = window.innerWidth < 1458;
-    const imagesNumber = isMobil ? 3 : 4;
+    const isMobile: boolean = window.innerWidth < 1458;
+    const imagesNumber = isMobile ? 3 : 4;
     const [numberOfShownImages, setNumberOfShownImages] = useState<number>(imagesNumber);
 
     const toggleSlider = (isVisible: boolean, picture?: PictureInfo) => {
@@ -24,7 +24,7 @@ export const Gallery: React.FC<{ pictureList: PictureInfo[], isRed?: boolean }> 
 
     const getSortedPictureList = (): PictureInfo[] => {
         let result: PictureInfo[] = [];
-        const countInRow = isMobil ? 2 : 3;
+        const countInRow = isMobile ? 2 : 3;
 
         let horizontalPicturesList: PictureInfo[] = [];
         let verticalPicturesList: PictureInfo[] = [];

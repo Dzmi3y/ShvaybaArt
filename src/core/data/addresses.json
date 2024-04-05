@@ -1,0 +1,68 @@
+[
+    {
+        "id":"a7f8b9c0-2d3e-4f5a-8b7c-1d2e3f4a5b6c",
+        "address":"20 Zamkovaya Street",
+        "city":"Grodno",
+        "schedule":[
+            {"days":"Monday", "description":"Closed"},
+            {"days":"Tuesday - Sunday", 
+                "description":{
+                    "fromH":"10","fromM":"00","toH":"18","toM":"00"
+                }
+            }
+        ],
+        "stationType":"bus stop",
+        "stationName":"\"Sovetskaya Ploshchad\"",
+        "gps": "53.676196, 23.825641"
+    },
+    {
+        "id":"d6e5f4a3-b2c1-4a5b-9c8d-3e4f5a6b7c8d",
+        "address":"Streletskaya str., 4A-4",
+        "city":"Polotsk",
+        "schedule":[
+            {"days":"Monday", "description":"Closed"},
+            {"days":"Tuesday - Sunday", 
+                "description":{
+                    "fromH":"10","fromM":"00","toH":"18","toM":"00"
+                }
+            }
+        ],
+        "stationType":"bus stop",
+        "stationName":"\"Raispolkom\"",
+        "gps": "55.48844, 28.76431"
+    },
+    {
+        "id":"1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+        "address":"116 Nezavisimosti Ave.",
+        "city":"Minsk",
+        "schedule":[
+            {"days":"Monday", "description":"Closed"},
+            {"days":"Tuesday - Sunday", 
+                "description":{
+                    "fromH":"10","fromM":"00","toH":"18","toM":"00"
+                }
+            }
+        ],
+        "stationType":"bus stop",
+        "stationName":"\"Mikhail Hrushevsky str\"",
+        "gps": "50.272359, 28.673649"
+    },
+    {
+        "id":"9c8b7a6f-5e4d-3c2b-1a0f-9e8d7c6b5a4f",
+        "address":"Nezavisimosti Ave. 58/1-6",
+        "city":"Minsk",
+        "schedule":[
+            {"days":"Monday", "description":"Closed"},
+            {"days":"Tuesday - Sunday", 
+                "description":{
+                    "fromH":"10","fromM":"00","toH":"18","toM":"00"
+                }
+            }
+        ],
+        "stationType":"bus stop",
+        "stationName":"\"Petrusya Brovki\"",
+        "gps": "53.918228, 27.591431"
+    }
+    
+    
+]

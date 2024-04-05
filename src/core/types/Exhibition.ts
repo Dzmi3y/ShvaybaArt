@@ -26,7 +26,8 @@ export type Exhibition = {
     itIsNow: boolean,
     priceInfo: string,
     prices: ExhibitionPrice[],
-    aboutExhibition: AboutExhibition
+    aboutExhibition: AboutExhibition,
+    selectedPriceId: string;
 }
 
 

@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CartState } from "../../types/states/CartState";
 import { PictureInfo } from "../../types/PictureInfo";
+import { Exhibition } from "../../types/Exhibition";
 
 const initialState: CartState = {
     Cart: [],
@@ -11,16 +12,16 @@ const globalSlice = createSlice({
     name: 'cart',
     initialState: initialState,
     reducers: {
-        addPictureToCart(state, action: PayloadAction<PictureInfo>) {
+        addItemToCart(state, action: PayloadAction<PictureInfo | Exhibition>) {
             state.Cart = [...state.Cart, action.payload];
             state.CartCounter = state.Cart.length;
         },
-        removePictureFromCart(state, action: PayloadAction<string>) {
+        removeItemFromCart(state, action: PayloadAction<string>) {
             state.Cart = state.Cart.filter((picture) => picture.id === action.payload);
             state.CartCounter = state.Cart.length;
         },
     }
 });
 
-export const { addPictureToCart, removePictureFromCart } = globalSlice.actions
+export const { addItemToCart, removeItemFromCart } = globalSlice.actions
 export default globalSlice.reducer;

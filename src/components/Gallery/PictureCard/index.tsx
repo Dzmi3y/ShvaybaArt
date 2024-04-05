@@ -4,7 +4,7 @@ import { Description, Image, HoverImageOverlay, ImageContainer, InfoContainer, P
 import { BorderedButton } from '../../Buttons/BorderedButton';
 import ScaleArrows from '../../../assets/images/common/scale_arrows.png';
 import { useTranslation } from "react-i18next";
-import { addPictureToCart } from '../../../core/store/reducers/CartReducer';
+import { addItemToCart } from '../../../core/store/reducers/CartReducer';
 import { useAppDispatch, useAppSelector } from '../../../core/hooks';
 import LangEnum from '../../../core/enums/LangEnum';
 
@@ -27,7 +27,7 @@ export const PictureCard: React.FC<PictureCardProps> = ({ picture, toggleSlider,
   const saleContainerClass = picture.isItForSale ? "" : "hide ";
 
   const addToCart = () => {
-    dispatch(addPictureToCart(picture));
+    dispatch(addItemToCart(picture));
   }
 
   return (

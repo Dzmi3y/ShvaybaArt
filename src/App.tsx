@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import RouteNamesEnum from  './core/enums/RouteNamesEnum'
 import { Header } from './components/Header';
 import { UpScrollButton } from './components/Buttons/UpScrollButton';
+import { DetailedExhibitionPage } from './pages/DetailedExhibitionPage';
 
 const AppContainer = styled.div`
   display: flex;
@@ -31,6 +32,7 @@ function App() {
         <Route path={RouteNamesEnum.GALERY} Component={GalleryPage} />
         <Route path={RouteNamesEnum.ORDER} Component={OrderPage} />
         <Route path={RouteNamesEnum.EXHIBITIONS} Component={ExhibitionsPage} />
+        <Route path={RouteNamesEnum.DETAILED_EXHIBITION_PAGE} Component={DetailedExhibitionPage} />
         <Route path={RouteNamesEnum.TAMARA_DEMENTJEVA} Component={TamaraDementjevaPage} />
         <Route path='*' Component={PageNotFound} />
       </Routes>

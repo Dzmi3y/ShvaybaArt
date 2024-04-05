@@ -13,7 +13,7 @@ import LangEnum from '../../../core/enums/LangEnum';
 import { ButtonContainer } from '../styles';
 import { BorderedButton, SizeEnum } from '../../Buttons/BorderedButton';
 import { useTranslation } from "react-i18next";
-import { addPictureToCart } from '../../../core/store/reducers/CartReducer';
+import { addItemToCart } from '../../../core/store/reducers/CartReducer';
 import { SliderCurrentImage } from './SliderCurrentImage';
 
 export type SlidedrProps = {
@@ -37,7 +37,7 @@ export const Slider: React.FC<SlidedrProps> = ({ toggleSlider, isVisible, curren
 
 
     const addToCart = () => {
-        dispatch(addPictureToCart(currentPicture));
+        dispatch(addItemToCart(currentPicture));
     }
 
     const modalEl = useRef<HTMLInputElement>(null);

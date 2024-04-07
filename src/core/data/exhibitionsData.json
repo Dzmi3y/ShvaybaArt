@@ -2,8 +2,8 @@
     {
         "id": "2e9f1d8c-4b7a-3e6d-8a1c-b2a7f6d5e8c4",
         "title":"\"The Bond between us\"",
-        "image":"images/exhibitions/bond_between.jpg",
-        "mobilImage":"images/exhibitions/mobile/bond_between.jpg",
+        "image":"/images/exhibitions/bond_between.jpg",
+        "mobilImage":"/images/exhibitions/mobile/bond_between.jpg",
         "from":"02.03",
         "to":"02.04",
         "addressId":"a7f8b9c0-2d3e-4f5a-8b7c-1d2e3f4a5b6c",
@@ -17,7 +17,7 @@
             {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"child", "price": 6}
         ],
         "aboutExhibition":{
-            "image":"images/exhibitions/about_bond_between.jpg",
+            "image":"/images/exhibitions/about_bond_between.jpg",
             "title":"Vsevolod Shvaiba & Tamara Dementieva presented their graphic and pictorial works.",
             "titleRu":"Всеволод Швайба и Тамара Дементьева представили свои графические и живописные работы.",
             "text":"\"Human life throughout its entire course, one way or another, is riddled with all sorts of connections.There is a special category of connections. Hidden, invisible, intangible, they require a figurative embodiment...\"",
@@ -27,8 +27,8 @@
     {
         "id": "f8d6a7b2-1e3c-4f9a-8b0c-2d5e9f0a7c4d",
         "title":"\"Courtyards\"",
-        "image":"images/exhibitions/courtyards.jpg",
-        "mobilImage":"images/exhibitions/mobile/courtyards.jpg",
+        "image":"/images/exhibitions/courtyards.jpg",
+        "mobilImage":"/images/exhibitions/mobile/courtyards.jpg",
         "from":"02.05",
         "to":"02.06",
         "addressId":"d6e5f4a3-b2c1-4a5b-9c8d-3e4f5a6b7c8d",
@@ -41,7 +41,7 @@
             {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"child", "price": 6}
         ],
         "aboutExhibition":{
-            "image":"images/exhibitions/about_courtyards.jpg",
+            "image":"/images/exhibitions/about_courtyards.jpg",
             "title":"Vsevolod Shvaiba & Tamara Dementieva presented their graphic and pictorial works.",
             "titleRu":"Всеволод Швайба и Тамара Дементьева представили свои графические и живописные работы.",
             "text":"Art and the atmosphere of cozy courtyards in paintings.",
@@ -52,8 +52,8 @@
     {
         "id": "7b9e1c8a-3f6d-4b2e-9a7a-5e8d0b4c1d9e",
         "title":"Myths",
-        "image":"images/exhibitions/myths.jpg",
-        "mobilImage":"images/exhibitions/mobile/myths.jpg",
+        "image":"/images/exhibitions/myths.jpg",
+        "mobilImage":"/images/exhibitions/mobile/myths.jpg",
         "from":"02.07",
         "to":"02.08",
         "addressId":"1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
@@ -66,7 +66,7 @@
             {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"child", "price": 6}
         ],
         "aboutExhibition":{
-            "image":"images/exhibitions/about_myths.jpg",
+            "image":"/images/exhibitions/about_myths.jpg",
             "title":"Vsevolod Shvaiba & Tamara Dementieva presented their graphic and pictorial works.",
             "titleRu":"Всеволод Швайба и Тамара Дементьева представили свои графические и живописные работы.",
             "text":"Age-old tales intertwined with gods, heroes and magic.",
@@ -76,8 +76,8 @@
     {
         "id": "a5f4e2b3-8d7c-4e6a-9b1f-0c3d1a8f9e2f",
         "title":"\"APTA\"",
-        "image":"images/exhibitions/apta.jpg",
-        "mobilImage":"images/exhibitions/mobile/apta.jpg",
+        "image":"/images/exhibitions/apta.jpg",
+        "mobilImage":"/images/exhibitions/mobile/apta.jpg",
         "from":"02.09",
         "to":"02.10",
         "addressId":"9c8b7a6f-5e4d-3c2b-1a0f-9e8d7c6b5a4f",
@@ -90,7 +90,7 @@
             {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"child", "price": 6}
         ],
         "aboutExhibition":{
-            "image":"images/exhibitions/about_apta.jpg",
+            "image":"/images/exhibitions/about_apta.jpg",
             "title":"Vsevolod Shvaiba & Tamara Dementieva presented their graphic and pictorial works.",
             "titleRu":"Всеволод Швайба и Тамара Дементьева представили свои графические и живописные работы.",
             "text":"The APTA art exhibition features the magic of flowers, surreal landscapes, harmony of forms and emotional portraits",

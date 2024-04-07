@@ -9,6 +9,7 @@ import { useAppSelector } from '../../core/hooks';
 import LangEnum from '../../core/enums/LangEnum';
 import { Address } from '../../core/types/Address';
 import RouteNamesEnum from '../../core/enums/RouteNamesEnum';
+import { Main } from './Main';
 
 export const DetailedExhibitionPage = () => {
     const navigate = useNavigate();
@@ -22,8 +23,9 @@ export const DetailedExhibitionPage = () => {
     useEffect(() => {
         if ((!name) || (!exhibition)) {
             navigate(RouteNamesEnum.EXHIBITIONS);
+
         }
-    }, [name, exhibition]);
+    }, [name, exhibition, navigate]);
 
     useEffect(() => {
         if (exhibition) {
@@ -34,12 +36,15 @@ export const DetailedExhibitionPage = () => {
 
     }, [globalReducer.Lang, exhibition]);
 
-    console.log(exhibition);
     console.log(address);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0 })
+    }, []);
 
     return (
         <Container>
-
+            {exhibition && (<Main exhibition={exhibition} />)}
         </Container>
     )
 }

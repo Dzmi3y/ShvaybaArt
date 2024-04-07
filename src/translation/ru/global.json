@@ -12,5 +12,6 @@
     "book_ticket":"Забронировать",
     "from":"с",
     "to":"по",
-    "exhibition":"выставка"
+    "exhibition":"выставка",
+    "aboutExhibition":"О выставке"
 }

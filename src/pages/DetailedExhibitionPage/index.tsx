@@ -10,6 +10,7 @@ import LangEnum from '../../core/enums/LangEnum';
 import { Address } from '../../core/types/Address';
 import RouteNamesEnum from '../../core/enums/RouteNamesEnum';
 import { Main } from './Main';
+import { AboutExhibition } from './AboutExhibition';
 
 export const DetailedExhibitionPage = () => {
     const navigate = useNavigate();
@@ -45,6 +46,7 @@ export const DetailedExhibitionPage = () => {
     return (
         <Container>
             {exhibition && (<Main exhibition={exhibition} />)}
+            {exhibition && (<AboutExhibition aboutExhibition={exhibition.aboutExhibition} />)}
         </Container>
     )
 }

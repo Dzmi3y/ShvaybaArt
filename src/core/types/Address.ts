@@ -5,10 +5,11 @@ export type Address = {
     schedule: Schedule[],
     stationType: string,
     stationName: string,
-    gps: string
+    gps: string,
+    googleMapSrc: string
 }
 
-export type scheduleTime = {
+export type ScheduleTime = {
     fromH: string,
     fromM: string,
     toH: string,
@@ -17,5 +18,5 @@ export type scheduleTime = {
 
 export type Schedule = {
     days: string,
-    description: string | scheduleTime
+    description: string | ScheduleTime
 }

@@ -14,5 +14,8 @@
     "to": "по",
     "exhibition": "выставка",
     "aboutExhibition": "О выставке",
-    "tickets": "Билеты"
+    "tickets": "Билеты",
+    "address":"Адрес",
+    "openingHours":"Часы работы",
+    "hawToFind":"Как найти" 
 }

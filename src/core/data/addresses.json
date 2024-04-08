@@ -13,7 +13,8 @@
         ],
         "stationType":"bus stop",
         "stationName":"\"Sovetskaya Ploshchad\"",
-        "gps": "53.676196, 23.825641"
+        "gps": "53.676196, 23.825641",
+        "googleMapSrc":"https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2363.3607331663716!2d23.823066076751818!3d53.67619597238669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTPCsDQwJzM0LjMiTiAyM8KwNDknMzIuMyJF!5e0!3m2!1sen!2sby!4v1712605671193!5m2!1sen!2sby"
     },
     {
         "id":"d6e5f4a3-b2c1-4a5b-9c8d-3e4f5a6b7c8d",
@@ -29,7 +30,8 @@
         ],
         "stationType":"bus stop",
         "stationName":"\"Raispolkom\"",
-        "gps": "55.48844, 28.76431"
+        "gps": "55.48844, 28.76431",
+        "googleMapSrc":"https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d448.5462267694897!2d28.764285766211064!3d55.48826812191062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTXCsDI5JzE4LjQiTiAyOMKwNDUnNTEuNSJF!5e0!3m2!1sen!2sby!4v1712606093000!5m2!1sen!2sby"
     },
     {
         "id":"1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
@@ -44,8 +46,9 @@
             }
         ],
         "stationType":"bus stop",
-        "stationName":"\"Mikhail Hrushevsky str\"",
-        "gps": "50.272359, 28.673649"
+        "stationName":"\"Nacyianaĺnaja biblijateka\"",
+        "gps": "53.931191, 27.646201",
+        "googleMapSrc":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1919.0807954402942!2d27.643348272517525!3d53.930719972906616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcedd83dd1587%3A0xde7f1c4f89d5e8b2!2sNational%20Library%20of%20Republic%20of%20Belarus!5e0!3m2!1sen!2sby!4v1712606314982!5m2!1sen!2sby"
     },
     {
         "id":"9c8b7a6f-5e4d-3c2b-1a0f-9e8d7c6b5a4f",
@@ -61,7 +64,8 @@
         ],
         "stationType":"bus stop",
         "stationName":"\"Petrusya Brovki\"",
-        "gps": "53.918228, 27.591431"
+        "gps": "53.918228, 27.591431",
+        "googleMapSrc":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d698.5895375210482!2d27.59062777359834!3d53.918140109802266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfa7ab4c7f47%3A0xd4f2fc440cb198fc!2sArtel%20Gallery%20Cafe!5e0!3m2!1sen!2sby!4v1712606567064!5m2!1sen!2sby"
     }
     
     

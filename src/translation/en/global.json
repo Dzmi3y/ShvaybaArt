@@ -14,5 +14,8 @@
     "to":"to",
     "exhibition":"exhibition",
     "aboutExhibition":"About exhibition",
-    "tickets":"Tickets"
+    "tickets":"Tickets",
+    "address":"Address",
+    "openingHours":"Opening hours",
+    "hawToFind":"Haw to find" 
 }

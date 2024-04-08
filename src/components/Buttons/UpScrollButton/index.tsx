@@ -38,8 +38,6 @@ export const UpScrollButton = () => {
             oldScrollY.current = window.scrollY
         }
 
-
-
         window.removeEventListener('scroll', onScroll);
         window.addEventListener('scroll', onScroll,);
         return () => window.removeEventListener('scroll', onScroll);

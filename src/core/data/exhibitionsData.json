@@ -11,10 +11,11 @@
         "addressRu":"Гродно. Улица Замковая, 20",
         "itIsNow":true,
         "priceInfo":"for children from 0 to 4 free of charge",
+        "priceInfoRu":"для детей от 0 до 4 лет бесплатно",
         "prices":[
-            {"id": "a7e9b3f4-8d2c-4e6f-9b1a-5f8c1d2a0b9d", "type":"adult", "price": 15},
-            {"id": "f0c8e6d7-3a1b-4c9e-8f5d-2e7b0a9c6d4f", "type":"student", "price": 9},
-            {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"child", "price": 6}
+            {"id": "a7e9b3f4-8d2c-4e6f-9b1a-5f8c1d2a0b9d", "type":"Adult", "typeRu":"Взрослый" , "price": 15},
+            {"id": "f0c8e6d7-3a1b-4c9e-8f5d-2e7b0a9c6d4f", "type":"Pupil & Student", "typeRu":"Ученик и студент" , "price": 9},
+            {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"Child & Eldery",  "typeRu":"Дети и пенсионеры" ,"price": 6}
         ],
         "aboutExhibition":{
             "image":"/images/exhibitions/about_bond_between.jpg",
@@ -35,10 +36,12 @@
         "address":"Polotsk. Streletskaya str., 4A-4",
         "addressRu":"Полоцк. ул. Стрелецкая, 4А-4",
         "itIsNow":false,
+        "priceInfo":"for children from 0 to 4 free of charge",
+        "priceInfoRu":"для детей от 0 до 4 лет бесплатно",
         "prices":[
-            {"id": "a7e9b3f4-8d2c-4e6f-9b1a-5f8c1d2a0b9d", "type":"adult", "price": 15},
-            {"id": "f0c8e6d7-3a1b-4c9e-8f5d-2e7b0a9c6d4f", "type":"student", "price": 9},
-            {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"child", "price": 6}
+            {"id": "a7e9b3f4-8d2c-4e6f-9b1a-5f8c1d2a0b9d", "type":"Adult", "typeRu":"Взрослый", "price": 15},
+            {"id": "f0c8e6d7-3a1b-4c9e-8f5d-2e7b0a9c6d4f", "type":"Pupil & Student", "typeRu":"Ученик и студент", "price": 9},
+            {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"Child & Eldery",  "typeRu":"Дети и пенсионеры", "price": 6}
         ],
         "aboutExhibition":{
             "image":"/images/exhibitions/about_courtyards.jpg",
@@ -60,10 +63,12 @@
         "address":"Minsk. 116 Nezavisimosti Ave.",
         "addressRu":"Минск, пр. Независимости, 116.",
         "itIsNow":false,
+        "priceInfo":"for children from 0 to 4 free of charge",
+        "priceInfoRu":"для детей от 0 до 4 лет бесплатно",
         "prices":[
-            {"id": "a7e9b3f4-8d2c-4e6f-9b1a-5f8c1d2a0b9d", "type":"adult", "price": 15},
-            {"id": "f0c8e6d7-3a1b-4c9e-8f5d-2e7b0a9c6d4f", "type":"student", "price": 9},
-            {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"child", "price": 6}
+            {"id": "a7e9b3f4-8d2c-4e6f-9b1a-5f8c1d2a0b9d", "type":"Adult", "typeRu":"Взрослый", "price": 15},
+            {"id": "f0c8e6d7-3a1b-4c9e-8f5d-2e7b0a9c6d4f", "type":"Pupil & Student", "typeRu":"Ученик и студент", "price": 9},
+            {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"Child & Eldery",  "typeRu":"Дети и пенсионеры", "price": 6}
         ],
         "aboutExhibition":{
             "image":"/images/exhibitions/about_myths.jpg",
@@ -84,10 +89,12 @@
         "address":"Minsk. Nezavisimosti Ave. 58/1-6",
         "addressRu":"Минск. пр. Независимости, 58/1-6",
         "itIsNow":false,
+        "priceInfo":"for children from 0 to 4 free of charge",
+        "priceInfoRu":"для детей от 0 до 4 лет бесплатно",
         "prices":[
-            {"id": "a7e9b3f4-8d2c-4e6f-9b1a-5f8c1d2a0b9d", "type":"adult", "price": 15},
-            {"id": "f0c8e6d7-3a1b-4c9e-8f5d-2e7b0a9c6d4f", "type":"student", "price": 9},
-            {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"child", "price": 6}
+            {"id": "a7e9b3f4-8d2c-4e6f-9b1a-5f8c1d2a0b9d", "type":"Adult", "typeRu":"Взрослый", "price": 15},
+            {"id": "f0c8e6d7-3a1b-4c9e-8f5d-2e7b0a9c6d4f", "type":"Pupil & Student", "typeRu":"Ученик и студент", "price": 9},
+            {"id": "b2d5f8a1-9c4e-3d7b-6f8a-1e2c4b9d0a5f", "type":"Child & Eldery",  "typeRu":"Дети и пенсионеры", "price": 6}
         ],
         "aboutExhibition":{
             "image":"/images/exhibitions/about_apta.jpg",

@@ -40,13 +40,16 @@ export const Introduction = styled.div`
     line-height: 2rem;
     margin-left: 10px;
     margin-right: 10px;
-    @media (min-width: 1458px) {
+    @media (min-width: 775px) {
         line-height: 4rem;
         margin-left: 0px;
         margin-right: 0px;
-        text-align: start;
+        text-align: center;
         margin-bottom: 50px;
         font-size: 40px;
+    }
+    @media (min-width: 1458px) {
+        text-align: start;
     }
 `;
 export const MainText = styled.div`
@@ -58,13 +61,16 @@ export const MainText = styled.div`
     line-height: 2rem;
     margin-left: 10px;
     margin-right: 10px;
-    @media (min-width: 1458px) {
+    @media (min-width: 775px) {
+        text-align: center;
         line-height: 4rem;
         margin-left: 0px;
         margin-right: 0px;
-        text-align: start;
         font-weight: 300;
         font-size: 40px;
+    }
+    @media (min-width: 1458px) {
+        text-align: start;
     }
 `;
 export const StyledImage = styled.img`

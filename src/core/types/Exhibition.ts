@@ -1,6 +1,7 @@
 export type ExhibitionPrice = {
     id: string,
     type: string,
+    typeRu: string,
     price: number
 }
 
@@ -25,6 +26,7 @@ export type Exhibition = {
     addressRu: string,
     itIsNow: boolean,
     priceInfo: string,
+    priceInfoRu: string,
     prices: ExhibitionPrice[],
     aboutExhibition: AboutExhibition,
     selectedPriceId: string;

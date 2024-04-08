@@ -11,6 +11,7 @@ import { Address } from '../../core/types/Address';
 import RouteNamesEnum from '../../core/enums/RouteNamesEnum';
 import { Main } from './Main';
 import { AboutExhibition } from './AboutExhibition';
+import { Tickets } from './Tickets';
 
 export const DetailedExhibitionPage = () => {
     const navigate = useNavigate();
@@ -46,6 +47,7 @@ export const DetailedExhibitionPage = () => {
     return (
         <Container>
             {exhibition && (<Main exhibition={exhibition} />)}
+            {exhibition && (<Tickets exhibition={exhibition} />)}
             {exhibition && (<AboutExhibition aboutExhibition={exhibition.aboutExhibition} />)}
         </Container>
     )

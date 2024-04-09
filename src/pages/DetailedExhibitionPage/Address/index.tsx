@@ -27,7 +27,6 @@ export const Address: React.FC<{ address: AddressData }> = ({ address }) => {
             if (modalIframeEl.current && !isIframeBlockerElClick) {
                 const isOutsideClick = !modalIframeEl.current.contains(e.target);
                 if (isOutsideClick && showModal) {
-                    console.log("click")
                     setShowModal(false);
                 }
             }

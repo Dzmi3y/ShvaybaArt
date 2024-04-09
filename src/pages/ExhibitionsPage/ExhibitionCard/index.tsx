@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Container, Title, DescriptionContainer, HeaderContainer, Status, ButtonContainer, MobileDescriptionContainer, MobileButtonContainer } from './styles';
 import { DarkGradientButton } from '../../../components/Buttons/DarkGradientButton';
 import { useTranslation } from "react-i18next";

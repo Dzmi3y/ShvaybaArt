@@ -38,9 +38,6 @@ export const DetailedExhibitionPage = () => {
 
     }, [globalReducer.Lang, exhibition]);
 
-    
-
-    console.log(address);
 
     useEffect(() => {
         window.scrollTo({ top: 0 })

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {
     AngleArrow, CheckBox, CloseImage, Container, ControlsContainer, ExhibitionContainer,
     ExhibitionDate, ExhibitionDateContainer, ExhibitionPrice, ExhibitionPriceContainer, ExhibitionText,
-    GraphicContainer, GraphicDescription, GraphicPrice, ImageContainer, InfoContainer, StyledImage, Title, Type
+    GraphicContainer, GraphicDescription, GraphicPrice, ImageContainer, InfoContainer, StyledImage, Title, Type, CheckBoxLabel
 } from './styles'
 import { Exhibition } from '../../core/types/Exhibition'
 import { PictureInfo } from '../../core/types/PictureInfo'
@@ -20,6 +20,7 @@ export const OrderCard: React.FC<{ orderItem: Exhibition | PictureInfo }> = ({ o
     const globalReducer = useAppSelector(state => state.globalReducer);
     const dispatch = useAppDispatch();
 
+    const isMobile: boolean = window.innerWidth < 1458;
     const exhibition = orderItem as Exhibition;
     const picture = orderItem as PictureInfo;
 
@@ -32,8 +33,9 @@ export const OrderCard: React.FC<{ orderItem: Exhibition | PictureInfo }> = ({ o
     }
 
     const getExhibitionPriceById = (priseId: string): string => {
-        const selectedPrice = exhibition.prices.find((p) => p.id === priseId)
-        const priceType = globalReducer.Lang === LangEnum.EN ? selectedPrice?.type : selectedPrice?.typeRu
+        const selectedPrice = exhibition.prices.find((p) => p.id === priseId);
+        let priceType = globalReducer.Lang === LangEnum.EN ? selectedPrice?.type : selectedPrice?.typeRu;
+        priceType = isMobile ? priceType?.substring(0, 2) : priceType;
         return `${priceType} ${selectedPrice?.price}$`;
     }
 
@@ -45,13 +47,12 @@ export const OrderCard: React.FC<{ orderItem: Exhibition | PictureInfo }> = ({ o
         setExhibitionPriceOpen(isOpen);
     }
 
-
-    useEffect(()=>{
-        if("addressId" in orderItem){
+    useEffect(() => {
+        if ("addressId" in orderItem) {
             setSelectedExhibitionDate((orderItem as Exhibition).from)
             setSelectedExhibitionPriceId((orderItem as Exhibition).selectedPriceId)
         }
-    },[orderItem])
+    }, [orderItem])
 
     return (<Container>
         <ImageContainer>
@@ -78,7 +79,7 @@ export const OrderCard: React.FC<{ orderItem: Exhibition | PictureInfo }> = ({ o
                 </GraphicContainer>)}
         </InfoContainer>
         <ControlsContainer>
-            <CheckBox  type='checkbox'/>
+            <CheckBoxLabel><CheckBox type="checkbox"/><span></span></CheckBoxLabel>
             <CloseImage onClick={remove} />
         </ControlsContainer>
     </Container>

@@ -96,21 +96,30 @@ export const ExhibitionDate = styled.div`
     @media (min-width: 1458px) {
         margin-top: 0px;
         margin-bottom: 20px;
-        font-size: 64px;
+        font-size: 44px;
         display: flex;
         gap: 20px;
     }
+    @media (min-width: 1604px) {
+        font-size: 64px;
+    }
+
 `;
 export const ExhibitionPrice = styled.div`
     font-family: Playfair;
     color: #11141D;
     font-size: 24px;
     margin-bottom: 10px;
+
     @media (min-width: 1458px) {
-        font-size: 64px;
+        font-size: 44px;
         display: flex;
         gap: 20px;
     }
+    @media (min-width: 1604px) {
+        font-size: 64px;
+    }
+    
 `;
 export const AngleArrow = styled.img`
  cursor: pointer;

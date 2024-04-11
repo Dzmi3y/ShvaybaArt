@@ -18,5 +18,6 @@
     "address":"Address",
     "openingHours":"Opening hours",
     "hawToFind":"Haw to find",
-    "graphic":"graphic"
+    "graphic":"graphic",
+    "overallPrice":"Overall price"
 }

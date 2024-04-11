@@ -29,7 +29,7 @@ export const Footer = () => {
                 setFooterTheme("");
         }
     }, [location.pathname])
-    return (<styles.Wrapper className={footerTheme}>
+    return (<styles.Wrapper id='footer' className={footerTheme}>
         <styles.Container>
             <styles.NavWrapper>
                 <styles.FooterNavLink to={RouteNamesEnum.EXHIBITIONS}>{t("exhibitions", {ns: ['global']})}   </styles.FooterNavLink>

@@ -1,25 +1,50 @@
-import React from 'react'
-import { Container, OrderListContainer, Title, TotalPriceContainer } from './styles'
+import React, { useEffect, useRef, useState } from 'react'
+import { Container, OrderListContainer, Title, TotalPriceContainer, TotalPriceText, TotalPriceValue } from './styles'
 import { useTranslation } from 'react-i18next';
 import { useAppSelector } from '../../core/hooks';
 import { OrderCard } from '../../components/OrderCard';
+import { LightButton } from '../../components/Buttons/LightButton';
 
 export const OrderPage = () => {
-
+  const isMobile: boolean = window.innerWidth < 1458;
   const { t } = useTranslation(['global']);
   const cartReducer = useAppSelector(state => state.cartReducer);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [isEndOfPage, setIsEndOfPage] = useState<boolean>(false);
   // const dispatch = useAppDispatch();
-  
+  const containerEl = useRef<HTMLDivElement>(null)
 
-  return (<Container>
+  const buyButtonText = isMobile ? `${t("buy", { ns: ['global'] })} ${totalPrice}$` : t("buy", { ns: ['global'] });
+
+  const buyButtonClick = () => {
+
+  }
+
+  useEffect(() => {
+
+    const onScroll = () => {
+      if (containerEl.current) {
+        const newValue = window.innerHeight + window.scrollY > containerEl.current.offsetHeight;
+          setIsEndOfPage(newValue);
+      }
+    }
+
+    window.removeEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll,);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (<Container ref={containerEl}>
     <Title>{t("order", { ns: ['global'] })}</Title>
     <OrderListContainer>
       {cartReducer.Cart.map((orderItem) => (
         <OrderCard key={orderItem.id} orderItem={orderItem} />))}
     </OrderListContainer>
 
-    <TotalPriceContainer>
-
+    <TotalPriceContainer className={(isMobile && isEndOfPage) ? "absolute" : ""}>
+      <TotalPriceText>{t("overallPrice", { ns: ['global'] })}</TotalPriceText>
+      <TotalPriceValue>{totalPrice}$</TotalPriceValue>
+      <LightButton disabled={totalPrice===0} onClick={buyButtonClick}>{buyButtonText}</LightButton>
     </TotalPriceContainer>
 
   </Container>

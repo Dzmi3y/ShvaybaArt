@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
     AngleArrow, CheckBox, CloseImage, Container, ControlsContainer, ExhibitionContainer,
     ExhibitionDate, ExhibitionDateContainer, ExhibitionPrice, ExhibitionPriceContainer, ExhibitionText,
-    GraphicContainer, GraphicDescription, GraphicPrice, ImageContainer, InfoContainer, StyledImage, Title, Type, CheckBoxLabel
+    GraphicContainer, GraphicDescription, GraphicPrice, ImageContainer, InfoContainer, StyledImage, Title, Type, CheckBoxLabel,
+    ArrowPriceContainer,
+    PriceModal,
+    DateModal,
+    DateModalContainer
 } from './styles'
 import { Exhibition } from '../../core/types/Exhibition'
 import { PictureInfo } from '../../core/types/PictureInfo'
@@ -60,6 +64,42 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
         }
     }, [orderItem])
 
+    const priceModalEl = useRef<HTMLDivElement>(null);
+    const priceArrowEl = useRef<HTMLImageElement>(null);
+
+    useEffect(() => {
+        const onClick = (e: any) => {
+            if (priceModalEl.current && priceArrowEl.current) {
+                const isOutsideClick = !priceModalEl.current.contains(e.target);
+                const isNottitlePanelClick = !priceArrowEl.current.contains(e.target);
+                if (isOutsideClick && isNottitlePanelClick) {
+                    setExhibitionPriceOpen(false);
+                }
+            }
+        }
+
+        document.addEventListener('click', onClick);
+        return () => document.removeEventListener('click', onClick);
+    }, []);
+
+    const dateModalEl = useRef<HTMLDivElement>(null);
+    const dateArrowEl = useRef<HTMLImageElement>(null);
+    
+    useEffect(() => {
+        const onClick = (e: any) => {
+            if (dateModalEl.current && dateArrowEl.current) {
+                const isOutsideClick = !dateModalEl.current.contains(e.target);
+                const isNottitlePanelClick = !dateArrowEl.current.contains(e.target);
+                if (isOutsideClick && isNottitlePanelClick) {
+                    setExhibitionDateOpen(false);
+                }
+            }
+        }
+
+        document.addEventListener('click', onClick);
+        return () => document.removeEventListener('click', onClick);
+    }, []);
+
     return (<Container>
         <ImageContainer>
             <StyledImage src={imageUrl} />
@@ -72,17 +112,27 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
                 ? (<ExhibitionContainer>
                     <ExhibitionDateContainer>
                         <ExhibitionDate>{selectedExhibitionDate}</ExhibitionDate>
-                        <AngleArrow className={exhibitionDateOpen ? "open" : ""} onClick={() => exhibitionDateWindowToggle(!exhibitionDateOpen)} />
+                        <div>
+                            <AngleArrow ref={dateArrowEl} className={exhibitionDateOpen ? "open" : ""} onClick={() => exhibitionDateWindowToggle(!exhibitionDateOpen)} />
+                        </div>
                     </ExhibitionDateContainer>
                     <ExhibitionPriceContainer>
                         <ExhibitionPrice>{getExhibitionPriceById(selectedExhibitionPriceId)}</ExhibitionPrice>
-                        <AngleArrow className={exhibitionPriceOpen ? "open" : ""} onClick={() => exhibitionPriceWindowToggle(!exhibitionPriceOpen)} />
+                        <ArrowPriceContainer className={exhibitionPriceOpen ? "open " : ""} onClick={() => exhibitionPriceWindowToggle(!exhibitionPriceOpen)}>
+                            <AngleArrow ref={priceArrowEl} className={exhibitionPriceOpen ? "open " : ""} />
+                        </ArrowPriceContainer>
                     </ExhibitionPriceContainer>
                 </ExhibitionContainer>)
                 : (<GraphicContainer>
                     <GraphicDescription>{globalReducer.Lang === LangEnum.EN ? picture.description : picture.descriptionRu}</GraphicDescription>
                     <GraphicPrice>{picture.price}$</GraphicPrice>
                 </GraphicContainer>)}
+            <PriceModal ref={priceModalEl} className={exhibitionPriceOpen ? "open " : ""}></PriceModal>
+            <DateModal className={exhibitionDateOpen ? "open" : ""}>
+                    <DateModalContainer ref={dateModalEl}>
+
+                    </DateModalContainer>
+            </DateModal>
         </InfoContainer>
         <ControlsContainer>
             <CheckBoxLabel><CheckBox onChange={(e) => changeSelectedItem(e.target.checked, orderItem)} type="checkbox" /><span></span></CheckBoxLabel>

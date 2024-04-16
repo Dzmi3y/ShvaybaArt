@@ -121,12 +121,35 @@ export const ExhibitionPrice = styled.div`
     }
     
 `;
+export const ArrowPriceContainer = styled.div`
+    position: relative;
+    &.open{
+        &::after{
+            position: absolute;
+            content: ''; 
+            margin-left: -9px;
+            z-index: 4;
+            bottom: -5px;
+            border: 15px solid transparent; 
+            border-bottom: 15px solid #D4DCF3; 
+            @media (min-width: 1458px) {
+                margin-left: -3px;
+                z-index: 1;
+                bottom: -5px;
+                border: 20px solid transparent; 
+                border-bottom: 20px solid #D4DCF3; 
+            }
+        }
+    }
+`;
 export const AngleArrow = styled.img`
  cursor: pointer;
     width: 12px;
     height: 6px;
     margin-top: 10px;
     transform: rotate(180deg);
+    z-index: 2;
+    position: absolute;
     content: url("/images/global/angle.png");
     &:active{
         content: url("/images/global/active/angle.png");
@@ -227,3 +250,55 @@ export const CloseImage = styled.img`
         }
     }
 `;
+
+export const PriceModal = styled.div`
+    display: none;
+    &.open{
+        display: block;
+        background-color: #D4DCF3;
+        border-radius: 4px;
+        position: absolute;
+        box-shadow: var(--shadow);
+        height: 190px;
+        left: 2rem;
+        right: 2rem;
+        z-index: 3;
+        @media (min-width: 1458px) {
+            z-index: 0;
+            left: unset;
+            right: unset;
+            width: 415px;
+            height: 200px;
+        }
+    }
+`;
+
+export const DateModal = styled.div`
+    display: none;
+    &.open{
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 3;
+    }
+
+`;
+
+export const DateModalContainer = styled.div`
+    background-color: #D4DCF3;
+    border-radius: 4px;
+    margin-top: 150px;
+    height: 271px;
+    box-shadow: var(--shadow);
+    @media (min-width: 1458px) {
+        width: 1231px;
+        height: 671px;
+        margin-top: 120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+`;
+

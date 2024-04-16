@@ -11,7 +11,12 @@ import { useAppDispatch, useAppSelector } from '../../core/hooks'
 import LangEnum from '../../core/enums/LangEnum'
 import { removeItemFromCart } from '../../core/store/reducers/CartReducer'
 
-export const OrderCard: React.FC<{ orderItem: Exhibition | PictureInfo }> = ({ orderItem }) => {
+export type OrterCardProps = {
+    orderItem: Exhibition | PictureInfo,
+    changeSelectedItem: (isSelected: boolean, cartItem: Exhibition | PictureInfo) => void
+}
+
+export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedItem }) => {
     const [selectedExhibitionDate, setSelectedExhibitionDate] = useState<string>("");
     const [selectedExhibitionPriceId, setSelectedExhibitionPriceId] = useState<string>("");
     const [exhibitionDateOpen, setExhibitionDateOpen] = useState<boolean>(false);
@@ -29,6 +34,7 @@ export const OrderCard: React.FC<{ orderItem: Exhibition | PictureInfo }> = ({ o
     const imageUrl = isExhibition ? exhibition.image : picture.imageUrl;
 
     const remove = () => {
+        changeSelectedItem(false, orderItem);
         dispatch(removeItemFromCart(orderItem.cartId));
     }
 
@@ -79,7 +85,7 @@ export const OrderCard: React.FC<{ orderItem: Exhibition | PictureInfo }> = ({ o
                 </GraphicContainer>)}
         </InfoContainer>
         <ControlsContainer>
-            <CheckBoxLabel><CheckBox type="checkbox"/><span></span></CheckBoxLabel>
+            <CheckBoxLabel><CheckBox onChange={(e) => changeSelectedItem(e.target.checked, orderItem)} type="checkbox" /><span></span></CheckBoxLabel>
             <CloseImage onClick={remove} />
         </ControlsContainer>
     </Container>

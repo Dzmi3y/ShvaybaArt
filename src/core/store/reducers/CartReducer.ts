@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CartState } from "../../types/states/CartState";
 import { PictureInfo } from "../../types/PictureInfo";
 import { Exhibition } from "../../types/Exhibition";
+import { generateUuidv4 } from "../../hooks";
 
 const initialState: CartState = {
     Cart: [],
@@ -13,11 +14,14 @@ const globalSlice = createSlice({
     initialState: initialState,
     reducers: {
         addItemToCart(state, action: PayloadAction<PictureInfo | Exhibition>) {
-            state.Cart = [...state.Cart, action.payload];
+            const cartId = generateUuidv4();
+            const cartItem: PictureInfo | Exhibition = { ...action.payload, cartId }
+            state.Cart = [...state.Cart, cartItem];
             state.CartCounter = state.Cart.length;
         },
-        removeItemFromCart(state, action: PayloadAction<string>) {
-            state.Cart = state.Cart.filter((picture) => picture.id === action.payload);
+        removeItemFromCart(state, action: PayloadAction<string | undefined>) {
+            state.Cart = state.Cart.filter((catrItem) => catrItem.cartId !== action.payload);
+
             state.CartCounter = state.Cart.length;
         },
     }

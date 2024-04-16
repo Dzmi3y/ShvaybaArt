@@ -15,6 +15,7 @@ export type AboutExhibition = {
 
 
 export type Exhibition = {
+    cartId?: string,
     id: string,
     image: string,
     mobilImage: string,

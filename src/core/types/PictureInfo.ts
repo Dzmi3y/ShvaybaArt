@@ -1,4 +1,5 @@
 export type PictureInfo = {
+    cartId?: string,
     id: string,
     imageUrl: string,
     mobilImageUrl: string,

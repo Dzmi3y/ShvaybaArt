@@ -29,7 +29,7 @@ export const OrderCard: React.FC<{ orderItem: Exhibition | PictureInfo }> = ({ o
     const imageUrl = isExhibition ? exhibition.image : picture.imageUrl;
 
     const remove = () => {
-        dispatch(removeItemFromCart(orderItem.id));
+        dispatch(removeItemFromCart(orderItem.cartId));
     }
 
     const getExhibitionPriceById = (priseId: string): string => {

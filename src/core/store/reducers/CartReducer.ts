@@ -19,6 +19,10 @@ const globalSlice = createSlice({
             state.Cart = [...state.Cart, cartItem];
             state.CartCounter = state.Cart.length;
         },
+        changeExhibitionPrice(state, action: PayloadAction<{ cartId: string, selectedPriceId: string }>) {
+            const currentExhibition = state.Cart.find((ic => action.payload.cartId === ic.cartId)) as Exhibition;
+            currentExhibition.selectedPriceId = action.payload.selectedPriceId;
+        },
         removeItemFromCart(state, action: PayloadAction<string | undefined>) {
             state.Cart = state.Cart.filter((catrItem) => catrItem.cartId !== action.payload);
 
@@ -27,5 +31,5 @@ const globalSlice = createSlice({
     }
 });
 
-export const { addItemToCart, removeItemFromCart } = globalSlice.actions
+export const { addItemToCart, removeItemFromCart,changeExhibitionPrice} = globalSlice.actions
 export default globalSlice.reducer;

@@ -7,6 +7,7 @@ import { LightButton } from '../../components/Buttons/LightButton';
 import { Exhibition } from '../../core/types/Exhibition';
 import { PictureInfo } from '../../core/types/PictureInfo';
 
+
 export const OrderPage = () => {
   const isMobile: boolean = window.innerWidth < 1458;
   const { t } = useTranslation(['global']);
@@ -31,10 +32,12 @@ export const OrderPage = () => {
     }
   }
 
+
   useEffect(() => {
     let price: number = 0;
+    const updatedSelectedValues = cartReducer.Cart.filter(ci => selectedItems.find(si => si.cartId === ci.cartId));
 
-    selectedItems.forEach((cartItem) => {
+    updatedSelectedValues.forEach((cartItem) => {
       const isExhibition = "addressId" in cartItem;
       if (isExhibition) {
         const exhibition = (cartItem as Exhibition);
@@ -45,16 +48,15 @@ export const OrderPage = () => {
         price += +(picture.price);
       }
 
-    })
+    }, [selectedItems])
 
 
     setTotalPrice(price)
 
-  }, [selectedItems]);
+  }, [selectedItems, cartReducer.Cart]);
 
 
   useEffect(() => {
-
     const onScroll = () => {
       if (containerEl.current) {
         const newValue = window.innerHeight + window.scrollY > containerEl.current.offsetHeight;

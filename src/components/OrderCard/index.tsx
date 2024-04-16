@@ -3,17 +3,15 @@ import {
     AngleArrow, CheckBox, CloseImage, Container, ControlsContainer, ExhibitionContainer,
     ExhibitionDate, ExhibitionDateContainer, ExhibitionPrice, ExhibitionPriceContainer, ExhibitionText,
     GraphicContainer, GraphicDescription, GraphicPrice, ImageContainer, InfoContainer, StyledImage, Title, Type, CheckBoxLabel,
-    ArrowPriceContainer,
-    PriceModal,
-    DateModal,
-    DateModalContainer
+    ArrowPriceContainer, PriceModal, DateModal, DateModalContainer
 } from './styles'
 import { Exhibition } from '../../core/types/Exhibition'
 import { PictureInfo } from '../../core/types/PictureInfo'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch, useAppSelector } from '../../core/hooks'
 import LangEnum from '../../core/enums/LangEnum'
-import { removeItemFromCart } from '../../core/store/reducers/CartReducer'
+import { changeExhibitionPrice, removeItemFromCart } from '../../core/store/reducers/CartReducer'
+import { PriceSelector } from './PriceSelector'
 
 export type OrterCardProps = {
     orderItem: Exhibition | PictureInfo,
@@ -36,6 +34,12 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
     const isExhibition = "addressId" in orderItem;
     const title = isExhibition ? "exhibition" : "graphic";
     const imageUrl = isExhibition ? exhibition.image : picture.imageUrl;
+
+    const changeSelectedPriceId = (isChecked: boolean, priceId: string) => {
+        if (exhibition.cartId && isChecked) {
+            dispatch(changeExhibitionPrice({ cartId: exhibition.cartId, selectedPriceId: priceId }));
+        }
+    }
 
     const remove = () => {
         changeSelectedItem(false, orderItem);
@@ -84,7 +88,7 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
 
     const dateModalEl = useRef<HTMLDivElement>(null);
     const dateArrowEl = useRef<HTMLImageElement>(null);
-    
+
     useEffect(() => {
         const onClick = (e: any) => {
             if (dateModalEl.current && dateArrowEl.current) {
@@ -122,17 +126,20 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
                             <AngleArrow ref={priceArrowEl} className={exhibitionPriceOpen ? "open " : ""} />
                         </ArrowPriceContainer>
                     </ExhibitionPriceContainer>
+                    <PriceModal ref={priceModalEl} className={exhibitionPriceOpen ? "open " : ""}>
+                        <PriceSelector priceList={exhibition.prices} selectedPriceId={exhibition.selectedPriceId} cartId={exhibition.cartId}
+                            changeSelectedPriceId={(isChecked: boolean, priceId: string) => changeSelectedPriceId(isChecked, priceId)} />
+                    </PriceModal>
+                    <DateModal className={exhibitionDateOpen ? "open" : ""}>
+                        <DateModalContainer ref={dateModalEl}>
+
+                        </DateModalContainer>
+                    </DateModal>
                 </ExhibitionContainer>)
                 : (<GraphicContainer>
                     <GraphicDescription>{globalReducer.Lang === LangEnum.EN ? picture.description : picture.descriptionRu}</GraphicDescription>
                     <GraphicPrice>{picture.price}$</GraphicPrice>
                 </GraphicContainer>)}
-            <PriceModal ref={priceModalEl} className={exhibitionPriceOpen ? "open " : ""}></PriceModal>
-            <DateModal className={exhibitionDateOpen ? "open" : ""}>
-                    <DateModalContainer ref={dateModalEl}>
-
-                    </DateModalContainer>
-            </DateModal>
         </InfoContainer>
         <ControlsContainer>
             <CheckBoxLabel><CheckBox onChange={(e) => changeSelectedItem(e.target.checked, orderItem)} type="checkbox" /><span></span></CheckBoxLabel>

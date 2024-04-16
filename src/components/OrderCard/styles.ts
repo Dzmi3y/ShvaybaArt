@@ -205,7 +205,8 @@ export const CheckBoxLabel = styled.label`
     }
     input[type="checkbox"] + span {
         position: absolute;
-        left: 0; top: 0;
+        left: 0; 
+        top: 0;
         width: 100%;
         height: 100%;
         cursor: pointer;
@@ -268,6 +269,7 @@ export const PriceModal = styled.div`
             left: unset;
             right: unset;
             width: 415px;
+            width: 500px;
             height: 200px;
         }
     }

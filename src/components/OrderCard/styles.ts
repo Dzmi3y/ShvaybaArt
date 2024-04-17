@@ -317,4 +317,3 @@ export const DateModalContainer = styled.div`
         margin-right: auto;
     }
 `;
-

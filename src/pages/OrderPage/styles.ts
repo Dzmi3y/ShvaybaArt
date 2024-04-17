@@ -66,7 +66,7 @@ export const TotalPriceText = styled.div`
         margin-top: 20px;
     }
 `;
-     
+
 export const TotalPriceValue = styled.div`
     display: none;
     @media (min-width: 1458px) {
@@ -78,3 +78,32 @@ export const TotalPriceValue = styled.div`
         font-size: 96px;
     }
 `;
+
+export const OrderConfirmationModal = styled.div`
+    display: none;
+    &.open{
+        position: absolute;
+        z-index: 3;
+        display: block;
+        background: #0000009E;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+    }
+`;
+
+export const OrderConfirmationContainer = styled.div`
+    background: #F8F8F8;
+    width: 100%;
+    height: 100%;
+    @media (min-width: 1458px) {
+        border-radius: 4px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 150px;
+        width: 814px;
+        height: 741px;
+    }
+`;
+

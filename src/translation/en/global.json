@@ -19,5 +19,15 @@
     "openingHours":"Opening hours",
     "hawToFind":"Haw to find",
     "graphic":"graphic",
-    "overallPrice":"Overall price"
+    "overallPrice":"Overall price",
+    "confirmOrderTitle":"We will contact you!",
+    "confirmOrderSubtitle":"please write your phone number and email address",
+    "email":"E-mail",
+    "phoneNumber":"Phone number",
+    "correct":"correct",
+    "incorrectEmail": "incorrect e-mail",
+    "incorrectNumber":"incorrect number",
+    "thanksForOrder":"Thanks for the order!",
+    "weWillContact ":"we will contact you within 5 days",
+    "send":"Send"
 }

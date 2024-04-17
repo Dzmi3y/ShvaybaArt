@@ -24,7 +24,7 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
     const [selectedExhibitionDate, setSelectedExhibitionDate] = useState<string>("");
     const [selectedExhibitionPriceId, setSelectedExhibitionPriceId] = useState<string>("");
     const [exhibitionDateOpen, setExhibitionDateOpen] = useState<boolean>(false);
-    const [isMobile,setIsMobile] = useState<boolean>(window.innerWidth < 1458)
+    const [isMobile] = useState<boolean>(window.innerWidth < 1458);
     const [exhibitionPriceOpen, setExhibitionPriceOpen] = useState<boolean>(false);
     const { t } = useTranslation(['global']);
     const globalReducer = useAppSelector(state => state.globalReducer);
@@ -62,10 +62,6 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
     const exhibitionPriceWindowToggle = (isOpen: boolean) => {
         setExhibitionPriceOpen(isOpen);
     }
-
-    useEffect(()=>{
-        setIsMobile(window.innerWidth < 1458)
-    },[window.innerWidth])
 
     useEffect(() => {
         if ("addressId" in orderItem) {

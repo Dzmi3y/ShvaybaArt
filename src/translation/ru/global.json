@@ -19,5 +19,15 @@
     "openingHours":"Часы работы",
     "hawToFind":"Как найти",
     "graphic":"графика",
-    "overallPrice":"К оплате"
+    "overallPrice":"К оплате",
+    "confirmOrderTitle":"Мы свяжемся с вами!",
+    "confirmOrderSubtitle":"пожалуйста, напишите свой номер телефона и адрес электронной почты",
+    "email":"E-mail",
+    "phoneNumber":"Номер телефона ",
+    "correct":"корректно",
+    "incorrectEmail": "e-mail неверный",
+    "incorrectNumber":"неверный  номер",
+    "thanksForOrder":"Спасибо за заказ!",
+    "weWillContact ":"мы свяжемся с вами в течение 5 дней",
+    "send":"Отправить"
 }

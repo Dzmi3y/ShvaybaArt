@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Container, OrderListContainer, Title, TotalPriceContainer, TotalPriceText, TotalPriceValue } from './styles'
+import { Container, OrderConfirmationContainer, OrderConfirmationModal, OrderListContainer, Title, TotalPriceContainer, TotalPriceText, TotalPriceValue } from './styles'
 import { useTranslation } from 'react-i18next';
 import { useAppSelector } from '../../core/hooks';
 import { OrderCard } from '../../components/OrderCard';
 import { LightButton } from '../../components/Buttons/LightButton';
 import { Exhibition } from '../../core/types/Exhibition';
 import { PictureInfo } from '../../core/types/PictureInfo';
+import { OrderConfirmation } from './OrderConfirmation';
 
 
 export const OrderPage = () => {
@@ -15,13 +16,14 @@ export const OrderPage = () => {
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [isEndOfPage, setIsEndOfPage] = useState<boolean>(false);
   const [selectedItems, setSelectedItems] = useState<(Exhibition | PictureInfo)[]>([]);
+  const [isOrderConfirmationModalOpen, setIsOrderConfirmationModalOpen] = useState<boolean>(false);
   // const dispatch = useAppDispatch();
   const containerEl = useRef<HTMLDivElement>(null)
 
   const buyButtonText = isMobile ? `${t("buy", { ns: ['global'] })} ${totalPrice}$` : t("buy", { ns: ['global'] });
 
   const buyButtonClick = () => {
-
+    setIsOrderConfirmationModalOpen(true);
   }
 
   const changeSelectedItem = (isSelected: boolean, cartItem: Exhibition | PictureInfo) => {
@@ -69,6 +71,25 @@ export const OrderPage = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+
+  const orderConfirmationModalEl = useRef<HTMLDivElement>(null);
+  const orderConfirmationButtonEl = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onClick = (e: any) => {
+      if (orderConfirmationModalEl.current && orderConfirmationButtonEl.current) {
+        const isOutsideClick = !orderConfirmationModalEl.current.contains(e.target);
+        const isNottitlePanelClick = !orderConfirmationButtonEl.current.contains(e.target);
+        if (isOutsideClick && isNottitlePanelClick) {
+          setIsOrderConfirmationModalOpen(false);
+        }
+      }
+    }
+
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
+
   return (<Container ref={containerEl}>
     <Title>{t("order", { ns: ['global'] })}</Title>
     <OrderListContainer>
@@ -79,9 +100,15 @@ export const OrderPage = () => {
     <TotalPriceContainer className={(isMobile && isEndOfPage) ? "absolute" : ""}>
       <TotalPriceText>{t("overallPrice", { ns: ['global'] })}</TotalPriceText>
       <TotalPriceValue>{totalPrice}$</TotalPriceValue>
-      <LightButton disabled={totalPrice === 0} onClick={buyButtonClick}>{buyButtonText}</LightButton>
+      <div ref={orderConfirmationButtonEl}>
+        <LightButton disabled={totalPrice === 0} onClick={buyButtonClick}>{buyButtonText}</LightButton>
+      </div>
     </TotalPriceContainer>
-
+    <OrderConfirmationModal className={isOrderConfirmationModalOpen ? "open" : ""}>
+      <OrderConfirmationContainer ref={orderConfirmationModalEl}>
+        <OrderConfirmation closeModal={() => { setIsOrderConfirmationModalOpen(false) }} />
+      </OrderConfirmationContainer>
+    </OrderConfirmationModal>
   </Container>
   )
 }

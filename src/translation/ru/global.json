@@ -23,7 +23,7 @@
     "confirmOrderTitle":"Мы свяжемся с вами!",
     "confirmOrderSubtitle":"пожалуйста, напишите свой номер телефона и адрес электронной почты",
     "email":"E-mail",
-    "phoneNumber":"Номер телефона ",
+    "tel":"Номер телефона ",
     "correct":"корректно",
     "incorrectEmail": "e-mail неверный",
     "incorrectNumber":"неверный  номер",

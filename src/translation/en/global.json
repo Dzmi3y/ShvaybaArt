@@ -23,7 +23,7 @@
     "confirmOrderTitle":"We will contact you!",
     "confirmOrderSubtitle":"please write your phone number and email address",
     "email":"E-mail",
-    "phoneNumber":"Phone number",
+    "tel":"Phone number",
     "correct":"correct",
     "incorrectEmail": "incorrect e-mail",
     "incorrectNumber":"incorrect number",

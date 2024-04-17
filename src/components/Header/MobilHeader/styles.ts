@@ -29,7 +29,6 @@ export const RootContainer = styled.div`
 
 export const Container = styled.div`
     
-
     background-color: var(--bg-color);
     opacity: 85%;
     position: fixed;

@@ -3,7 +3,9 @@ import {
     AngleArrow, CheckBox, CloseImage, Container, ControlsContainer, ExhibitionContainer,
     ExhibitionDate, ExhibitionDateContainer, ExhibitionPrice, ExhibitionPriceContainer, ExhibitionText,
     GraphicContainer, GraphicDescription, GraphicPrice, ImageContainer, InfoContainer, StyledImage, Title, Type, CheckBoxLabel,
-    ArrowPriceContainer, PriceModal, DateModal, DateModalContainer
+    ArrowPriceContainer, DateModal, DateModalContainer,
+    PriceModalDesktop,
+    PriceModalMobile
 } from './styles'
 import { Exhibition } from '../../core/types/Exhibition'
 import { PictureInfo } from '../../core/types/PictureInfo'
@@ -22,12 +24,12 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
     const [selectedExhibitionDate, setSelectedExhibitionDate] = useState<string>("");
     const [selectedExhibitionPriceId, setSelectedExhibitionPriceId] = useState<string>("");
     const [exhibitionDateOpen, setExhibitionDateOpen] = useState<boolean>(false);
+    const [isMobile,setIsMobile] = useState<boolean>(window.innerWidth < 1458)
     const [exhibitionPriceOpen, setExhibitionPriceOpen] = useState<boolean>(false);
     const { t } = useTranslation(['global']);
     const globalReducer = useAppSelector(state => state.globalReducer);
     const dispatch = useAppDispatch();
 
-    const isMobile: boolean = window.innerWidth < 1458;
     const exhibition = orderItem as Exhibition;
     const picture = orderItem as PictureInfo;
 
@@ -60,6 +62,10 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
     const exhibitionPriceWindowToggle = (isOpen: boolean) => {
         setExhibitionPriceOpen(isOpen);
     }
+
+    useEffect(()=>{
+        setIsMobile(window.innerWidth < 1458)
+    },[window.innerWidth])
 
     useEffect(() => {
         if ("addressId" in orderItem) {
@@ -124,12 +130,16 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
                         <ExhibitionPrice>{getExhibitionPriceById(selectedExhibitionPriceId)}</ExhibitionPrice>
                         <ArrowPriceContainer className={exhibitionPriceOpen ? "open " : ""} onClick={() => exhibitionPriceWindowToggle(!exhibitionPriceOpen)}>
                             <AngleArrow ref={priceArrowEl} className={exhibitionPriceOpen ? "open " : ""} />
+                            {!isMobile && (<PriceModalDesktop ref={priceModalEl} className={exhibitionPriceOpen ? "open " : ""}>
+                                <PriceSelector priceList={exhibition.prices} selectedPriceId={exhibition.selectedPriceId} cartId={exhibition.cartId}
+                                    changeSelectedPriceId={(isChecked: boolean, priceId: string) => changeSelectedPriceId(isChecked, priceId)} />
+                            </PriceModalDesktop>)}
                         </ArrowPriceContainer>
                     </ExhibitionPriceContainer>
-                    <PriceModal ref={priceModalEl} className={exhibitionPriceOpen ? "open " : ""}>
+                    {isMobile && (<PriceModalMobile ref={priceModalEl} className={exhibitionPriceOpen ? "open " : ""}>
                         <PriceSelector priceList={exhibition.prices} selectedPriceId={exhibition.selectedPriceId} cartId={exhibition.cartId}
                             changeSelectedPriceId={(isChecked: boolean, priceId: string) => changeSelectedPriceId(isChecked, priceId)} />
-                    </PriceModal>
+                    </PriceModalMobile>)}
                     <DateModal className={exhibitionDateOpen ? "open" : ""}>
                         <DateModalContainer ref={dateModalEl}>
 

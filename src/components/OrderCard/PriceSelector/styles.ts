@@ -18,7 +18,7 @@ export const RowContainer = styled.div`
         margin-left: 2rem;
         margin-right:2rem;
         margin-top: 20px;
-        grid-template-columns: 1fr 60px 60px;
+        grid-template-columns: 1fr 40px 30px;
         grid-gap: 10px;
     }
 `;

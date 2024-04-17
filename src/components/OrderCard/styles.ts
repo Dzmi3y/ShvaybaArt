@@ -252,25 +252,39 @@ export const CloseImage = styled.img`
     }
 `;
 
-export const PriceModal = styled.div`
+export const PriceModalDesktop = styled.div`
     display: none;
-    &.open{
-        display: block;
-        background-color: #D4DCF3;
-        border-radius: 4px;
-        position: absolute;
-        box-shadow: var(--shadow);
-        height: 190px;
-        left: 2rem;
-        right: 2rem;
-        z-index: 3;
-        @media (min-width: 1458px) {
-            z-index: 0;
-            left: unset;
+    @media (min-width: 1458px) {
+        &.open{
+            display: block;
+            background-color: #D4DCF3;
+            border-radius: 4px;
+            position: absolute;
+            box-shadow: var(--shadow);
+            z-index: 1;
+            left: -350px;
             right: unset;
+            bottom: -200px;
             width: 415px;
-            width: 500px;
             height: 200px;
+        
+        }
+    }
+`;
+
+export const PriceModalMobile = styled.div`
+    display: none;
+    @media (max-width: 1457px) {
+        &.open{
+            display: block;
+            background-color: #D4DCF3;
+            border-radius: 4px;
+            position: absolute;
+            box-shadow: var(--shadow);
+            height: 190px;
+            left: 2rem;
+            right: 2rem;
+            z-index: 3;
         }
     }
 `;

@@ -36,6 +36,20 @@ export const InputField: React.FC<InputFieldProps> = ({ inputType, validationInf
                 return "";
         }
     }
+
+    const getPlaceholder = (): string => {
+        switch (inputType) {
+            case "email":
+                return "email@gmail.com"
+
+            case "tel":
+                return "+000 00 000 00 00"
+
+            default:
+                return "";
+        }
+    }
+
     const inputEl = useRef<HTMLInputElement>(null);
 
 
@@ -82,6 +96,7 @@ export const InputField: React.FC<InputFieldProps> = ({ inputType, validationInf
                 type={inputType}
                 pattern={getPattern()}
                 onInput={inputHandler}
+                placeholder={getPlaceholder()}
                 title="" />
             {(!isDefaultValue) && (<InfoContainer>
                 <InfoImage />

@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Container, OrderConfirmationContainer, OrderConfirmationModal, OrderListContainer, Title, TotalPriceContainer, TotalPriceText, TotalPriceValue } from './styles'
 import { useTranslation } from 'react-i18next';
-import { useAppSelector } from '../../core/hooks';
+import { useAppDispatch, useAppSelector } from '../../core/hooks';
 import { OrderCard } from '../../components/OrderCard';
 import { LightButton } from '../../components/Buttons/LightButton';
 import { Exhibition } from '../../core/types/Exhibition';
 import { PictureInfo } from '../../core/types/PictureInfo';
 import { OrderConfirmation } from './OrderConfirmation';
+import { createOrder } from '../../core/store/reducers/CartReducer';
 
 
 export const OrderPage = () => {
@@ -17,10 +18,14 @@ export const OrderPage = () => {
   const [isEndOfPage, setIsEndOfPage] = useState<boolean>(false);
   const [selectedItems, setSelectedItems] = useState<(Exhibition | PictureInfo)[]>([]);
   const [isOrderConfirmationModalOpen, setIsOrderConfirmationModalOpen] = useState<boolean>(false);
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const containerEl = useRef<HTMLDivElement>(null)
-
   const buyButtonText = isMobile ? `${t("buy", { ns: ['global'] })} ${totalPrice}$` : t("buy", { ns: ['global'] });
+
+  const createOrderHandler = (email: string, phone: string) => {
+    const cartIdList = selectedItems.map(si => si.cartId as string);
+    dispatch(createOrder({ cartIdList, email, phone }));
+  }
 
   const buyButtonClick = () => {
     setIsOrderConfirmationModalOpen(true);
@@ -106,7 +111,7 @@ export const OrderPage = () => {
     </TotalPriceContainer>
     <OrderConfirmationModal className={isOrderConfirmationModalOpen ? "open" : ""}>
       <OrderConfirmationContainer ref={orderConfirmationModalEl}>
-        <OrderConfirmation closeModal={() => { setIsOrderConfirmationModalOpen(false) }} />
+        <OrderConfirmation createOrder={createOrderHandler} closeModal={() => { setIsOrderConfirmationModalOpen(false) }} />
       </OrderConfirmationContainer>
     </OrderConfirmationModal>
   </Container>

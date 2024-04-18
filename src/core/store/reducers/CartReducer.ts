@@ -28,8 +28,13 @@ const globalSlice = createSlice({
 
             state.CartCounter = state.Cart.length;
         },
+        createOrder(state, action: PayloadAction<{ cartIdList: string[], email: string, phone: string }>) {
+            console.log(action.payload);
+            state.Cart = state.Cart.filter(c => !action.payload.cartIdList.find(id => id === c.cartId));
+            state.CartCounter = state.Cart.length;
+        }
     }
 });
 
-export const { addItemToCart, removeItemFromCart,changeExhibitionPrice} = globalSlice.actions
+export const { addItemToCart, removeItemFromCart, changeExhibitionPrice, createOrder } = globalSlice.actions
 export default globalSlice.reducer;

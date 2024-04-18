@@ -1,16 +1,25 @@
-import React, {useState } from 'react'
+import React, { useState } from 'react'
 import { CloseButton, CloseImage, Container, EmailContainer, HeaderContainer, PhoneContainer, Subtitle, Title } from './styles'
 import { BlueButton } from '../../../components/Buttons/BlueButton'
 import { useTranslation } from 'react-i18next'
 import { InputField } from '../../../components/InputField'
 
-export const OrderConfirmation: React.FC<{ closeModal: () => void }> = ({ closeModal }) => {
+export type OrderConfirmationProps = {
+  closeModal: () => void,
+  createOrder: (email: string, phoneNumber: string) => void
+}
+
+export const OrderConfirmation: React.FC<OrderConfirmationProps> = ({ closeModal, createOrder }) => {
   const [isConfirmButtonDisabled, setIsConfirmButtonDisabled] = useState<boolean>(true);
   const [fieldValidationList, setFieldValidationList] = useState<{ name: string, isValid: boolean }[]>([]);
   const { t } = useTranslation(['global']);
 
   const send = () => {
-
+    const emailEl = document.getElementById("email") as HTMLInputElement;
+    const telEl = document.getElementById("tel") as HTMLInputElement;
+    createOrder(emailEl.value, telEl.value.replace(/\s+/g, ''));
+    emailEl.value = "";
+    telEl.value = "";
   }
 
   const validationInfo = (name: string, isValid: boolean) => {

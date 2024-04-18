@@ -44,6 +44,9 @@ export const StyledInput = styled.input`
     height: 70px;
     outline: none;
     text-align: center;
+    &::placeholder{
+        color: #11141D54;
+    }
     @media (min-width: 1458px) {
         font-size: 32px;
         width: 576px;

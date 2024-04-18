@@ -7,6 +7,18 @@ export const Container = styled.div`
         color: #FF0000;
     }
 
+    &>input:invalid + div{
+        &>img{
+            content: url("/images/global/incorrect.png");
+        }
+        &>.correctInfo{
+            display: none;
+        }
+        &>.incorrectInfo{
+            display: block;
+        }
+    }
+
 `;
 
 export const Label = styled.label`
@@ -47,6 +59,25 @@ export const StyledInput = styled.input`
     }
 `;
 
-export const InfoContainer = styled.div``;
-export const InfoImage = styled.img``;
-export const InfoText = styled.div``;
+export const InfoContainer = styled.div`
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+`;
+export const InfoImage = styled.img`
+    content: url("/images/global/correct.png");
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+`;
+export const IncorrectInfoText = styled.span`
+    font-family: Playfair;
+    font-size: 20px;
+    color: #FF0000;
+    display: none;
+`;
+export const CorrectInfoText = styled.span`
+    font-family: Playfair;
+    font-size: 20px;
+    color: #34AA0B;
+`;

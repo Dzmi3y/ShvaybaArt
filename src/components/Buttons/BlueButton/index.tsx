@@ -4,7 +4,7 @@ import { Button } from './styles'
 
 type Props = {
     children: ReactNode,
-    onClick: () => void,
+    onClick?: () => void,
     disabled?: boolean,
 }
 

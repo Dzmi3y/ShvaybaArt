@@ -12,7 +12,7 @@ export const Button = styled.button`
     border: none;
     &:active{
         background: #11141D;
-
+        
     }
     @media (min-width: 1458px) {
         &:hover{

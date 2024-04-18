@@ -6,6 +6,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     @media (min-width: 1458px) {
         padding: 20px;
     }
@@ -75,3 +76,4 @@ export const CloseImage = styled.img`
         }
     }
 `;
+

@@ -16,7 +16,7 @@ const setLocalStore = (state: CartState) => {
 const getLocalStore = () => {
     let result = initialState;
     const storedCart = window.localStorage.getItem("cart");
-    if (storedCart && storedCart.length>2) {
+    if (storedCart && storedCart.length > 2) {
         result = JSON.parse(storedCart) as CartState
     }
     return result;
@@ -38,6 +38,11 @@ const globalSlice = createSlice({
             currentExhibition.selectedPriceId = action.payload.selectedPriceId;
             setLocalStore(state);
         },
+        changeExhibitionDate(state, action: PayloadAction<{ cartId: string, selectedDate: string }>) {
+            const currentExhibition = state.Cart.find((ic => action.payload.cartId === ic.cartId)) as Exhibition;
+            currentExhibition.selectedDate = action.payload.selectedDate;
+            setLocalStore(state);
+        },
         removeItemFromCart(state, action: PayloadAction<string | undefined>) {
             state.Cart = state.Cart.filter((catrItem) => catrItem.cartId !== action.payload);
             state.CartCounter = state.Cart.length;
@@ -52,5 +57,5 @@ const globalSlice = createSlice({
     }
 });
 
-export const { addItemToCart, removeItemFromCart, changeExhibitionPrice, createOrder } = globalSlice.actions
+export const { addItemToCart, removeItemFromCart, changeExhibitionPrice, changeExhibitionDate, createOrder } = globalSlice.actions
 export default globalSlice.reducer;

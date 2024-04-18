@@ -22,6 +22,7 @@ export type Exhibition = {
     title: string,
     from: string,
     to: string,
+    selectedDate: string;
     addressId: string,
     address: string,
     addressRu: string,

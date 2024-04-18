@@ -27,8 +27,8 @@ export const Label = styled.label`
     color: #626D8E;
     font-weight: 500;
     text-align: center;
+    margin-bottom: 10px;
     @media (min-width: 1458px) {
-        margin-bottom: 10px;
         font-size: 32px;
     }
 

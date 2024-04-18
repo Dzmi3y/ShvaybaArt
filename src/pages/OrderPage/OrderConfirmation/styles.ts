@@ -6,6 +6,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     @media (min-width: 1458px) {
         padding: 20px;
@@ -74,6 +75,33 @@ export const CloseImage = styled.img`
         &:active{
             content: url("/images/global/active/close.png");
         }
+    }
+`;
+
+
+export const ThanksForOrderContainer= styled.div`
+    display: none;
+    &.show{
+        position: absolute;
+        background-color: #F8F8F8;
+        top: 100px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media (min-width: 1458px) {
+            top: 50px;
+        }
+    }
+`;
+export const ThanksImage= styled.img`
+    width: 330px;
+    height: 350px;
+    @media (min-width: 1458px) {
+        width: 484px;
+        height: 513px;
     }
 `;
 

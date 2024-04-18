@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { CloseButton, CloseImage, Container, EmailContainer, HeaderContainer, PhoneContainer, Subtitle, Title } from './styles'
+import { CloseButton, CloseImage, Container, EmailContainer, HeaderContainer, PhoneContainer, Subtitle, ThanksForOrderContainer, ThanksImage, Title } from './styles'
 import { BlueButton } from '../../../components/Buttons/BlueButton'
 import { useTranslation } from 'react-i18next'
 import { InputField } from '../../../components/InputField'
+import ThanksForOrderImage from '../../../assets/images/thanksForOrder.png'
 
 export type OrderConfirmationProps = {
   closeModal: () => void,
@@ -11,6 +12,7 @@ export type OrderConfirmationProps = {
 
 export const OrderConfirmation: React.FC<OrderConfirmationProps> = ({ closeModal, createOrder }) => {
   const [isConfirmButtonDisabled, setIsConfirmButtonDisabled] = useState<boolean>(true);
+  const [isItOrdered, setIsItOrdered] = useState<boolean>(false);
   const [fieldValidationList, setFieldValidationList] = useState<{ name: string, isValid: boolean }[]>([]);
   const { t } = useTranslation(['global']);
 
@@ -20,7 +22,14 @@ export const OrderConfirmation: React.FC<OrderConfirmationProps> = ({ closeModal
     createOrder(emailEl.value, telEl.value.replace(/\s+/g, ''));
     emailEl.value = "";
     telEl.value = "";
+    setIsItOrdered(true);
   }
+
+  const closeModalHandler = () => {
+    setIsItOrdered(false);
+    closeModal();
+  }
+
 
   const validationInfo = (name: string, isValid: boolean) => {
 
@@ -59,7 +68,7 @@ export const OrderConfirmation: React.FC<OrderConfirmationProps> = ({ closeModal
   return (
     <Container>
       <HeaderContainer>
-        <CloseButton onClick={closeModal}>
+        <CloseButton onClick={closeModalHandler}>
           <CloseImage />
         </CloseButton>
       </HeaderContainer>
@@ -72,6 +81,11 @@ export const OrderConfirmation: React.FC<OrderConfirmationProps> = ({ closeModal
         <InputField validationInfo={validationInfo} inputType='email' />
       </EmailContainer>
       <BlueButton disabled={isConfirmButtonDisabled} onClick={send}>{t("send", { ns: ['global'] })}</BlueButton>
+      <ThanksForOrderContainer className={isItOrdered ? "show" : ""}>
+        <Title>{t("thanksForOrder", { ns: ['global'] })}</Title>
+        <Subtitle>{t("weWillContact", { ns: ['global'] })}</Subtitle>
+        <ThanksImage src={ThanksForOrderImage} />
+      </ThanksForOrderContainer>
     </Container>
   )
 }

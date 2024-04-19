@@ -143,7 +143,7 @@ export const ArrowPriceContainer = styled.div`
     }
 `;
 export const AngleArrow = styled.img`
- cursor: pointer;
+    cursor: pointer;
     width: 12px;
     height: 6px;
     margin-top: 10px;

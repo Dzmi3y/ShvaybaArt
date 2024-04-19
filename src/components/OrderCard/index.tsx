@@ -14,6 +14,7 @@ import { useAppDispatch, useAppSelector } from '../../core/hooks'
 import LangEnum from '../../core/enums/LangEnum'
 import { changeExhibitionPrice, removeItemFromCart } from '../../core/store/reducers/CartReducer'
 import { PriceSelector } from './PriceSelector'
+import { Calendar } from '../Calendar/input'
 
 export type OrterCardProps = {
     orderItem: Exhibition | PictureInfo,
@@ -138,7 +139,7 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
                     </PriceModalMobile>)}
                     <DateModal className={exhibitionDateOpen ? "open" : ""}>
                         <DateModalContainer ref={dateModalEl}>
-
+                            <Calendar/>
                         </DateModalContainer>
                     </DateModal>
                 </ExhibitionContainer>)

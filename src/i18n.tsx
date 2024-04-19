@@ -11,6 +11,10 @@ import aboutEn from "./translation/en/about.json";
 import aboutRu from "./translation/ru/about.json";
 import galleryEn from "./translation/en/gallery.json";
 import galleryRu from "./translation/ru/gallery.json";
+import calendarEn from "./translation/en/calendar.json";
+import calendarRu from "./translation/ru/calendar.json";
+
+
 
 const resources = {
     en: {
@@ -18,14 +22,16 @@ const resources = {
         page404: page404En,
         home:homeEn,
         about:aboutEn,
-        gallery:galleryEn
+        gallery:galleryEn,
+        calendar:calendarEn
     },
     ru: {
         global: globalRu,
         page404: page404Ru,
         home:homeRu,
         about:aboutRu,
-        gallery:galleryRu
+        gallery:galleryRu,
+        calendar:calendarRu
     },
 }
 

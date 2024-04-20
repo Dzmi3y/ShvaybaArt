@@ -22,7 +22,7 @@ export const Main: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
 
 
     const convertToShortDate = (dateString: string): string => {
-        const [d, m, y] = dateString.split(".");
+        const [d, m] = dateString.split(".");
         return `${d}.${m}`;
     }
 

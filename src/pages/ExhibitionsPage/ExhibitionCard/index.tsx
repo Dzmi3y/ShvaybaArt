@@ -28,7 +28,7 @@ export const ExhibitionCard: React.FC<{ exhibition: Exhibition }> = ({ exhibitio
   }
 
   const fulllDate = `${t("from", { ns: ['global'] })} ${exhibition.from} ${t("to", { ns: ['global'] })} ${exhibition.to}`;
-  const [d,m,y]=fulllDate.split(".");
+  const [d,m]=fulllDate.split(".");
   const date =`${d}.${m}`;
   const address = globalReducer.Lang === LangEnum.EN ? exhibition.address : exhibition.addressRu;
   const status = exhibition.itIsNow ? t("now", { ns: ['global'] }) : t("will_be", { ns: ['global'] });

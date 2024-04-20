@@ -1,13 +1,27 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+    padding: 0.5rem 2rem;
+    text-align: center;
+    @media (min-width: 1458px) {
+        padding: 20px 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+`;
 export const Header = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 100px 40px 40px auto;
+    width: 100%;
+    margin-bottom: 20px;
     @media (min-width: 1458px) {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-bottom: 30px;
+        grid-template-columns: 185px 50px 50px auto;
+        grid-gap: 10px;
     }
-    
 `;
 export const Mounth = styled.div`
     font-family: Playfair;
@@ -22,11 +36,15 @@ export const PreviousMounthButton = styled.button`
     border: none;
     background: none;
     box-shadow: none;
+    margin-top: 5px;
+    @media (min-width: 1458px) {
+        margin-top: 35px; 
+    }
 `;
 export const PreviousMounthImg = styled.img`
     cursor: pointer;
-    width: 12px;
-    height: 6px;
+    width: 28px;
+    height: 10px;
     content: url("/images/global/angle.png");
     &:active{
         content: url("/images/global/active/angle.png");
@@ -47,12 +65,16 @@ export const NextMounthButton = styled.button`
     border: none;
     background: none;
     box-shadow: none;
+    margin-top: 5px;
+    @media (min-width: 1458px) {
+        margin-top: 35px; 
+    }
 `;
 export const NextMounthImg = styled.img`
     cursor: pointer;
     transform: rotate(180deg);
-    width: 12px;
-    height: 6px;
+    width: 28px;
+    height: 10px;
     content: url("/images/global/angle.png");
     &:active{
         content: url("/images/global/active/angle.png");
@@ -73,18 +95,24 @@ export const CloseButton = styled.button`
     border: none;
     background: none;
     box-shadow: none;
+    margin-top: 0px;
+    justify-self: end;
+    @media (min-width: 1458px) {
+        margin-top: 23px;
+        margin-right: -55px;
+    }
 `;
 export const CloseImg = styled.img`
     cursor: pointer;
-    height: 15px;
-    width: 15px;
+    height: 20px;
+    width: 20px;
     content: url("/images/global/close.png");
     &:active{
         content: url("/images/global/active/close.png");
     }
     @media (min-width: 1458px) {
-        height: 30px;
-        width: 30px;
+        height: 35px;
+        width: 35px;
         content: url("/images/global/close.png");
         &:hover{
             content: url("/images/global/hover/close.png");
@@ -97,20 +125,21 @@ export const CloseImg = styled.img`
 
 export const DateContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, auto);
     grid-template-rows: repeat(6, 1fr);
+    justify-content: space-between; 
+    width: 100%;
+    @media (min-width: 1458px) {
+        grid-row-gap: 10px;
+    }
 `;
 
 export const DayTitle = styled.div`
     font-family: Playfair;
     font-size: 16px;
     color: #11141D;
-    width: 24px;
-    height: 20px;
     @media (min-width: 1458px) {
         font-size: 40px;
-        width: 75.94px;
-        height: 68.97px;
     }
     &.disabled{
         color: #11141D38;

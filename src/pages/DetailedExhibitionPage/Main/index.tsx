@@ -13,12 +13,18 @@ export const Main: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
     const dispatch = useAppDispatch();
 
     const bookTicket = () => {
-      dispatch(addItemToCart({ ...exhibition, selectedPriceId: exhibition.prices[0].id }));
+        dispatch(addItemToCart({ ...exhibition, selectedPriceId: exhibition.prices[0].id }));
     }
 
     const back = () => {
         navigate(-1);
     };
+
+
+    const convertToShortDate = (dateString: string): string => {
+        const [d, m, y] = dateString.split(".");
+        return `${d}.${m}`;
+    }
 
     return (<Container style={{ backgroundImage: `url(${exhibition.image})` }}>
         <WhiteContainer>
@@ -27,7 +33,7 @@ export const Main: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
             </HeadContainer>
             <Title>{t("exhibition", { ns: ['global'] })}</Title>
             <ExhibitionName>{exhibition.title}</ExhibitionName>
-            <Date>{t("from", { ns: ['global'] })} {exhibition.from} {t("to", { ns: ['global'] })} {exhibition.to}</Date>
+            <Date>{t("from", { ns: ['global'] })} {convertToShortDate(exhibition.from)} {t("to", { ns: ['global'] })} {convertToShortDate(exhibition.to)}</Date>
             <DarkGradientButton onClick={bookTicket}> {t("book_ticket", { ns: ['global'] })} </DarkGradientButton>
         </WhiteContainer>
     </Container>

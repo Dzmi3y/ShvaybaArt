@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 export const Calendar = () => {
   const { t } = useTranslation(['calendar']);
-
+  
   const mounthN =3;
   const weekdayList = (t("weekdayList", { returnObjects: true, ns: ['calendar'] })) as string[];
   const mounthsList = (t("mounthsList", { returnObjects: true, ns: ['calendar'] })) as string[];

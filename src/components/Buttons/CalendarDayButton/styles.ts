@@ -6,11 +6,11 @@ export const Button = styled.button`
     cursor: pointer;
     background: none;
     font-size: 24px;
-    width: 24px;
-    height: 20px;
+    width: 35px;
+    height: 30px;
     color: #11141D;
     border: none;
-    padding-bottom: 10px;
+    
     &.weekend{
         color: #626D8E
     }
@@ -40,4 +40,8 @@ export const Button = styled.button`
         background: #626D8E99;
         color:#E9EDF6;
     }
+`;
+
+export const Content = styled.div`
+    margin-top: -10px;
 `;

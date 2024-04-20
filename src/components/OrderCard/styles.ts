@@ -307,11 +307,11 @@ export const DateModalContainer = styled.div`
     background-color: #D4DCF3;
     border-radius: 4px;
     margin-top: 150px;
-    height: 271px;
+    height: 301px;
     box-shadow: var(--shadow);
     @media (min-width: 1458px) {
         width: 1231px;
-        height: 671px;
+        height: 700px;
         margin-top: 120px;
         margin-left: auto;
         margin-right: auto;

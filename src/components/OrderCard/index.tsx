@@ -66,7 +66,7 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
 
     useEffect(() => {
         if ("addressId" in orderItem) {
-            setSelectedExhibitionDate((orderItem as Exhibition).from)
+            setSelectedExhibitionDate((orderItem as Exhibition).selectedDate)
             setSelectedExhibitionPriceId((orderItem as Exhibition).selectedPriceId)
         }
     }, [orderItem])
@@ -139,7 +139,7 @@ export const OrderCard: React.FC<OrterCardProps> = ({ orderItem, changeSelectedI
                     </PriceModalMobile>)}
                     <DateModal className={exhibitionDateOpen ? "open" : ""}>
                         <DateModalContainer ref={dateModalEl}>
-                            <Calendar/>
+                            <Calendar currentExhibition={exhibition} isVisible={exhibitionDateOpen} close={()=>{setExhibitionDateOpen(false)}}/>
                         </DateModalContainer>
                     </DateModal>
                 </ExhibitionContainer>)

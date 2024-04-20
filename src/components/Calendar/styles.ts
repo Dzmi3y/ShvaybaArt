@@ -13,20 +13,19 @@ export const Container = styled.div`
 
 `;
 export const Header = styled.div`
-    display: grid;
-    grid-template-columns: 100px 40px 40px auto;
+    display: flex;
     width: 100%;
     margin-bottom: 20px;
+    gap: 10px;
     @media (min-width: 1458px) {
         margin-bottom: 30px;
-        grid-template-columns: 185px 50px 50px auto;
-        grid-gap: 10px;
     }
 `;
 export const Mounth = styled.div`
     font-family: Playfair;
     font-size: 32px;
     color: #626D8E;
+    text-align: start;
     @media (min-width: 1458px) {
         font-size: 64px;
     }
@@ -96,7 +95,7 @@ export const CloseButton = styled.button`
     background: none;
     box-shadow: none;
     margin-top: 0px;
-    justify-self: end;
+    margin-left: auto;
     @media (min-width: 1458px) {
         margin-top: 23px;
         margin-right: -55px;

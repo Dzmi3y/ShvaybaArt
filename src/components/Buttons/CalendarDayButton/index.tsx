@@ -13,7 +13,7 @@ type Props = {
 
 export const CalendarDayButton: React.FC<Props> = ({ children, onClick, disabled = false, isSelected = false, isWeekend = false }) => {
     return (
-        <Button disabled={disabled} className={isSelected ? "selected " : "" + isWeekend ? "weekend" : ""} onClick={onClick}>
+        <Button disabled={disabled} className={(isSelected ? "selected " : "") + (isWeekend ? "weekend" : "")} onClick={onClick}>
             <Content>
                 {children}
             </Content>

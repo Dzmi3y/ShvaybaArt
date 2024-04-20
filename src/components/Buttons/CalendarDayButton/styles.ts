@@ -34,10 +34,12 @@ export const Button = styled.button`
     &:disabled{
         color: #11141D38;
         cursor: default;
+        background: none;
+        border: none;
     }
 
     &.selected{
-        background: #626D8E99;
+        background: #626D8E;
         color:#E9EDF6;
     }
 `;

@@ -32,6 +32,7 @@ export type Exhibition = {
     prices: ExhibitionPrice[],
     aboutExhibition: AboutExhibition,
     selectedPriceId: string;
+    nonWorkingDays: number[];
 }
 
 

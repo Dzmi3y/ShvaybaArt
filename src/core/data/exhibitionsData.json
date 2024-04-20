@@ -24,7 +24,8 @@
             "titleRu":"Всеволод Швайба и Тамара Дементьева представили свои графические и живописные работы.",
             "text":"\"Human life throughout its entire course, one way or another, is riddled with all sorts of connections.There is a special category of connections. Hidden, invisible, intangible, they require a figurative embodiment...\"",
             "textRu":"\"Человеческая жизнь на протяжении всего своего пути, так или иначе, пронизана всевозможными связями.Существует особая категория связей. Скрытые, невидимые, неосязаемые, они требуют образного воплощения...\""
-        }
+        },
+        "nonWorkingDays":[1]
     },
     {
         "id": "f8d6a7b2-1e3c-4f9a-8b0c-2d5e9f0a7c4d",
@@ -51,7 +52,8 @@
             "titleRu":"Всеволод Швайба и Тамара Дементьева представили свои графические и живописные работы.",
             "text":"Art and the atmosphere of cozy courtyards in paintings.",
             "textRu":"Искусство и атмосфера уютных дворов в картинах."
-        }
+        },
+        "nonWorkingDays":[1]
 
     },
     {
@@ -79,16 +81,17 @@
             "titleRu":"Всеволод Швайба и Тамара Дементьева представили свои графические и живописные работы.",
             "text":"Age-old tales intertwined with gods, heroes and magic.",
             "textRu":"Вековые сказания, переплетенные богами, героями и волшебством. "
-        }
+        },
+        "nonWorkingDays":[1]
     },
     {
         "id": "a5f4e2b3-8d7c-4e6a-9b1f-0c3d1a8f9e2f",
         "title":"\"APTA\"",
         "image":"/images/exhibitions/apta.jpg",
         "mobilImage":"/images/exhibitions/mobile/apta.jpg",
-        "from":"02.09.2024",
+        "from":"03.09.2024",
         "to":"02.10.2024",
-        "selectedDate":"02.09.2024",
+        "selectedDate":"03.09.2024",
         "addressId":"9c8b7a6f-5e4d-3c2b-1a0f-9e8d7c6b5a4f",
         "address":"Minsk. Nezavisimosti Ave. 58/1-6",
         "addressRu":"Минск. пр. Независимости, 58/1-6",
@@ -106,6 +109,7 @@
             "titleRu":"Всеволод Швайба и Тамара Дементьева представили свои графические и живописные работы.",
             "text":"The APTA art exhibition features the magic of flowers, surreal landscapes, harmony of forms and emotional portraits",
             "textRu":"На картинной выставке APTA встречаются магия цветов, сюрреалистические пейзажи, гармония форм и эмоциональные портреты"
-        }
+        },
+        "nonWorkingDays":[1]
     }
 ]
